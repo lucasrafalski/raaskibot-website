@@ -12,7 +12,6 @@
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-
 				<!-- Header -->
 					<header id="header">
 						<div class="logo">
@@ -23,17 +22,27 @@
 						<div class="content">
 							<div class="inner">
 								<h1>RaaskiBot</h1>
-								<p>A <a href="https://www.talismanonline.com/" target="_blank">Talisman Online</a> Bot.</p>
+								<p data-en="A <a href='https://www.talismanonline.com/' target='_blank'>Talisman Online</a> Bot."
+								   data-pt="Um bot feito para <a href='https://www.talismanonline.com/' target='_blank'>Talisman Online</a>.">
+									A <a href="https://www.talismanonline.com/" target="_blank">Talisman Online</a> Bot.
+								</p>
 							</div>
 						</div>
+						
 						<nav>
 							<ul>
-								<li><a href="#overview">Overview</a></li>
-								<li><a href="https://www.youtube.com/playlist?list=PLMZOKo_yDo0-GMv4DyENpjaANbiu9YAzU" target="_blank">Tutorials</a></li>
-								<li><a href="#about">About</a></li>
-								<li><a href="#contact">Contact</a></li>
+								<li><a href="#overview" data-en="Overview" data-pt="Resumo">Overview</a></li>
+								<li><a href="https://www.youtube.com/playlist?list=PLMZOKo_yDo0-GMv4DyENpjaANbiu9YAzU" target="_blank" data-en="Tutorials" data-pt="Tutoriais">Tutorials</a></li>
+								<li><a href="#about" data-en="About" data-pt="Sobre">About</a></li>
+								<li><a href="#contact" data-en="Contact" data-pt="Contato">Contact</a></li>
+								<li>
+									<select name="language" id="language" onchange="changeLanguage(this.value)">
+										<option value="en">English</option>
+										<option value="pt">Português</option>
+									</select>
+								</li>
 							</ul>
-						</nav>
+						</nav>						
 					</header>
 
 				<!-- Main -->
@@ -41,42 +50,43 @@
 
 						<!-- Intro -->
 							<article id="overview">
-								<h2 class="major">Resumo // Overview</h2>
+								<h2 class="major" data-en="Overview" data-pt="Resumo">Overview</h2>
 								<span class="image main"><img src="images/raaskibot.jpg" alt="" /></span>
 
-								<h3 class="major">Português</h3>
-								<p>RaaskiBot possui funções para auxiliar o Farm, Level Up, Quests e Caves.</p>
-								<p>As funções do quadrado <span style="color: green; font-weight: bold;">Verde</span> fazem parte do plano <span style="color: green; font-weight: bold;">Padrão</span>.</p> 
-								<p>As funções do quadrado <span style="color: rgb(183, 173, 0); font-weight: bold;">Amarelo</span> são funções extras do plano <span style="color: rgb(183, 173, 0); font-weight: bold;">Premium</span>.</p>
-								
-								<h3 class="major">English</h3>
-								<p>RaaskiBot has features to assist with Farming, Leveling Up, Quests and Caves.</p>
-								<p>The features inside the <span style="color: green; font-weight: bold;">Green</span> square are part of the <span style="color: green; font-weight: bold;">Basic</span> plan.</p> 
-								<p>The features inside the <span style="color: rgb(183, 173, 0); font-weight: bold;">Yellow</span> square are additional features of the <span style="color: rgb(183, 173, 0); font-weight: bold;">Premium</span> plan.</p>
+								<p data-en="RaaskiBot has features to assist with Farming, Leveling Up, Quests and Caves."
+								   data-pt="RaaskiBot possui funções para auxiliar o Farm, Level Up, Quests e Caves.">
+									RaaskiBot has features to assist with Farming, Leveling Up, Quests and Caves.
+								</p>
+								<p data-en="The features inside the <span style='color: green; font-weight: bold;'>Green</span> square are part of the <span style='color: green; font-weight: bold;'>Basic</span> plan."
+									data-pt="As funções do quadrado <span style='color: green; font-weight: bold;'>Verde</span> fazem parte do plano <span style='color: green; font-weight: bold;'>Padrão</span>.">
+									The features inside the <span style="color: green; font-weight: bold;">Green</span> square are part of the <span style="color: green; font-weight: bold;">Basic</span> plan.
+								 </p>
+							 
+								 <p data-en="The features inside the <span style='color: rgb(183, 173, 0); font-weight: bold;'>Yellow</span> square are additional features of the <span style='color: rgb(183, 173, 0); font-weight: bold;'>Premium</span> plan."
+									data-pt="As funções do quadrado <span style='color: rgb(183, 173, 0); font-weight: bold;'>Amarelo</span> são funções extras do plano <span style='color: rgb(183, 173, 0); font-weight: bold;'>Premium</span>.">
+									The features inside the <span style="color: rgb(183, 173, 0); font-weight: bold;">Yellow</span> square are additional features of the <span style="color: rgb(183, 173, 0); font-weight: bold;">Premium</span> plan.
+								 </p>
 							</article>
 
 						<!-- About -->
 							<article id="about">
-								<h2 class="major">Sobre // About</h2>
+								<h2 class="major" data-en="About" data-pt="Sobre">About</h2>
 								<span class="image main"><img src="images/to logo.jpg" alt="" /></span>
 
-								<h3 class="major">Português</h3>
-								<p>RaaskiBot é um bot pago desenvolvido para o jogo Talisman Online.</p>
-																
-								<h3 class="major">English</h3>
-								<p>RaaskiBot is a paid bot developed for the game Talisman Online.</p>
+								<p data-en="RaaskiBot is a paid bot developed for the game Talisman Online."
+								   data-pt="RaaskiBot é um bot pago desenvolvido para o jogo Talisman Online.">
+									RaaskiBot is a paid bot developed for the game Talisman Online.
+								</p>
 							</article>
 
 						<!-- Contact -->
 							<article id="contact">
-								<h2 class="major">Contato // Contact</h2>
+								<h2 class="major" data-en="Contact" data-pt="Contato">Contact</h2>
 
-								<h3 class="major">Português</h3>
-								<p>O pagamento em <span style="font-weight: bold;">Reais</span> pode ser feito via <span style="font-weight: bold;">Pix</span> ou <span style="font-weight: bold;">PicPay</span>. Para informações sobre valores e planos, seguem as opções disponíveis para contato:</p>
-
-								<h3 class="major">English</h3>
-								<p>Payment in <span style="font-weight: bold;">USD</span> can be made via <span style="font-weight: bold;">Revolut, Wise, Binance or PayPal</span>. For information about prices and plans, here are the available contact options:</p>
-
+								<p data-en="Payment in <b>USD</b> can be made via <b>Revolut, Wise, Binance or PayPal</b>. For information about prices and plans, here are the available contact options:"
+									data-pt="O pagamento em <b>Reais</b> pode ser feito via <b>Pix</b> ou <b>PicPay</b>. Para informações sobre valores e planos, seguem as opções disponíveis para contato:">
+									Payment in <b>USD</b> can be made via <b>Revolut, Wise, Binance or PayPal</b>. For information about prices and plans, here are the available contact options:
+								 </p>
 								<h3><span class="icon brands fa-whatsapp"> </span> WhatsApp</h3>
 								<ul>
 									<li>
@@ -119,5 +129,35 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<script>
+				// Função para trocar o idioma
+				function changeLanguage(language) {
+					// Salva o idioma no localStorage
+					localStorage.setItem('selectedLanguage', language);
+			
+					// Atualiza os textos da página
+					const elements = document.querySelectorAll("[data-en][data-pt]");
+					elements.forEach(el => {
+						const text = el.getAttribute(`data-${language}`);
+						if (text) {
+							el.innerHTML = text; // Usa innerHTML para textos com HTML
+						}
+					});
+				}
+			
+				// Verifica o idioma salvo no localStorage ao carregar a página
+				document.addEventListener('DOMContentLoaded', () => {
+					const savedLanguage = localStorage.getItem('selectedLanguage') || 'en'; // Padrão: 'en'
+					
+					// Atualiza os textos com base no idioma salvo
+					changeLanguage(savedLanguage);
+			
+					// Atualiza a seleção do dropdown
+					const languageSelect = document.getElementById('language');
+					if (languageSelect) {
+						languageSelect.value = savedLanguage;
+					}
+				});
+			</script>	
 	</body>
 </html>
