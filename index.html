@@ -61,6 +61,7 @@
 
 					<!-- Summary -->
 					<nav id="summary">
+						<h3 data-en="Summary" data-pt="Sumário"></h3>
 						<ul>
 							<li><a href="#overview" data-en="Overview" data-pt="Resumo"></a></li>
 							<li><a href="#interface" data-en="Interface" data-pt="Interface"></a></li>
@@ -68,6 +69,9 @@
 							<li><a href="#attack" data-en="Attack" data-pt="Attack"></a></li>
 							<li><a href="#potion" data-en="Potion" data-pt="Potion"></a></li>
 							<li><a href="#petfood" data-en="Pet Food" data-pt="Pet Food"></a></li>
+							<li><a href="#buff" data-en="Buff" data-pt="Buff"></a></li>
+							<li><a href="#helper" data-en="Helper" data-pt="Helper"></a></li>
+							<li><a href="#fairy" data-en="Fairy" data-pt="Fairy"></a></li>
 						</ul>
 					</nav>
 
@@ -95,7 +99,7 @@
 					
 					<!-- Interface -->
 					<h3 id="interface" data-en="Interface" data-pt="Interface"></h3>
-					<span class="image main"><img src="images/tut_interface.jpg" alt=""/></span>
+					<span class="image main"><img src="images/tut_interface.png" alt=""/></span>
 					<ul>
 						<li>
 							<span data-en="<span style='color: rgb(112, 146, 190); font-weight: bold;'>(1) Main Menu</span>"
@@ -142,7 +146,7 @@
 
 					<!-- Attack -->
 					<h3 id="attack" data-en="Attack" data-pt="Attack"></h3>
-					<span class="image main"><img src="images/tut_attack.jpg" alt=""/></span>
+					<span class="image main"><img src="images/tut_attack.png" alt=""/></span>
 					<ul>
 						<li>
 							<span data-en="<b>(1) Attack:</b> Select the shortcuts for the Skills, enable or disable them, and select the Delay between them. The bot will keep repeating the Skills until the target is dead."
@@ -198,52 +202,142 @@
 
 					<!-- Potion -->
 					<h3 id="potion" data-en="Potion" data-pt="Potion"></h3>
-					<span class="image main"><img src="images/tut_potion.jpg" alt=""/></span>
+					<span class="image main"><img src="images/tut_potion.png" alt=""/></span>
 					<ul>
 						<li>
-							<span data-en="<b>Potion:</b> Function to use normal and battle potions for HP and Mana.
-									<br><b>• (1) Potions:</b> Configuration of normal potions (HP/Mana).
-									<br><b>• (2) Button:</b> Defines the shortcuts for HP and Mana potions.
-									<br><b>• (3) Percentage:</b> Defines the percentage of use for HP and Mana.
-									<br><b>• (4) Use:</b> Defines which potion to use.
-									<br><b>• (5) Config:</b> 
-									<br><b>•• Use until HP/Mana is full:</b> The Char will use HP/Mana potions until HP/Mana is full.
-									<br><b>•• Go to Saved Spot:</b> The Char will walk to the coordinate where it was when the bot was started to use the potions (the Spot function in Attack must be enabled for this to work).
-									<br><b>• (6) Battle Potions:</b> Configuration of battle potions. The same concept explained above applies to this part."
-									
-								data-pt="<b>Potion:</b> Função para usar poções normais e de batalha de HP e Mana.
-									<br><b>• (1) Potions:</b> Configuração das poções normais (HP/Mana).
-									<br><b>• (2) Button:</b> Define os atalhos das poções de HP e Mana.
-									<br><b>• (3) Porcentagem:</b> Define a porcentagem de uso para HP e Mana.
-									<br><b>• (4) Use:</b> Define qual poção quer usar.
-									<br><b>• (5) Config:</b> 
-									<br><b>•• Use until HP/Mana is full:</b> O char vai usar as poções de HP/Mana até que o HP/Mana estejam cheios.
-									<br><b>•• Go to Saved Spot:</b> O char vai andar até a coordenada em que estava quando o bot foi iniciado para usar as poções (a função Spot em Attack deve estar ativada para essa funcionar).
-									<br><b>• (6) Battle Potions:</b> Configuração das poções de batalha. O mesmo conceito explicado acima vale pra essa parte.">
+							<span data-en="<b>(1) Potions:</b> Configuration of normal potions (HP/Mana)."
+								data-pt="<b>(1) Potions:</b> Configuração das poções normais (HP/Mana).">
 							</span>
-							
+						</li>
+						<li>
+							<span data-en="<b>(2) Button:</b> Defines the shortcuts for HP and Mana potions."
+								data-pt="<b>(2) Button:</b> Define os atalhos das poções de HP e Mana.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(3) Percentage:</b> Defines the percentage of use for HP and Mana."
+								data-pt="<b>(3) Porcentagem:</b> Define a porcentagem de uso para HP e Mana.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(4) Use:</b> Defines which potion to use."
+								data-pt="<b>(4) Use:</b> Define qual poção quer usar.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(5) Config:</b> 
+									<br><b>• Use until HP/Mana is full:</b> The Char will use HP/Mana potions until HP/Mana is full.
+									<br><b>• Go to Saved Spot:</b> The Char will walk to the coordinate where it was when the bot was started to use the potions (the Spot function in Attack must be enabled for this to work)."
+								data-pt="<b>(5) Config:</b> 
+									<br><b>• Use until HP/Mana is full:</b> O char vai usar as poções de HP/Mana até que o HP/Mana estejam cheios.
+									<br><b>• Go to Saved Spot:</b> O char vai andar até a coordenada em que estava quando o bot foi iniciado para usar as poções (a função Spot em Attack deve estar ativada para essa funcionar).">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(6) Battle Potions:</b> Configuration of battle potions. The same concept explained above applies to this part."
+								data-pt="<b>(6) Battle Potions:</b> Configuração das poções de batalha. O mesmo conceito explicado acima vale pra essa parte.">
+							</span>
 						</li>
 					</ul>
 
 					<!-- Pet Food -->
 					<h3 id="petfood" data-en="Pet Food" data-pt="Pet Food"></h3>
-					<span class="image main"><img src="images/tut_petfood.jpg" alt=""/></span>
+					<span class="image main"><img src="images/tut_petfood.png" alt=""/></span>
 					<ul>
 						<li>
-							<span data-en="<b>Pet Food:</b> Function to use Pet Food.
-									<br><b>• (1) Pet Food Shortcut:</b> Shortcut to use the Pet Food.
-									<br><b>• (2) Tamer Pet Food Shortcut:</b> Enables/Disables Pet Food for the Tamer's pet. Shortcut for the Tamer's Pet Food.
-									<br><b>• (3) Delay:</b> Sets the interval at which Pet Food will be used.
-									<br><b>• (4) Pet Food Timer</b>."
-								
-								data-pt="<b>Pet Food:</b> Função para usar Pet Food.
-									<br><b>• (1) Pet Food Shortcut:</b> Atalho para usar o Pet Food.
-									<br><b>• (2) Tamer Pet Food Shortcut:</b> Ativa/Desativa o Pet Food para o pet da Tamer. Atalho do Pet Food para Tamer.
-									<br><b>• (3) Delay:</b> Define de quanto em quanto tempo vai usar Pet Food.
-									<br><b>• (4) Cronômetro do Pet Food</b>.">
+							<span data-en="<b>(1) Pet Food Shortcut:</b> Shortcut to use the Pet Food."
+								data-pt="<b>(1) Pet Food Shortcut:</b> Atalho para usar o Pet Food.">
 							</span>
 						</li>
+						<li>
+							<span data-en="<b>(2) Tamer Pet Food Shortcut:</b> Enables/Disables Pet Food for the Tamer's pet. Shortcut for the Tamer's Pet Food."
+								data-pt="<b>(2) Tamer Pet Food Shortcut:</b> Ativa/Desativa o Pet Food para o pet da Tamer. Atalho do Pet Food para Tamer.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(3) Delay:</b> Sets the interval at which Pet Food will be used."
+								data-pt="<b>(3) Delay:</b> Define de quanto em quanto tempo vai usar Pet Food.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(4) Pet Food Timer</b>."
+								data-pt="<b>(4) Cronômetro do Pet Food</b>.">
+							</span>
+						</li>
+					</ul>
 
+					<!-- Buff -->
+					<h3 id="buff" data-en="Buff" data-pt="Buff"></h3>
+					<span class="image main"><img src="images/tut_buff.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>(1)</b> Select the Buff shortcut (<b>Skill</b>), the Waiting Time after using the Buff (<b>ms</b>), and enable or disable it (<b>Use</b>)."
+								data-pt="<b>(1)</b> Selecione o atalho do Buff (<b>Skill</b>), o Tempo de Espera após usar o Buff (<b>ms</b>) e ative ou desative-o (<b>Use</b>).">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(2) Config:</b>
+									<br><b>• Self Select:</b> The Char will select itself before using a Buff.
+									<br><b>• Buff every X minute(s):</b> The Char will use the Buff function every X minutes (set in the box).
+									<br><b>• [0m 0s]:</b> Buff timer."
+														
+								data-pt="<b>(2) Config:</b>
+									<br><b>• Self Select:</b> O Char vai selecionar ele mesmo antes de usar um Buff.
+									<br><b>• Buff every X minute(s):</b> Buffar a cada X minutos (definido na caixinha).
+									<br><b>• [0m 0s]:</b> Cronômetro do Buff.">
+							</span>
+						</li>
+					</ul>
+
+					<!-- Helper -->
+					<h3 id="helper" data-en="Helper" data-pt="Helper"></h3>
+					<span class="image main"><img src="images/tut_helper.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>Helper:</b> Used for everything that doesn't fit into Buff, such as: Tamer's Pet Heal, Pet Level Up Book, consumable items (HP/Defense/XP/Energy pills)."
+								data-pt="<b>Helper:</b> Serve para tudo que não se encaixa em Buff, como por exemplo: Heal do Pet de Tamer, Pet Level Up Book, itens consumíveis (pill de HP/Defesa/XP/Energia).">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(1):</b> Select the shortcut for the action (<b>Skill</b>), the Waiting Time after performing the action (<b>ms</b>), and enable or disable it (<b>Use</b>)."
+								data-pt="<b>(1):</b> Selecione o atalho da ação (<b>Skill</b>), o Tempo de Espera após executar a ação (<b>ms</b>) e ative ou desative-a (<b>Use</b>).">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(2) Run at every X Mob Kills:</b> The action will be performed after killing X mobs (defined in the box). The Mob count can be seen on the Home tab, in Target Info."
+								data-pt="<b>(2) Run at every X Mob Kills:</b> A ação será executada após matar X mobs (definidos na caixinha). A contagem de Mobs pode ser visualizada na aba Home, em Target Info.">
+							</span>
+						</li>
+					</ul>
+
+					<!-- Fairy -->
+					<h3 id="fairy" data-en="Fairy" data-pt="Fairy"></h3>
+					<span class="image main"><img src="images/tut_fairy.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>(1) Shortcuts:</b> Select the shortcuts for the Fairy skills."
+								data-pt="<b>(1) Shortcuts:</b> Selecione os atalhos das skills da Fairy.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(2) Self Heal at:</b> With this option enabled, the Fairy will heal herself using the <b>Healing Spell</b> skill when her HP reaches the defined %."
+								data-pt="<b>(2) Self Heal at:</b> Com essa opção ativada, a Fairy irá se curar com a skill <b>Healing Spell</b> quando o HP dela chegar na % definida.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(3) Team:</b> This section is for configuring what to do with team members.
+									<br><b>• Heal Team at:</b> Heals the team member with the <b>Healing Spell</b> skill when their HP falls below the defined %.
+									<br><b>• Revive Team Constantly:</b> Continuously selects team members and tries to revive them (useful for the PCP cave, for example).
+									<br><b>• Infinite Cure Spell:</b> Continuously selects team members and uses the Cure Spell skill (it is recommended to disable 'Heal Team At' if you want to use this option).
+									<br><b>• Heal / Revive:</b> Select which team members the Fairy will heal (it is necessary to check the members along with 'Heal Team At' for the Fairy to heal them)."
+								data-pt="<b>(3) Team:</b> Essa seção é para configurar o que vai fazer com os membros do team.
+									<br><b>• Heal Team at:</b> Vai curar o membro do team, com a skill <b>Healing Spell</b>, que estiver com o HP abaixo da % definida.
+									<br><b>• Revive Team Constantly:</b> Vai ficar selecionando os membros do team e tentando reviver eles (útil para a cave PCP, por exemplo).
+									<br><b>• Infinite Cure Spell:</b> Vai ficar selecionando os membros do team e usando a skill Cure Spell (recomendado desativar o 'Heal Team At' caso queira utilizar essa opção).
+									<br><b>• Heal / Revive:</b> Selecione quais membros do team a fairy irá curar (é necessário marcar os membros juntamente com o 'Heal Team At' para a Fairy curar eles).">
+							</span>
+						</li>
+					</ul>
 
 					<!-- <h3 id="" data-en="" data-pt=""></h3>
 					<span class="image main"><img src="images/.jpg" alt=""/></span>
