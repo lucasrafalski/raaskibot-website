@@ -72,6 +72,11 @@
 							<li><a href="#buff" data-en="Buff" data-pt="Buff"></a></li>
 							<li><a href="#helper" data-en="Helper" data-pt="Helper"></a></li>
 							<li><a href="#fairy" data-en="Fairy" data-pt="Fairy"></a></li>
+							<li><a href="#revive" data-en="Revive" data-pt="Revive"></a></li>
+							<li><a href="#delete" data-en="Delete" data-pt="Delete"></a></li>
+							<li><a href="#bc" data-en="Bewitcher Cave (BC)" data-pt="Bewitcher Cave (BC)"></a></li>
+							<li><a href="#autopick" data-en="Auto Pick" data-pt="Auto Pick"></a></li>
+							<li><a href="#sell" data-en="Sell" data-pt="Sell"></a></li>
 						</ul>
 					</nav>
 
@@ -339,6 +344,357 @@
 						</li>
 					</ul>
 
+					<!-- Revive -->
+					<h3 id="revive" data-en="Revive" data-pt="Revive"></h3>
+					<span class="image main"><img src="images/tut_revive.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>Revive:</b> This is an automatic function to return to the spot where the character was when the bot started. If the character has a Jackstraw in their inventory, it will be used."
+								data-pt="<b>Revive:</b> É uma função automática para retornar ao Spot que o Char estava quando o bot foi iniciado. Caso o Char tenha Jackstraw no inventário, ele será usado.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(1) Position:</b> The position (coordinate [x, y]) on the map where the character will return after reviving. The location where characters revive must be on the same map where the character will return.
+									<br><b>• Save on Start:</b> The character's position will be automatically saved when the bot starts.
+									<br><b>• Save Button:</b> Will save the character's position. The <b>Save on Start</b> option must be disabled if you want to save a position different from where the bot started."
+								data-pt="<b>(1) Position:</b> A Posição (coordenada [x, y]) no mapa que o Char vai retornar depois de Reviver. O lugar em que os Chars revivem deve estar no mesmo mapa para onde o Char vai retornar.
+									<br><b>• Save on Start:</b> A Posição do Char será salva automaticamente quando iniciar o bot.
+									<br><b>• Botão Save:</b> Vai salvar a Posição do Char. A opção <b>Save on Start</b> deve estar desabilitada caso queira salvar uma posição diferente de onde iniciou o bot.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(2) Mount:</b> When this option is enabled, the character will mount to return to the saved position.
+								  	<br><b>• Shortcut:</b> Mount shortcut."
+								data-pt="<b>(2) Mount:</b> Com essa opção ativada, o Char irá subir na montaria para retornar até a Posição salva.
+								  	<br><b>• Shortcut:</b> Atalho da montaria.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(3) Fairy:</b> This section is for when the character is in a team with a Fairy (logged in on the same PC/same bot).
+									<br><b>• Team Mode:</b> The character that dies will accept the Fairy's revive and then return to the position where the bot started (if the Attack -> Spot option is enabled).
+									<br><b>• Cave Mode:</b> The character that dies will accept the Fairy's revive and will continue attacking the same target without returning to the position where the bot started."
+								data-pt="<b>(3) Fairy:</b> Essa seção é para caso esteja em team com uma Fairy (logada no mesmo PC/mesmo bot).
+									<br><b>• Team Mode:</b> O char que morrer vai aceitar o Revive da Fairy e depois irá retornar à Posição que estava quando iniciou o bot (caso a opção Attack -> Spot esteja habilitada).
+									<br><b>• Cave Mode:</b> O char que morrer vai aceitar o Revive da Fairy e vai continuar atacando o mesmo target, sem voltar para a Posição de onde iniciou o bot.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(4) Tamer Assist:</b> This section is for the Tamer class using the Tamer's pet. With this option enabled, it will revive and heal the pet.
+									<br><b>• Revive Pet:</b> Shortcut for the skill to revive the Tamer's pet.
+									<br><b>• Heal Pet:</b> Shortcut for the skill to heal the Tamer's pet."
+								data-pt="<b>(4) Tamer Assist:</b> Essa seção é para a classe Tamer que esteja utilizando o Pet de Tamer. Com essa opção ativada, ela vai reviver e curar o Pet.
+									<br><b>• Revive Pet:</b> Atalho da Skill de reviver o Pet da Tamer.
+									<br><b>• Heal Pet:</b> Atalho da Skill de curar o Pet da Tamer.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(5) Close Talisman After Death:</b> After the character revives, the game will close. If the character has a Jackstraw in their inventory, it will be used."
+								data-pt="<b>(5) Close Talisman After Death:</b> Depois que o Char reviver, o jogo será fechado. Caso o Char tenha Jackstraw no inventário, ele será usado.">
+							</span>
+						</li>
+					</ul>
+
+					<!-- Delete -->
+					<h3 id="delete" data-en="Delete" data-pt="Delete"></h3>
+					<span class="image main"><img src="images/tut_delete.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>(1) Item List:</b> List of items that will be deleted.
+									<br><b>• Clear:</b> Button to clear the entire list.
+									<br><b>• Delete:</b> Button to delete a selected item from the list."
+								data-pt="<b>(1) Item List:</b> Lista dos itens que serão deletados.
+									<br><b>• Clear:</b> Botão para limpar toda a lista.
+									<br><b>• Delete:</b> Botão para deletar um item selecionado da lista.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(2) Import Delete List:</b> You can import (load) a Delete List."
+								data-pt="<b>(2) Importar Lista de Delete:</b> Você pode importar (carregar) uma Lista de Delete.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(3) Export Delete List:</b> You can export (save) a Delete List to reuse with other characters."
+								data-pt="<b>(3) Exportar Lista de Delete:</b> Você pode exportar (salvar) uma Lista de Delete, para reaproveitar em outros Chars.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(4) Item Icon:</b> You need to 'capture' the icon of the item you want to delete. For this, you have two options:
+									<br><b>• [Ctrl + S] to Add:</b> By pressing this shortcut with the mouse centered on the desired item (e.g., red dot on the Green Identify Gem), a box to type the item's name will appear. The item's name does not need to match the game's name exactly; it is just for you to identify it in the Item List.
+									<br><b>• Get Item Icon:</b> By clicking this button, you have 2 seconds to move the mouse to the center of the item. The item name box will appear as explained above."
+								data-pt="<b>(4) Ícone do Item:</b> Você precisa 'capturar' o ícone do item que deseja deletar. Para isso você tem duas opções:
+									<br><b>• [Ctrl + S] to Add:</b> Ao apertar este atalho com o mouse no meio do item desejado (exemplo: ponto vermelho no Green Identify Gem), uma caixinha para digitar o Nome do Item vai aparecer. O Nome do Item não precisa ser exatamente igual ao do jogo, é apenas para você se localizar na Item List.
+									<br><b>• Get Item Icon:</b> Ao clicar nesse botão, você tem 2 segundos para mover o mouse para o meio do item. A caixinha do nome do item vai aparecer igual explicado acima.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(5) Item Name:</b> Type the name of the item to be added to the Item List. The name does not need to match the game's name exactly; it is just for you to identify it in the list."
+								data-pt="<b>(5) Item Name:</b> Digitar o Nome do Item que vai ser adicionado à Item List. O nome não precisa ser igual no jogo, é apenas para você se localizar na lista.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(6) Config:</b> Additional delete settings.
+									<br><b>• Delete Speed:</b> The speed (ms) at which items will be deleted.
+									<br><b>• Delete Every X Minute(s):</b> Delete items every X minutes (as defined in the box).
+									<br><b>• Test Delete:</b> The bot will click on the items added to the list but will not delete them. This is just to verify if the item was correctly added to the list. It is recommended to always click Test Delete after adding an item to the list."
+								data-pt="<b>(6) Config: </b> Configurações adicionais do Delete.
+									<br><b>• Delete Speed:</b> Velocidade (ms) em que os itens serão deletados.
+									<br><b>• Delete Every X Minute(s):</b> Deletar itens a cada X minutos (definidos na caixinha).
+									<br><b>• Test Delete:</b> O bot vai clicar nos items que foram adicionados na lista, mas não vai deletar eles. É apenas para verificar se o item foi adicionado corretamente na lista. Recomendado sempre clicar no Test Delete após adicionar um item na lista.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(7) Delete Timer:</b> Timer for the delete operation."
+								data-pt="<b>(7) Cronômetro do Delete.">
+							</span>
+						</li>
+					</ul>
+					
+					<!-- Bewitcher Cave -->
+					<h3 id="bc" data-en="Bewitcher Cave (BC)" data-pt="Bewitcher Cave (BC)"></h3>
+					<span class="image main"><img src="images/tut_bc_farmer.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>For the BC function to work correctly, only the 'BC' checkbox should be enabled in the Home tab for both characters (Farmer and Reseter).</b>" 
+								data-pt="<b>Para a função de BC funcionar corretamente, apenas a caixinha de 'BC' deve estar ativada na aba Home para ambos os chars (Farmer e Reseter).</b>">
+						 	</span>
+						</li>
+						<li>
+							<span data-en="<b>(1) Tabs:</b> The BC function has 4 tabs:
+									<br><b>• Main:</b> Main settings for the function.
+									<br><b>• Shortcuts:</b> Shortcuts for Skills, Mounts, Pet, and Potions.
+									<br><b>• Potions:</b> Configuration for potion usage percentages (Fairy Healing Spell and Wizard Super Skill are included in the HP potion percentage).
+									<br><b>• Stats:</b> Information on how many times BC has been completed, how long the bot has been running, and more."
+								data-pt="<b>(1) Abas:</b> A função de BC possui 4 abas:
+									<br><b>• Main:</b> Configurações principais da função.
+									<br><b>• Shortcuts:</b> Atalhos de Skills, Montaria, Pet e Poções.
+									<br><b>• Potions:</b> Configuração de % de uso de Poções (Healing Spell de Fairy e Super Skill de Wizard estão inclusos na % de poção de HP).
+									<br><b>• Stats:</b> Informações de quantas vezes fez a cave BC, quanto tempo está rodando o bot e mais.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(2) Team:</b> Configuration of who will be part of the team. <b>Farmer</b> is the one running the BC function. <b>Reseter</b> is the one accepting the Farmer's team requests to reset the BC cave.
+									<br><b>• !Important!:</b> The Reseter must be added to the Farmers' Block List.
+									<br><b>• Member Name:</b> With the Farmer selected in the bot, enter the Reseter's name in the Member Name box, and vice versa.
+									<br><b>• Reseter:</b> This option should only be activated on the Reseter. It determines who will accept team requests to reset the cave."
+								data-pt="<b>(2) Team:</b> Configuração de quem vai fazer parte do team. <b>Farmer</b> é quem vai rodar a função de BC. <b>Reseter</b> é quem vai ficar aceitando team do Farmer para resetar a cave de BC.
+									<br><b>• !Importante!:</b> O Reseter deve ser adicionado na Block List do Farmer.
+									<br><b>• Member Name:</b> Com o Farmer selecionado no bot, coloque o nome do Reseter na caixinha de Member Name, e vice-versa.
+									<br><b>• Reseter:</b> Essa opção só deve ser ativada no Reseter. Ela vai definir quem vai ficar aceitando team pra resetar a cave.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(3) General:</b> General settings.
+									<br><b>• Return to Stone every X run(s):</b> The Farmer will return to Stone City after completing the BC cave X times (as defined in the box). The default is 5 runs. The Farmer will complete the cave, exit it via the Teleport NPC, and re-enter the cave without returning to Stone City. Each 'run' drops about 5 items, so ensure the Farmer has 25 free inventory slots for 5 consecutive runs without returning.
+									<br><b>• Initial Selling Slot:</b> Slot in the Sell menu where the Farmer will click to sell items. Slot number 7 corresponds to the first slot in the second row. Hovering over the (?) shows the slot numbering in the bot. It's recommended to place Potions in the first inventory slots to avoid selling them.
+									<br><b>• Buy Return Charm after selling:</b> The Farmer will buy 1 Stone City Return Charm after selling items, eliminating the need to stockpile them in the inventory.
+									<br><b>• Manual Auto Pick:</b> Option for when the Farmer's Pet doesn't have the Auto Pick Skill Book. The Farmer will manually loot the boss."
+								data-pt="<b>(3) General:</b> Configurações gerais.
+									<br><b>• Return to Stone every X run(s):</b> O Farmer vai voltar para Stone City depois de fazer a cave de BC por X vezes (definidas na caixinha). O padrão é 5 vezes, então o Farmer vai completar a cave, sair dela pelo NPC de Teleport e já entrar na cave novamente, sem voltar para Stone City. Cada 'run' dropa cerca de 5 items, então tenha em mente que para as 5 runs sem voltar pra Stone City o Farmer precisa ter 25 espaços livres no inventário.
+									<br><b>• Initial Selling Slot:</b> Slot do menu de Sell que o Farmer vai ficar clicando para vender os itens. O número 7 indica o primeiro slot da segunda fileira. Ao passar o mouse por cima do (?) a númeração dos slots é mostrada no bot. É recomendado colocar suas Poções nos primeiros slots do inventário, para evitar que sejam vendidas.
+									<br><b>• Buy Return Charm after selling:</b> Vai comprar 1 Stone City Return Charm toda vez que for vender os itens. Dessa forma não precisa estocar Stone City Return Charm no inventário do Farmer.
+									<br><b>• Manual Auto Pick:</b> Opção para caso o Pet do Farmer não tenha o Skill Book de Auto Pick. O Farmer vai pegar o loot do boss.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(4) Route:</b> Possible routes in the Boss's lair.
+									<br><b>• Standard (Straight to Boss):</b> The Farmer will go straight to the Boss. Recommended for Wizards (with Sword), Tamers (with Bow), and strong characters.
+									<br><b>• Safe (Kill Gun Witches + Potion):</b> The Farmer will stop at the 4 Gun Witches, kill them, use Potions if necessary, and then proceed to the Boss. Recommended for characters that don't kill the Boss with AOE (Assassin, Fairy, and Monk).
+									<br><b>• Lure Powerfuls:</b> With this option enabled, the Farmer will lure mobs in the lair to help kill the Boss.
+									<br><b>• Heal Before Second Phase:</b> The <b>Lure Powerfuls</b> option must be enabled to use this. With this option activated, the Farmer will finish the Boss's first phase and go heal while the lured mobs attack the second phase of the Boss (when it dismounts).
+									<br><b>• Recommended to use the Safe + Lure Powerfuls + Heal Before Second Phase route for weaker characters.</b>"
+								data-pt="<b>(4) Route:</b> Rotas possíveis no covil do Boss.
+									<br><b>• Standard (Straight to Boss):</b> O Farmer vai ir direto para o Boss. Recomendado para Wizards (com Sword), Tamers (com Bow) e Chars fortes.
+									<br><b>• Safe (Kill Gun Witches + Potion):</b> O Farmer vai parar nos 4 Gun Witches, matar eles, usar Poção se necessário e depois ir para o Boss. Recomendado para chars que não matam o Boss com AOE (Assassin, Fairy e Monk).
+									<br><b>• Lure Powerfuls:</b> Com essa opção ativada, o Farmer vai lurar os mobs do covil para ajudarem a matar o Boss.
+									<br><b>• Heal Before Second Phase:</b> A opção <b>Lure Powerfuls</b> precisa estar ativada para poder usar essa opção. Com essa opção ativada, o Farmer vai finalizar a primeira fase do Boss e vai ir se curar enquanto os mobs que foram lurados ficam atacando a segunda fase do boss (quando ele desce do cavalo).
+									<br><b>• Recomendado usar a rota Safe + Lure Powerfuls + Heal Before Second Phase para chars mais fracos.</b>">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(5) Misc:</b> Additional settings for Wizard, Assassin, and Monk classes.
+									<br><b>• Use AOE until mana is X %:</b> If the Farmer is a Wizard, this option will be available. The Farmer will use Sword AOE until Mana reaches the defined percentage, preventing it from depleting.
+									<br><b>• Passive Opt.:</b> If the Farmer is an Assassin or Monk, this option will be available. It optimizes the Passive Skill of these two classes, increasing damage. Skill 1 and Skill 2 shortcuts must be configured in the Shortcuts tab for this option to work properly."
+								data-pt="<b>(5) Misc:</b> Configurações adicionais para classes Wizard, Assassin e Monk.
+									<br><b>• Use AOE until mana is X %:</b> Caso o Farmer seja um Wizard, essa opção ficará disponível. O Farmer vai usar AOE da Sword até que a Mana chegue na % definida, evitando zerar a Mana.
+									<br><b>• Passive Opt.:</b> Caso o Farmer seja um Assassin ou Monk, essa opção ficará disponível. Serve para otimizar a Passiva dessas duas classes, causando mais dano. Os Shortcuts de Skill 1 e Skill 2 devem estar configurados na aba Shortcuts para essa opção funcionar corretamente.">
+							</span>
+						</li>
+					</ul>
+					
+					<!-- Shortcuts -->
+					<h3 id="bcshortcuts" data-en="Shortcuts" data-pt="Shortcuts"></h3>
+					<span class="image main"><img src="images/tut_bc_shortcuts.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>For all shortcuts you won't use, click on them and then press Esc to disable them.</b>" 
+								data-pt="<b>Para todos os atalhos que não for usar, clique neles e depois pressione Esc para desativá-los.</b>">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(1) Skills:</b> Shortcuts for Skills, AOE (Area Attack), Super Skill (Wizards), Buff, Break Soul (+12 Mount Skill), Healing Spell (Fairy Skill - only available if the Farmer is a Fairy)."
+								data-pt="<b>(1) Skills</b>: Atalhos para Skills, AOE (Ataque em Área), Super Skill (Wizards), Buff, Break Soul (Skill de montaria +12), Healing Spell (Skill de Fairy - só fica disponível caso o Farmer seja uma Fairy).">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(2) General:</b> Main shortcuts.
+									<br><b>• Mount:</b> Shortcut for the mount.
+									<br><b>• Speed Skill:</b> Shortcut for the mount's Speed Skill.
+									<br><b>• Summon Pet:</b> Shortcut to summon the Pet.
+									<br><b>• Pet Food:</b> Shortcut for Pet Food.
+									<br><b>• Stone Charm:</b> Shortcut for the Stone City Return Charm."
+								data-pt="<b>(2) General:</b> Atalhos principais.
+									<br><b>• Mount:</b> Atalho da montaria.
+									<br><b>• Speed Skill:</b> Atalhos para Skill de Velocidade da montaria.
+									<br><b>• Summon Pet:</b> Atalho para Summonar o Pet.
+									<br><b>• Pet Food:</b> Atalho para Pet Food.
+									<br><b>• Stone Charm:</b> Atalho para o Stone City Return Charm.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(3) Potions:</b> Shortcuts for potions.
+									<br><b>• HP:</b> Shortcut for normal HP Potion.
+									<br><b>• Mana:</b> Shortcut for normal Mana Potion.
+									<br><b>• Battle HP:</b> Shortcut for Battle HP Potion.
+									<br><b>• Battle Mana:</b> Shortcut for Battle Mana Potion."
+								data-pt="<b>(3) Potions:</b> Atalhos para poções.
+									<br><b>• HP:</b> Atalho da Poção de HP normal.
+									<br><b>• Mana:</b> Atalho da Poção de Mana normal.
+									<br><b>• Battle HP:</b> Atalho para Poção de HP de batalha.
+									<br><b>• Battle Mana:</b> Atalho para Poção de Mana de batalha.">
+							</span>
+						</li>
+					</ul>
+					
+					<!-- Potions -->
+					<h3 id="bcpotions" data-en="Potions" data-pt="Potions"></h3>
+					<span class="image main"><img src="images/tut_bc_potions.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>(1) Potions:</b> Defines the percentage for using <b>HP</b> potions (includes Wizard's Super Skill / Fairy's Healing Spell) and <b>Mana</b> potions."
+								data-pt="<b>(1) Potions</b>: Define a Porcentagem de uso de Poção de <b>HP</b> (inclui Super Skill de Wizard / Healing Spell de Fairy) e <b>Mana</b>.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(2) Battle Potions:</b> Defines the percentage for using battle potions."
+								data-pt="<b>(2) Battle Potions:</b> Define a porcentagem de uso das poções de batalha.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>Situations where the Farmer will use Potions</b> (or Wizard's Super Skill / Fairy's Healing Spell), <b>if necessary</b>:
+									<br><b>• Stone City.</b>
+									<br><b>• Beginning of the Cave.</b>
+									<br><b>• Beginning of the Boss's lair.</b>
+									<br><b>• After defeating the Gun Witches</b> (if the Safe route is selected in the Main tab).
+									<br><b>• After defeating the Boss's first phase</b> (if the Heal Before Second Phase option is selected in the Main tab)."
+								data-pt="<b>Pontos em que o Farmer vai usar as Poções</b> (ou Super Skill do Wizard / Healing Spell da Fairy), <b>se necessário</b>:
+									<br><b>• Stone City.</b>
+									<br><b>• Início da Cave.</b>
+									<br><b>• Início do covil do Boss.</b>
+									<br><b>• Depois de matar os Gun Witches</b> (se a rota Safe estiver marcada na aba Main).
+									<br><b>• Depois de matar a primeira fase do boss</b> (se a opção Heal Before Second Phase estiver marcarda na aba Main).">
+							</span>
+						</li>
+					</ul>
+					
+					<!-- Stats -->
+					<h3 id="bcstats" data-en="Stats" data-pt="Stats"></h3>
+					<span class="image main"><img src="images/tut_bc_stats.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en=""
+								data-pt="<b>Informações da função de BC</b>:
+									<br><b>• Runs:</b> Quantidade de vezes que fez a cave BC.
+									<br><b>• Sucess:</b> Quantidade de sucessos.
+									<br><b>• Fail:</b> Quantidade de falhas.
+									<br><b>• Run Time:</b> Tempo da run atual.
+									<br><b>• Last Run Time:</b> Tempo da última run.
+									<br><b>• Total Running Time:</b> Tempo total que está rodando a função de BC.
+									<br><b>• Courage Badge:</b> Quantidade total de Courage Badges farmados.">
+							</span>
+						</li>
+					</ul>
+
+					<!-- Reseter -->
+					<h3 id="bcstats" data-en="Reseter" data-pt="Reseter"></h3>
+					<span class="image main"><img src="images/tut_bc_reseter.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>Example configuration for the Reseter</b>:
+									<br><b>• Member Name:</b> With the Reseter selected in the bot, enter the Farmer's name in the Member Name box.
+									<br><b>• 1 Reseter for multiple Farmers:</b> It is possible to use a single Reseter for multiple Farmers. Simply enter the names of the Farmers separated by commas in the Member Name box (e.g., Farmer, Tamer1, Fairy2, Char3)."
+								data-pt="<b>Exemplo de configuração para o Reseter</b>:
+									<br><b>• Member Name:</b> Com o Reseter selecionado no bot, coloque o Nome do Farmer na caixinha de Member Name.
+									<br><b>• 1 Reseter para vários Farmers:</b> É possível utilizar apenas 1 Reseter para vários Farmers. Basta colocar os nomes dos Farmers separados por vírgula na caixinha de Member Name (por exemplo: Farmer, Tamer1, Fairy2, Char3).">
+							</span>
+						</li>
+					</ul>
+
+					<!-- Auto Pick -->
+					<h3 id="autopick" data-en="Auto Pick" data-pt="Auto Pick"></h3>
+					<span class="image main"><img src="images/tut_autopick.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>(1) Pick up All</b>: This is the coordinate of the 'Pick up all' button in the Loot box (example number <span style='color: rgb(34, 177, 76); font-weight: bold;'>3</span>). The default coordinate in the bot is the game's default coordinate. You only need to configure this coordinate if you have moved the Loot box's position within the game.
+									<br>To configure, click Set Coord and move the mouse over the Pick up all button (3) in the game."
+								data-pt="<b>(1) Pick up All</b>: Essa é a coordenada do botão de 'Pick up all' da caixinha de Loot (exemplo número <span style='color: rgb(34, 177, 76); ; font-weight: bold;'>3</span>). A coordenada padrão que está no bot é a coordenada padrão do jogo. Só precisar configurar essa coordenada caso tenha movido a posição da caixinha de Loot dentro do jogo. 
+								  	<br>Para configurar, clique em Set Coord e mova o mouse pra cima do botão de Pick up all (3) no jogo.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(2) Delay</b>: Waiting time between killing the mob and looting it."
+								data-pt="<b>(2) Delay</b>: Tempo de espera entre matar o mob e pegar o loot dele.">
+							</span>
+						</li>
+					</ul>
+
+					<!-- Sell -->
+					<h3 id="sell" data-en="Sell" data-pt="Sell"></h3>
+					<span class="image main"><img src="images/tut_sell.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>(1) To configure the Sell function</b>: 
+									<br>• Click on <b>Surroundings</b> <img src='images/tut_surroundings2.png' class='image'/> (next to the minimap).
+									<br>• Enter the full name of the NPC where you want to sell the items <img src='images/tut_searchbar.png' class='image'/> <img src='images/tut_surroundingsnpc.png' class='image'/>.
+									<br>• Click Get NPC Info on the Bot <img src='images/tut_getnpcinfo.png' class='image'/>.
+									<br>• The NPC's information should appear on the bot (Name and Coordinates) <img src='images/tut_npcinfo.png' class='image'/>.
+									<br>• If the information does not appear automatically, enter the details manually (be very careful with the coordinates, as many NPCs have negative coordinates, e.g., [868, -465]).
+									<br>• Go to the NPC and interact with them.
+									<br>• In the 'Sell Items coords' section on the Bot, click the <b>Set</b> button <img src='images/tut_setsellcoord.png' class='image'/> and move the mouse over the NPC's Sell Item option <img src='images/tut_sellitem.png' class='image'/>.
+									<br>• The first step is complete."
+								data-pt="<b>(1) Para configurar a função de Sell</b>: 
+									<br>• Clique em <b>Surroundings</b> <img src='images/tut_surroundings2.png' class='image'/> (ao lado do minimapa).
+									<br>• Digite o Nome completo do NPC que deseja vender os itens <img src='images/tut_searchbar.png' class='image'/> <img src='images/tut_surroundingsnpc.png' class='image'/>.
+									<br>• Clique em Get NPC Info no Bot <img src='images/tut_getnpcinfo.png' class='image'/>.
+									<br>• As informações do NPC devem aparecer no bot (Nome e Coordenadas) <img src='images/tut_npcinfo.png' class='image'/>.
+									<br>• Caso as informações não tenham aparecido automaticamente, digite as informações manualmente (muita atenção nas coordenadas, pois muitos NPCs possuem coordenadas negativas, por exemplo: [868, -465]).
+									<br>• Vá até o NPC e fale com ele.
+									<br>• Na parte de 'Sell Items coords' no Bot, clique no botão <b>Set</b> <img src='images/tut_setsellcoord.png' class='image'/> e mova o mouse pra cima da opção Sell Item do NPC <img src='images/tut_sellitem.png' class='image'/>.
+									<br>• A primeira etapa está concluída.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(2) Teleport Stone / Return Charm</b>: If there is a Teleport Stone near the NPC, mark the position of this Teleport Stone, enable the option (Use), and configure the Teleport Stone's shortcut."
+								data-pt="<b>(2) Teleport Stone / Return Charm</b>: Caso tenha uma Teleport Stone próxima ao NPC, marque a posição dessa Teleport Stone, ative a opção (Use) e configure o atalho (Shortcut) da Teleport Stone.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(3) Mount</b>: If you want to use a mount to sell items and then return to the Spot, enable this option and configure the mount's shortcut."
+								data-pt="<b>(3) Mount</b>: Caso queira usar uma montaria para ir vender items e depois voltar para o Spot, ative essa opção e configure o atalho da montaria.">
+							</span>
+						</li>
+						<li>
+							<span data-en="<b>(4) Config</b>:
+									<br><b>• Sell at Every X min:</b> How many minutes the character will wait before selling items.
+									<br><b>• Initial Selling Slot:</b> The Sell slot where the character will keep clicking to sell the items.
+									<br><b>• Sell at Start:</b> With this option enabled, the character will execute the sell function when the bot starts."
+								data-pt="<b>(4) Config</b>:
+									<br><b>• Sell at Every X min:</b> A cada quantos minutos o Char vai ir vender os itens.
+									<br><b>• Initial Selling Slot:</b> Slot de Sell que o Char vai ficar clicando para vender os itens.
+									<br><b>• Sell at Start:</b> Com essa opção marcada, o Char vai executar a função de venda quando iniciar o bot.">
+							</span>
+						</li>
+					</ul>
+					
 					<!-- <h3 id="" data-en="" data-pt=""></h3>
 					<span class="image main"><img src="images/.jpg" alt=""/></span>
 					<ul>
@@ -349,6 +705,7 @@
 							</span>
 						</li>
 					</ul> -->
+
 					<h3 id="wip" data-en="Work in progress..." data-pt="Em construção..."></h3>
 				</article>
 
@@ -403,38 +760,38 @@
 		</div>
 
 		<!-- BG -->
-			<div id="bg"></div>
+		<div id="bg"></div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
-			<script>
-				function changeLanguage(language) {
-					localStorage.setItem('selectedLanguage', language);
-			
-					const elements = document.querySelectorAll("[data-en][data-pt]");
-					elements.forEach(el => {
-						const text = el.getAttribute(`data-${language}`);
-						if (text) {
-							el.innerHTML = text;
-						}
-					});
-				}
-			
-				document.addEventListener('DOMContentLoaded', () => {
-					const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-					
-					changeLanguage(savedLanguage);
-			
-					const languageSelect = document.getElementById('language');
-					if (languageSelect) {
-						languageSelect.value = savedLanguage;
+		<script>
+			function changeLanguage(language) {
+				localStorage.setItem('selectedLanguage', language);
+		
+				const elements = document.querySelectorAll("[data-en][data-pt]");
+				elements.forEach(el => {
+					const text = el.getAttribute(`data-${language}`);
+					if (text) {
+						el.innerHTML = text;
 					}
 				});
-			</script>	
+			}
+		
+			document.addEventListener('DOMContentLoaded', () => {
+				const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+				
+				changeLanguage(savedLanguage);
+		
+				const languageSelect = document.getElementById('language');
+				if (languageSelect) {
+					languageSelect.value = savedLanguage;
+				}
+			});
+		</script>	
 	</body>
 </html>
