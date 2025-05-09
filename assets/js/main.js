@@ -398,4 +398,22 @@
 						$main._show(location.hash.substr(1), true);
 					});
 
+			// Melhorar o estilo do seletor de idioma
+			$(document).ready(function() {
+				// Aplicar estilos consistentes ao dropdown de idioma
+				$("#language").on("mousedown", function(e) {
+					// Força uma pequena pausa para aplicar estilos antes do dropdown abrir
+					setTimeout(function() {
+						$("option").css({
+							"background-color": "#1b1f22",
+							"color": "#ffffff",
+							"text-transform": "uppercase",
+							"letter-spacing": "0.1rem",
+							"padding": "10px",
+							"border-bottom": "1px solid rgba(255, 255, 255, 0.1)"
+						});
+					}, 5);
+				});
+			});
+
 })(jQuery);

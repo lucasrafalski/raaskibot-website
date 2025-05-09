@@ -1698,6 +1698,49 @@ input, select, textarea {
 	color: #ffffff;
 	font-size: 0.8rem;
 	padding: 0.5rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	border: solid 1px rgba(255, 255, 255, 0.15);
+}
+
+.language-selector select option:hover {
+	background-color: rgba(255, 255, 255, 0.075);
+}
+
+.language-selector {
+	position: relative;
+}
+
+/* Customizado para o dropdown */
+select#language {
+	border: solid 1px #ffffff;
+	border-radius: 4px;
+}
+
+/* Estilização para navegadores webkit (Chrome, Safari) */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	select#language {
+		border-radius: 4px;
+	}
+	
+	select#language option {
+		background-color: #1b1f22;
+		color: #ffffff;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+}
+
+/* Estilização para Firefox */
+@-moz-document url-prefix() {
+	select#language {
+		border-radius: 4px;
+	}
+	
+	select#language option {
+		background-color: #1b1f22;
+		color: #ffffff;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
 }
 
 .flag-icon {
@@ -1718,5 +1761,167 @@ input, select, textarea {
 		min-width: 0;
 		padding-left: 1rem;
 		padding-right: 2.5rem;
+	}
+}
+
+/* Estilização para o dropdown personalizado */
+.language-selector {
+	position: relative;
+}
+
+.language-selector select {
+	display: none; /* Esconde o select nativo */
+}
+
+.custom-dropdown {
+	display: block;
+	min-width: 7.5rem;
+	height: 2.75rem;
+	line-height: 2.75rem;
+	border: solid 1px #ffffff;
+	border-radius: 4px;
+	position: relative;
+	cursor: pointer;
+	text-align: center;
+}
+
+.selected-option {
+	padding: 0 1.25rem;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	font-size: 0.8rem;
+	color: #ffffff;
+	text-align: center;
+	position: relative;
+}
+
+.selected-option:after {
+	content: "";
+	position: absolute;
+	right: 0.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #ffffff;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #1b1f22;
+	width: 100%;
+	z-index: 10;
+	border: solid 1px #ffffff;
+	border-radius: 0 0 4px 4px;
+	margin-top: 0;
+	left: 0;
+}
+
+/* Removido o seletor de hover para o dropdown abrir apenas com clique */
+.dropdown-content.show {
+	display: block;
+}
+
+.dropdown-option {
+	padding: 0 1.25rem;
+	height: 2.75rem;
+	line-height: 2.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	font-size: 0.8rem;
+	color: #ffffff;
+	text-align: center;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	transition: background-color 0.2s ease;
+}
+
+.dropdown-option:last-child {
+	border-bottom: none;
+}
+
+.dropdown-option:hover {
+	background-color: rgba(255, 255, 255, 0.075);
+}
+
+/* Ajustes para alinhamento do menu */
+#header nav ul li.language-selector {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 2.75rem;
+	border-left: solid 1px #ffffff;
+}
+
+/* Ajuste para remover bordas duplicadas */
+#header nav ul li.language-selector:first-child {
+	border-left: 0;
+}
+
+#header nav ul .custom-dropdown {
+	margin: 0;
+	height: 2.75rem;
+	min-width: 7.5rem;
+	line-height: 2.75rem;
+	text-align: center;
+	background-color: transparent;
+	border: none;
+}
+
+/* Ajusta o estilo do botão de idioma para parecer com os outros itens do menu */
+.selected-option {
+	min-width: 7.5rem;
+	height: 2.75rem;
+	line-height: 2.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	font-size: 0.8rem;
+	text-align: center;
+	padding: 0;
+	color: #ffffff;
+}
+
+.selected-option:after {
+	right: 0.5rem;
+}
+
+/* Posiciona corretamente o dropdown */
+.dropdown-content {
+	top: 100%;
+	left: 0;
+	margin-top: 0;
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 480px) {
+	.language-selector {
+		width: 100%;
+	}
+	
+	.language-selector select {
+		width: 100%;
+		text-align: center;
+		min-width: 0;
+		padding-left: 1rem;
+		padding-right: 2.5rem;
+	}
+	
+	.custom-dropdown {
+		width: 100%;
+	}
+	
+	/* Correção para bordas na visualização mobile */
+	#header nav ul li.language-selector {
+		border-left: 0;
+		border-top: solid 1px #ffffff;
+	}
+	
+	/* Ajuste para o dropdown ficar na largura completa no mobile */
+	.dropdown-content {
+		width: 100%;
 	}
 }

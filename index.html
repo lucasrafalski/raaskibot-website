@@ -7,6 +7,25 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="icon" type="image/png" href="images/favicon.png" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Fix para o dropdown de idiomas */
+			select#language {
+				border: solid 1px #ffffff;
+				border-radius: 4px;
+				background-color: rgba(27, 31, 34, 0.85);
+			}
+			
+			select#language option {
+				background-color: rgba(27, 31, 34, 0.95) !important;
+				color: #fff !important;
+				padding: 8px !important;
+				font-size: 0.8rem !important;
+				letter-spacing: 0.1rem !important;
+				text-transform: uppercase !important;
+				border: none !important;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -47,10 +66,17 @@
 							<a href="#contact" data-en="Contact" data-pt="Contato"></a>
 						</li>
 						<li class="language-selector">
-							<select name="language" id="language" onchange="changeLanguage(this.value)">
+							<select name="language" id="language" onchange="changeLanguage(this.value)" style="display: none;">
 								<option value="en">🇺🇸 ENG</option>
 								<option value="pt">🇧🇷 POR</option>
 							</select>
+							<div class="custom-dropdown">
+								<div class="selected-option" id="current-language">🇺🇸 ENG</div>
+								<div class="dropdown-content" id="language-options">
+									<div class="dropdown-option" data-value="en">🇺🇸 ENG</div>
+									<div class="dropdown-option" data-value="pt">🇧🇷 POR</div>
+								</div>
+							</div>
 						</li>
 					</ul>
 				</nav>						
@@ -849,6 +875,22 @@
 						el.innerHTML = text;
 					}
 				});
+				
+				// Atualiza o texto do dropdown personalizado
+				const currentLanguage = document.getElementById('current-language');
+				if (currentLanguage) {
+					if (language === 'en') {
+						currentLanguage.innerHTML = '🇺🇸 ENG';
+					} else if (language === 'pt') {
+						currentLanguage.innerHTML = '🇧🇷 POR';
+					}
+				}
+				
+				// Esconde o dropdown após selecionar uma opção
+				const dropdownContent = document.getElementById('language-options');
+				if (dropdownContent) {
+					dropdownContent.classList.remove('show');
+				}
 			}
 		
 			document.addEventListener('DOMContentLoaded', () => {
@@ -859,6 +901,60 @@
 				const languageSelect = document.getElementById('language');
 				if (languageSelect) {
 					languageSelect.value = savedLanguage;
+				}
+				
+				// Configuração do dropdown personalizado para abrir com clique
+				const selectedOption = document.getElementById('current-language');
+				const dropdownContent = document.getElementById('language-options');
+				
+				if (selectedOption && dropdownContent) {
+					// Abre/fecha o dropdown ao clicar no idioma selecionado
+					selectedOption.addEventListener('click', function(e) {
+						e.stopPropagation();
+						dropdownContent.classList.toggle('show');
+					});
+					
+					// Fecha o dropdown ao clicar em qualquer lugar da página
+					document.addEventListener('click', function() {
+						if (dropdownContent.classList.contains('show')) {
+							dropdownContent.classList.remove('show');
+						}
+					});
+					
+					// Evita que o dropdown feche ao clicar nele
+					dropdownContent.addEventListener('click', function(e) {
+						e.stopPropagation();
+					});
+				}
+				
+				// Configuração do dropdown personalizado
+				const dropdownOptions = document.querySelectorAll('.dropdown-option');
+				if (dropdownOptions) {
+					dropdownOptions.forEach(option => {
+						option.addEventListener('click', function() {
+							const value = this.getAttribute('data-value');
+							changeLanguage(value);
+							
+							// Atualiza também o select nativo para manter sincronizado
+							const languageSelect = document.getElementById('language');
+							if (languageSelect) {
+								languageSelect.value = value;
+							}
+							
+							// Fecha o dropdown após selecionar uma opção
+							dropdownContent.classList.remove('show');
+						});
+					});
+				}
+				
+				// Atualiza o texto inicial do dropdown personalizado
+				const currentLanguage = document.getElementById('current-language');
+				if (currentLanguage) {
+					if (savedLanguage === 'en') {
+						currentLanguage.innerHTML = '🇺🇸 ENG';
+					} else if (savedLanguage === 'pt') {
+						currentLanguage.innerHTML = '🇧🇷 POR';
+					}
 				}
 			});
 		</script>	
