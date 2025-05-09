@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 504">
+  <path fill="#009b3a" d="M0 0h720v504H0z"/>
+  <path fill="#fedf00" d="M360 252L32 120v264z" transform="translate(0 -0.4)scale(2.00)"/>
+  <circle r="77" cx="360" cy="252" fill="#002776"/>
+  <clipPath id="a">
+    <circle r="77" cx="360" cy="252"/>
+  </clipPath>
+  <path d="M217 252h286" stroke="#fff" stroke-width="16" clip-path="url(#a)"/>
+</svg>

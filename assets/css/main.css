@@ -1659,3 +1659,70 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+/* Style for language selector */
+.language-selector select {
+	display: block;
+	min-width: 9rem;
+	height: 2.75rem;
+	line-height: 2.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	font-size: 0.8rem;
+	border-bottom: 0;
+	padding: 0 1.25rem;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-color: transparent;
+	color: #ffffff;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	width: auto;
+	text-align: left;
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M2,4 L6,8 L10,4 Z'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 1rem center;
+	padding-right: 2.5rem;
+}
+
+.language-selector select:hover {
+	background-color: rgba(255, 255, 255, 0.075);
+}
+
+.language-selector select:active, 
+.language-selector select:focus {
+	background-color: rgba(255, 255, 255, 0.175);
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M2,4 L6,8 L10,4 Z'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 1rem center;
+}
+
+.language-selector select option {
+	background-color: #1b1f22;
+	color: #ffffff;
+	font-size: 0.8rem;
+	padding: 0.5rem;
+}
+
+.flag-icon {
+	height: 12px;
+	width: auto;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 480px) {
+	.language-selector {
+		width: 100%;
+	}
+	
+	.language-selector select {
+		width: 100%;
+		text-align: left;
+		min-width: unset;
+		padding-left: 1rem;
+		padding-right: 2.5rem;
+	}
+}

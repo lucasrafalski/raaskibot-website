@@ -43,10 +43,10 @@
 						<li>
 							<a href="#contact" data-en="Contact" data-pt="Contato"></a>
 						</li>
-						<li>
+						<li class="language-selector">
 							<select name="language" id="language" onchange="changeLanguage(this.value)">
-								<option value="en">English</option>
-								<option value="pt">Português</option>
+								<option value="en">🇺🇸 ENG</option>
+								<option value="pt">🇧🇷 POR</option>
 							</select>
 						</li>
 					</ul>
@@ -77,6 +77,7 @@
 							<li><a href="#bc" data-en="Bewitcher Cave (BC)" data-pt="Bewitcher Cave (BC)"></a></li>
 							<li><a href="#autopick" data-en="Auto Pick" data-pt="Auto Pick"></a></li>
 							<li><a href="#sell" data-en="Sell" data-pt="Sell"></a></li>
+							<li><a href="#shortcuts" data-en="Shortcuts" data-pt="Atalhos"></a></li>
 						</ul>
 					</nav>
 
@@ -88,7 +89,7 @@
 						<li>
 							<span data-en="RaaskiBot has features to assist with Farming, Leveling Up, Quests and Caves."
 								data-pt="RaaskiBot possui funções para auxiliar o Farm, Level Up, Quests e Caves.">
-						</span>	
+							</span>	
 						</li>
 						<li>
 							<span data-en="The features inside the <span style='color: green; font-weight: bold;'>Green</span> square are part of the <span style='color: green; font-weight: bold;'>Basic</span> plan."
@@ -98,7 +99,7 @@
 						<li>
 							<span data-en="The features inside the <span style='color: rgb(183, 173, 0); font-weight: bold;'>Yellow</span> square are additional features of the <span style='color: rgb(183, 173, 0); font-weight: bold;'>Premium</span> plan."
 								data-pt="As funções do quadrado <span style='color: rgb(183, 173, 0); font-weight: bold;'>Amarelo</span> são funções extras do plano <span style='color: rgb(183, 173, 0); font-weight: bold;'>Premium</span>.">
-								</span>
+							</span>
 						</li>
 					</ul>
 					
@@ -109,27 +110,27 @@
 						<li>
 							<span data-en="<span style='color: rgb(112, 146, 190); font-weight: bold;'>(1) Main Menu</span>"
 								data-pt="<span style='color: rgb(112, 146, 190); font-weight: bold;'>(1) Menu Principal</span>">
-								</span>
+							</span>
 						</li>
 						<li>
 							<span data-en="<span style='color: rgb(255, 127, 39); font-weight: bold;'>(2) Menu to configure the Functions</span>"
 								data-pt="<span style='color: rgb(255, 127, 39); font-weight: bold;'>(2) Menu para configurar as Funções</span>">
-								</span>
+							</span>
 						</li>
 						<li>
 							<span data-en="<span style='color: rgb(34, 177, 76); font-weight: bold;'>(3) Information about Char and selected Target</span>"
 								data-pt="<span style='color: rgb(34, 177, 76); font-weight: bold;'>(3) Informações do Char e do Target selecionado</span>">
-								</span>
+							</span>
 						</li>
 						<li>
 							<span data-en="<span style='color: rgb(255, 242, 0); font-weight: bold;'>(4) Enable/Disable the Functions you want to use</span>"
 								data-pt="<span style='color: rgb(255, 242, 0); font-weight: bold;'>(4) Habilitar/Desabilitar as funções que deseja utilizar</span>">
-								</span>
+							</span>
 						</li>
 						<li>
 							<span data-en="<span style='color: rgb(237, 28, 36); font-weight: bold;'>(5) Char List</span>"
 								data-pt="<span style='color: rgb(237, 28, 36); font-weight: bold;'>(5) Lista dos Chars</span>">
-								</span>
+							</span>
 						</li>
 					</ul>
 
@@ -140,12 +141,12 @@
 						<li>
 							<span data-en="To Start/Stop the bot for the desired Char, click the checkbox to the left of the Char's name."
 								data-pt="Para Iniciar/Parar o bot do Char desejado, clique na caixinha à esquerda do nome do Char.">
-								</span>
+							</span>
 						</li>
 						<li>
 							<span data-en="To Select another Char, click on his Name."
 								data-pt="Para Selecionar outro char, clique no Nome dele.">
-								</span>
+							</span>
 						</li>
 					</ul>
 
@@ -685,26 +686,57 @@
 						<li>
 							<span data-en="<b>(4) Config</b>:
 									<br><b>• Sell at Every X min:</b> How many minutes the character will wait before selling items.
-									<br><b>• Initial Selling Slot:</b> The Sell slot where the character will keep clicking to sell the items.
+									<br><b>• Items Amount:</b> Maximum amount of items. A full bag contains 30 items. If configured to 30, the character will sell when the first bag is full.
+									<br><b>• Initial Selling Slot:</b> The Sell slot where the character will keep clicking to sell the items. 1 = first Sell slot, 7 = first Sell slot of the second row, etc.
+									<br><b>• Near Distance:</b> Distance that the character adjust the position when returning to the Spot. Useful for some narrow spots.
 									<br><b>• Sell at Start:</b> With this option enabled, the character will execute the sell function when the bot starts."
 								data-pt="<b>(4) Config</b>:
 									<br><b>• Sell at Every X min:</b> A cada quantos minutos o Char vai ir vender os itens.
-									<br><b>• Initial Selling Slot:</b> Slot de Sell que o Char vai ficar clicando para vender os itens.
+									<br><b>• Items Amount:</b> Quantidade limite de itens. Uma bag cheia contém 30 itens. Se tiver configurado para 30, o char vai ir vender quando a primeira bag estiver cheia.
+									<br><b>• Initial Selling Slot:</b> Slot de Sell que o Char vai ficar clicando para vender os itens. 1 = primeiro slot do Sell, 7 = primeiro slot da segunda fileira de sell, etc.
+									<br><b>• Near Distance:</b> Distância para o char ajustar a posição quando estiver voltando para o Spot. Útil para alguns spots apertados.
 									<br><b>• Sell at Start:</b> Com essa opção marcada, o Char vai executar a função de venda quando iniciar o bot.">
 							</span>
 						</li>
 					</ul>
 					
-					<!-- <h3 id="" data-en="" data-pt=""></h3>
-					<span class="image main"><img src="images/.jpg" alt=""/></span>
+					<!-- Shortcuts -->
+					<h3 id="shortcuts" data-en="Shortcuts" data-pt="Atalhos"></h3>
+					<span class="image main"><img src="images/tut_menu_config.png" alt=""/></span>
+					<span class="image main"><img src="images/tut_shortcuts.png" alt=""/></span>
 					<ul>
 						<li>
-							<span data-en=""
-								data-pt="">
-
+							<span data-en="<b>The shortcuts need to be activated in the box on the left. You can put the shortcuts you want for each function. The shortcuts with (Selected Bots) in the name will only work for the selected bots. To select multiple bots, hold Ctrl and click on the name of the bots in the bot list. Example of selected bot:</b>"
+								data-pt="<b>Os atalhos precisam ser ativados na caixinha ao lado esquerdo. Você pode colocar os atalhos que desejar para cada função. Os atalhos com (Selected Bots) no nome funcionarão apenas para os chars selecionados na lista de bots. Para selecionar vários chars, segure Ctrl e clique no nome dos chars na lista do bot. Exemplo de bot selecionado:</b>">
 							</span>
 						</li>
-					</ul> -->
+					</ul>
+
+					<span class="image main"><img src="images/tut_shortcut_example.png" alt=""/></span>
+
+					<ul>
+						<li>
+							<span data-en="<b> Description of the Shortcuts:</b> 
+								    <br><b>• Mount Shortcut (Selected Bots):</b> Shortcut of the mount.
+									<br><b>• Mount Follow (Selected Bots):</b> The character will mount (using the shortcut above) and follow the leader.
+									<br><b>• Mount Up (Selected Bots):</b> The character will mount (using the shortcut above).
+									<br><b>• Mount Down (Selected Bots):</b> The character will dismount (using the shortcut above).
+									<br><b>• Follow (Selected Bots):</b> The character will select the leader and follow him.
+									<br><b>• Start/Stop (Selected Bots):</b> Start or stop the selected bots.
+									<br><b>• Start/Stop (All Bots):</b> Start or stop all bots in the list.
+									<br><b>• Start/Stop (Selected Window)</b> Start or stop the character with the selected window. Example: click on the TO window of your character and press this shortcut."
+								data-pt="<b> Descrição dos atalhos:</b>
+									<br><b>• Mount Shortcut (Selected Bots):</b> Atalho da montaria.
+									<br><b>• Mount Follow (Selected Bots):</b> O char vai subir na montaria (pressionando o atalho setado acima) e vai seguir o líder.
+									<br><b>• Mount Up (Selected Bots):</b> O char vai subir na montaria (pressionando o atalho setado acima).
+									<br><b>• Mount Down (Selected Bots):</b> O char desce da montaria (pressionando o atalho setado acima).
+									<br><b>• Follow (Selected Bots):</b> O char vai selecionar o líder e vai seguir ele.
+									<br><b>• Start/Stop (Selected Bots):</b> Inicia ou para os bots selecionados.
+									<br><b>• Start/Stop (All Bots):</b> Inicia ou para todos os bots da lista.
+									<br><b>• Start/Stop (Selected Window)</b> Inicia ou para o char que estiver com a janela selecionada. Exemplo: clique na janela do TO do seu char e pressione este atalho.">
+							</span>
+						</li>
+					</ul>
 
 					<h3 id="wip" data-en="Work in progress..." data-pt="Em construção..."></h3>
 				</article>
