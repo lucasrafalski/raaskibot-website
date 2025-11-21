@@ -107,6 +107,8 @@
 							<li><a href="#autopick" data-en="Auto Pick" data-pt="Auto Pick"></a></li>
 							<li><a href="#sell" data-en="Sell" data-pt="Sell"></a></li>
 							<li><a href="#shortcuts" data-en="Shortcuts" data-pt="Atalhos"></a></li>
+							<li><a href="#loginrelog" data-en="Login/Relog" data-pt="Login/Relog"></a></li>
+							<li><a href="#hollow" data-en="Hollow" data-pt="Hollow"></a></li>
 						</ul>
 					</nav>
 
@@ -517,12 +519,14 @@
 									<br><b>• Return to Stone every X run(s):</b> The Farmer will return to Stone City after completing the BC cave X times (as defined in the box). The default is 5 runs. The Farmer will complete the cave, exit it via the Teleport NPC, and re-enter the cave without returning to Stone City. Each 'run' drops about 5 items, so ensure the Farmer has 25 free inventory slots for 5 consecutive runs without returning.
 									<br><b>• Initial Selling Slot:</b> Slot in the Sell menu where the Farmer will click to sell items. Slot number 7 corresponds to the first slot in the second row. Hovering over the (?) shows the slot numbering in the bot. It's recommended to place Potions in the first inventory slots to avoid selling them.
 									<br><b>• Buy Return Charm after selling:</b> The Farmer will buy 1 Stone City Return Charm after selling items, eliminating the need to stockpile them in the inventory.
-									<br><b>• Manual Auto Pick:</b> Option for when the Farmer's Pet doesn't have the Auto Pick Skill Book. The Farmer will manually loot the boss."
+									<br><b>• Manual Auto Pick:</b> Option for when the Farmer's Pet doesn't have the Auto Pick Skill Book. The Farmer will manually loot the boss.
+									<br><b>• Get Treasure Box:</b> Option to collect the box after killing the Blaze Skull Marshal."
 								data-pt="<b>(3) General:</b> Configurações gerais.
 									<br><b>• Return to Stone every X run(s):</b> O Farmer vai voltar para Stone City depois de fazer a cave de BC por X vezes (definidas na caixinha). O padrão é 5 vezes, então o Farmer vai completar a cave, sair dela pelo NPC de Teleport e já entrar na cave novamente, sem voltar para Stone City. Cada 'run' dropa cerca de 5 items, então tenha em mente que para as 5 runs sem voltar pra Stone City o Farmer precisa ter 25 espaços livres no inventário.
 									<br><b>• Initial Selling Slot:</b> Slot do menu de Sell que o Farmer vai ficar clicando para vender os itens. O número 7 indica o primeiro slot da segunda fileira. Ao passar o mouse por cima do (?) a númeração dos slots é mostrada no bot. É recomendado colocar suas Poções nos primeiros slots do inventário, para evitar que sejam vendidas.
 									<br><b>• Buy Return Charm after selling:</b> Vai comprar 1 Stone City Return Charm toda vez que for vender os itens. Dessa forma não precisa estocar Stone City Return Charm no inventário do Farmer.
-									<br><b>• Manual Auto Pick:</b> Opção para caso o Pet do Farmer não tenha o Skill Book de Auto Pick. O Farmer vai pegar o loot do boss.">
+									<br><b>• Manual Auto Pick:</b> Opção para caso o Pet do Farmer não tenha o Skill Book de Auto Pick. O Farmer vai pegar o loot do boss.
+									<br><b>• Get Treasure Box:</b> Opção para pegar a box depois de matar o Blaze Skull Marshal.">
 							</span>
 						</li>
 						<li>
@@ -769,12 +773,87 @@
 						</li>
 					</ul>
 
+					<!-- Login/Relog -->
+					<h3 id="loginrelog" data-en="Login/Relog" data-pt="Login/Relog"></h3>
+					<span class="image main"><img src="images/tut_menu_login.png" alt=""/></span>
+					<span class="image main"><img src="images/tut_login_setpath.png" alt=""/></span>
+					<span class="image main"><img src="images/tut_login_acclist.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>To configure the Login/Relog function</b>: 
+									<br>• Click on menu Login.
+									<br>• If your Talisman Folder is not in the default directory, select it like this: in the Login screen, click on menu Config and then Set Path.
+									<br>• Add the account you want to use.
+									<br>• Check the box next to the character's name to Login the character if it's not in the Bot list, or relog in case of disconnection and automatically start the bot after logging in."
+								data-pt="<b>Para configurar a função de Login/Relog</b>: 
+									<br>• Clique no menu Login.
+									<br>• Caso a pasta do Talisman não esteja no diretório padrão, selecione-a da seguinte forma: na tela de Login, clique no menu Config e depois em Set Path.
+									<br>• Adicione a conta que deseja usar.
+									<br>• Marque a caixinha ao lado do nome do char para logar o char caso ele não esteja na lista do Bot, ou relogar caso tenha levado DC e iniciar automaticamente o bot depois de logar.">
+							</span>
+						</li>
+					</ul>
+
+					<!-- Hollow -->
+					<h3 id="hollow" data-en="Hollow" data-pt="Hollow"></h3>
+					<span class="image main"><img src="images/tut_hollow.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>To configure the Hollow function</b>: 
+									<br>• Select who will be the leader of the team.
+									<br>• Add the members that will be part of the team.
+									<br>• Choose which settings you want to use: 
+									<br>• • Hollow 1 to 3 times. 
+									<br>• • LW (Ice Mirror Faerie).
+									<br>• • Exchange Courage for Soul Bell (you need to have 90 Courage Badge in the inventory each time you want to exchange).
+									<br>• • Super Skill quest after finishing the runs.
+									<br>• Kite Mode: will attack the Hollow keeping a safe distance.
+									<br>• Stay Safe: will not attack the Hollow, only will stay safe. Useful for weak characters."
+								data-pt="<b>Para configurar a função de Hollow</b>: 
+									<br>• Selecione quem vai ser o líder do time.
+									<br>• Adicione os membros que farão parte do time.
+									<br>• Escolha quais configurações deseja usar: 
+									<br>• • Hollow de 1 a 3 vezes. 
+									<br>• • LW (Ice Mirror Faerie).
+									<br>• • Exchange Courage for Soul Bell (tem que ter 90 Courage Badge no inventário cada vez que for trocar).
+									<br>• • Quest de Super Skill após finalizar as runs.
+									<br>• Kite Mode: vai atacar o Hollow mantendo uma distância segura.
+									<br>• Stay Safe: não vai atacar o Hollow, apenas vai se manter seguro. Útil para chars fracos.">
+							</span>
+						</li>
+					</ul>
+
 					<h4 id="wip" data-en="Work in progress..." data-pt="Em construção..."></h3>
 				</article>
 
 				<!-- Patch Notes -->
 				<article id="patchnotes">
 					<h2 class="major" data-en="Patch Notes" data-pt="Patch Notes"></h2>
+					
+					<h3 data-en="Version 4.5 - [November 21, 2025]" 
+						data-pt="Versão 4.5 - [21/11/2025]"></h3>
+					<ul>
+						<li>
+							<span data-en="Version 4.5 released."
+								data-pt="Versão 4.5 liberada.">
+							</span>
+						</li>
+						<li>
+							<span data-en="New Login/Relog function (bot menu -> Login): logs the character if it is not in the Bot list, relogs in case of disconnection, and automatically starts the bot after logging in. If you placed the Talisman folder in another directory, remember to set the folder location in the &quot;Config -> Set Path&quot; menu on the Login screen."
+								data-pt="Nova função de Login/Relog (menu do bot -> Login): loga o char caso ele não esteja na lista do Bot, reloga caso tenha levado DC e inicia automaticamente o bot depois de logar. Caso voce tenha colocado a pasta do Talisman em outro diretório, lembre-se de definir o local da pasta no menu &quot;Config -> Set Path&quot; da tela de Login.">
+							</span>
+						</li>
+						<li>
+							<span data-en="New &quot;Hollow&quot; function, which covers SSC Hollow, LW (Ice Mirror Faerie), and Super Skill quest, for farming Residual Shadow."
+								data-pt="Nova função &quot;Hollow&quot;, que engloba SSC Hollow, LW (Ice Mirror Faerie) e quest de Super Skill, para farm de Residual Shadow.">
+							</span>
+						</li>
+						<li>
+							<span data-en="New option in the BC tab, &quot;Get Treasure Box&quot;, to collect the box after killing the Blaze Skull Marshal."
+								data-pt="Nova opção na aba de BC, &quot;Get Treasure Box&quot;, para pegar a box depois de matar o Blaze Skull Marshal.">
+							</span>
+						</li>
+					</ul>
 
 					<h3 data-en="Version 4.4 - [September 29, 2025]" 
 						data-pt="Versão 4.4 - [29/09/2025]"></h3>
