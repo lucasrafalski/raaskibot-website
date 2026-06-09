@@ -109,6 +109,7 @@
 							<li><a href="#shortcuts" data-en="Shortcuts" data-pt="Atalhos"></a></li>
 							<li><a href="#loginrelog" data-en="Login/Relog" data-pt="Login/Relog"></a></li>
 							<li><a href="#hollow" data-en="Hollow" data-pt="Hollow"></a></li>
+							<li><a href="#drlure" data-en="DR Lure" data-pt="DR Lure"></a></li>
 						</ul>
 					</nav>
 
@@ -825,12 +826,138 @@
 						</li>
 					</ul>
 
+					<!-- DR Lure -->
+					<h3 id="drlure" data-en="DR Lure" data-pt="DR Lure"></h3>
+					<span class="image main"><img src="images/tut_drlure.png" alt=""/></span>
+					<ul>
+						<li>
+							<span data-en="<b>To configure the DR Lure function</b>: 
+									<br>• Enable the DR Lure function in the Home tab.
+									<br>• Select the Lure option.
+									<br>• Start the bot."
+								data-pt="<b>Para configurar a função de DR Lure</b>: 
+									<br>• Ative a função de DR Lure na aba Home.
+									<br>• Selecione a opção de Lure.
+									<br>• Inicie o bot.">
+							</span>
+						</li>
+					</ul>
+
 					<h4 id="wip" data-en="Work in progress..." data-pt="Em construção..."></h3>
 				</article>
 
 				<!-- Patch Notes -->
 				<article id="patchnotes">
 					<h2 class="major" data-en="Patch Notes" data-pt="Patch Notes"></h2>
+
+					<!-- Version 4.6 - [June 9, 2026] -->
+					<h3 data-en="Version 4.6 - [June 9, 2026]" 
+						data-pt="Versão 4.6 - [09/06/2026]"></h3>
+					<ul>
+						<li>
+							<span data-en='<b>Home:</b> Enabling/disabling functions in the Home tab now affects all characters selected in the bot.'
+								data-pt='<b>Home:</b> A ativação/desativação de funções na Home afeta todos os chars selecionados no bot.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Login:</b> Unchecking the login option now immediately interrupts the login process.'
+								data-pt='<b>Login:</b> Desmarcar a opção de login interrompe imediatamente o processo de login.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Login:</b> Added the option to choose which character slot (left, middle, or right) to log in to accounts with 2 or 3 characters.'
+								data-pt='<b>Login:</b> Possibilidade de escolher qual char vai logar na conta (slot esquerdo, meio ou direito) - para contas com 2 ou 3 chars.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>BC:</b> Added a new "Auto Reset Stats" option under the BC/Stats tab.'
+								data-pt='<b>BC:</b> Adicionada uma nova opção de Auto Reset Stats na aba BC/Stats.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>BC:</b> Optimized the mob/boss detection system to reduce failures.'
+								data-pt='<b>BC:</b> Otimizado o sistema de detecção de mobs/bosses para reduzir falhas.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>BC:</b> Added a new option under BC/Potions to set the fairy&#39;s heal percentage during the Blaze Skull Marshal fight.'
+								data-pt='<b>BC:</b> Adicionada uma nova opção na aba BC/Potions para definir a porcentagem em que a Fairy se cura durante a luta contra o Blaze Skull Marshal.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Script:</b> Added the ability to save a Default Script by class via character name right-click menu → Script → Save Default For → classes.'
+								data-pt='<b>Script:</b> Adicionada a opção de salvar um Script padrão por classe através do menu de botão direito no nome do char -> Script -> Save Default For -> classes.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Config – Bot/General/Char Scripts:</b> New options to save and load scripts.'
+								data-pt='<b>Config – Bot/General/Char Scripts:</b> Novas opções para salvar e carregar scripts.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Config – Bot/Pet Fix:</b> New options to prevent the client from closing during teleport or when entering caves. Automatic mode for BC and Hollow. (The same function is available in the character right-click menu in the bot list → Pet Fix.)'
+								data-pt='<b>Config – Bot/Pet Fix:</b> Novas opções para evitar que o client feche ao teleportar ou entrar em caves. Modo automático para BC e Hollow. (A mesma função está disponível no menu de botão direito no nome do char na lista do bot -> Pet Fix.)'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Hollow:</b> Fixed the passive skill usage logic for Assassin (shortcuts Attack 1 and 2).'
+								data-pt='<b>Hollow:</b> Corrigida a lógica de uso da passiva no Assassin (shortcuts Attack 1 e 2).'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Hollow:</b> Added "Auto Reset State" function for the team leader. This should only be used in conjunction with Pet Fix (without DC). If the character relogs, the State of the entire team will be reset mid-run, causing an infinite loop.'
+								data-pt='<b>Hollow:</b> Adicionada a função Auto Reset State para o líder do time. Deve ser usada apenas em conjunto com o Pet Fix (sem DC). Caso o char relogue, o State de todo o time será resetado no meio do percurso, causando um loop infinito.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Hollow:</b> Added a "Start BC when finished" option to automatically start BC after completing Hollow functions.'
+								data-pt='<b>Hollow:</b> Adicionada a opção "Start BC when finished" para iniciar o BC automaticamente ao concluir as funções de Hollow.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Hollow:</b> When "Kite Mode" is active, the character now takes one extra step toward the boss (useful for when the boss is not visible on the damager&lsquo;s screen).'
+								data-pt='<b>Hollow:</b> Quando a opção "Kite Mode" estiver ativa, o char agora dará um passo adicional em direção ao boss (útil quando o boss não está visível na tela do damager).'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Hollow:</b> Added new "BC Trash" tab to send golden-dropped items from BC after completing Hollow.'
+								data-pt='<b>Hollow:</b> Adicionada nova aba "BC Trash" para enviar itens golden dropados na BC depois de completar o Hollow.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Revive:</b> Added an option to automatically stop the bot after reviving.'
+								data-pt='<b>Revive:</b> Adicionada uma opção para parar o bot automaticamente após reviver.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Revive:</b> Added an option to go to the saved Revive spot when starting the bot or logging/relogging the character.'
+								data-pt='<b>Revive:</b> Adicionada uma opção para ir ao spot salvo do Revive ao iniciar o bot ou logar/relogar o char.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Fairy:</b> Added the option for the Fairy to return to the initial position after reviving a member (Return to Initial Position after Revive).'
+								data-pt='<b>Fairy:</b> Adicionada a opção para a Fairy retornar à posição inicial após reviver um membro (Return to Initial Position after Revive).'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Fairy:</b> Added the option to manually enter the team members&#39; names.'
+								data-pt='<b>Fairy:</b> Adicionada a opção para inserir manualmente os nomes dos membros do team.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>Fairy:</b> New "Invite" and "Accept" options to send or accept team invitations when logging in, relogging, or starting the bot. You do not need to enable the "Fairy" function in Home to use Invite/Accept.'
+								data-pt='<b>Fairy:</b> Novas opções de Invite e Accept para enviar ou aceitar convite de team ao logar, relogar ou iniciar o bot. Não é necessário ativar a função "Fairy" na Home para utilizar o Invite/Accept.'>
+							</span>
+						</li>
+						<li>
+							<span data-en='<b>DR Lure:</b> New function for luring DR bosses.'
+								data-pt='<b>DR Lure:</b> Nova função de lure dos bosses de DR.'>
+							</span>
+						</li>
+					</ul>
+
+					
+					<!-- Version 4.5.6 -->
 					<h3 data-en="Version 4.5.6 - [December 5, 2025]" 
 						data-pt="Versão 4.5.6 - [05/12/2025]"></h3>
 					<ul>
