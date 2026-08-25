@@ -1,1435 +1,1089 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>RaaskiBot</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" type="image/png" href="images/favicon.png" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			/* Fix para o dropdown de idiomas */
-			select#language {
-				border: solid 1px #ffffff;
-				border-radius: 4px;
-				background-color: rgba(27, 31, 34, 0.85);
-			}
-			
-			select#language option {
-				background-color: rgba(27, 31, 34, 0.95) !important;
-				color: #fff !important;
-				padding: 8px !important;
-				font-size: 0.8rem !important;
-				letter-spacing: 0.1rem !important;
-				text-transform: uppercase !important;
-				border: none !important;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RaaskiBot</title>
+	<meta name="description" content="Tutorials and patch notes for RaaskiBot, a bot for Talisman Online.">
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+	<link rel="stylesheet" href="assets/css/modern.css">
+</head>
+<body>
 
-		<!-- Wrapper -->
-		<div id="wrapper">
-			<!-- Header -->
-			<header id="header">
-				<div class="logo">
-					<span class="icon">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#2b2a2a" fill-opacity="1"></circle><g class="" transform="translate(0,0)"><path d="M256 23C127.424 23 23 127.424 23 256s104.424 233 233 233 233-104.424 233-233S384.576 23 256 23zm-6.094 18.09C128.036 47.807 130.066 256 256 256c125.215 0 127.935 205.872 8.168 214.83-2.71.1-5.432.17-8.168.17-118.848 0-215-96.152-215-215 0-116.81 92.883-211.69 208.906-214.91zM256 103c22.537 0 41 18.463 41 41s-18.463 41-41 41-41-18.463-41-41 18.463-41 41-41zm0 224c-22.537 0-41 18.463-41 41s18.463 41 41 41 41-18.463 41-41-18.463-41-41-41z" fill="#dcd8d8" fill-opacity="1"></path></g></svg>
-					</span>
+<header class="topbar">
+	<a class="brand" href="#home"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="256" fill="#161616"/><path fill="#e8e8e8" d="M256 23C127.424 23 23 127.424 23 256s104.424 233 233 233 233-104.424 233-233S384.576 23 256 23zm-6.094 18.09C128.036 47.807 130.066 256 256 256c125.215 0 127.935 205.872 8.168 214.83-2.71.1-5.432.17-8.168.17-118.848 0-215-96.152-215-215 0-116.81 92.883-211.69 208.906-214.91zM256 103c22.537 0 41 18.463 41 41s-18.463 41-41 41-41-18.463-41-41 18.463-41 41-41zm0 224c-22.537 0-41 18.463-41 41s18.463 41 41 41 41-18.463 41-41-18.463-41-41-41z"/></svg><span>RaaskiBot</span></a>
+
+	<nav class="tabs" aria-label="Sections">
+		<button type="button" class="tab" data-view="home" aria-selected="true" data-en="Home" data-pt="Início"></button>
+		<button type="button" class="tab" data-view="tutoriais" aria-selected="false" data-en="Tutorials" data-pt="Tutoriais"></button>
+		<button type="button" class="tab" data-view="patch-notes" aria-selected="false" data-en="Patch Notes" data-pt="Patch Notes"></button>
+		<a class="tab tab--out" href="https://www.youtube.com/playlist?list=PLMZOKo_yDo0-GMv4DyENpjaANbiu9YAzU" target="_blank" rel="noopener"
+		   data-en="YouTube" data-pt="YouTube"></a>
+		<button type="button" class="tab" data-view="contato" aria-selected="false" data-en="Contact" data-pt="Contato"></button>
+	</nav>
+
+	<div class="topbar-end">
+		<div class="lang" role="group" aria-label="Language">
+			<button type="button" data-lang="en" aria-pressed="true">ENG</button>
+			<button type="button" data-lang="pt" aria-pressed="false">POR</button>
+		</div>
+		<button type="button" class="drawer-toggle" aria-expanded="false" aria-controls="sidebar" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+	</div>
+</header>
+
+<div class="shell">
+
+	<!-- ================================================================= HOME -->
+	<main class="view is-active" data-view="home">
+		<div class="home">
+			<div>
+				<div class="home-mark"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="256" fill="#161616"/><path fill="#e8e8e8" d="M256 23C127.424 23 23 127.424 23 256s104.424 233 233 233 233-104.424 233-233S384.576 23 256 23zm-6.094 18.09C128.036 47.807 130.066 256 256 256c125.215 0 127.935 205.872 8.168 214.83-2.71.1-5.432.17-8.168.17-118.848 0-215-96.152-215-215 0-116.81 92.883-211.69 208.906-214.91zM256 103c22.537 0 41 18.463 41 41s-18.463 41-41 41-41-18.463-41-41 18.463-41 41-41zm0 224c-22.537 0-41 18.463-41 41s18.463 41 41 41 41-18.463 41-41-18.463-41-41-41z"/></svg></div>
+				<h1 data-en="A bot made for Talisman Online"
+				    data-pt="Um bot feito para Talisman Online"></h1>
+				<nav class="home-links">
+					<a class="primary" href="#tutoriais" data-en="Tutorials" data-pt="Tutoriais"></a>
+					<a href="#patch-notes" data-en="Patch Notes" data-pt="Patch Notes"></a>
+					<a href="#contato" data-en="Contact" data-pt="Contato"></a>
+				</nav>
+			</div>
+		</div>
+	</main>
+
+	<!-- ============================================================ TUTORIAIS -->
+	<main class="view" data-view="tutoriais">
+		<div class="docs">
+
+			<aside class="sidebar" id="sidebar">
+				<div class="search">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+					<input id="search" type="search" autocomplete="off"
+					       data-en-ph="Search tutorials" data-pt-ph="Buscar nos tutoriais"
+					       placeholder="Search tutorials" aria-label="Search tutorials">
 				</div>
-				<div class="content">
-					<div class="inner">
-						<h1>RaaskiBot</h1>
-						<p data-en="A bot made for Talisman Online"
-							data-pt="Um bot feito para Talisman Online">
-						</p>
-					</div>
-				</div>
-				
-				<!-- Menu -->
-				<nav>
-					<ul>
-						<li>
-							<a href="#tutorials" data-en="Tutorials" data-pt="Tutoriais"></a>
-						</li>
-						<li>
-							<a href="https://www.youtube.com/playlist?list=PLMZOKo_yDo0-GMv4DyENpjaANbiu9YAzU" target="_blank" data-en="YouTube" data-pt="YouTube"></a>
-						</li>
-						<li>
-							<a href="#patchnotes" data-en="Patch Notes" data-pt="Patch Notes"></a>
-						</li>
-						<li>
-							<a href="#about" data-en="About" data-pt="Sobre"></a>
-						</li>
-						<li>
-							<a href="#contact" data-en="Contact" data-pt="Contato"></a>
-						</li>
-						<li class="language-selector">
-							<select name="language" id="language" onchange="changeLanguage(this.value)" style="display: none;">
-								<option value="en">🇺🇸 ENG</option>
-								<option value="pt">🇧🇷 POR</option>
-							</select>
-							<div class="custom-dropdown">
-								<div class="selected-option" id="current-language">🇺🇸 ENG</div>
-								<div class="dropdown-content" id="language-options">
-									<div class="dropdown-option" data-value="en">🇺🇸 ENG</div>
-									<div class="dropdown-option" data-value="pt">🇧🇷 POR</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</nav>						
-			</header>
-
-			<!-- Main -->
-			<div id="main">
-				<!-- Tutorials -->
-				<article id="tutorials">
-					<h2 class="major" data-en="Tutorials" data-pt="Tutoriais"></h2>
-
-					<!-- Summary -->
-					<nav id="summary">
-						<h3 data-en="Summary" data-pt="Sumário"></h3>
+				<nav aria-label="Tutorials">
+					<div class="nav-group">
+						<h4 data-en="Getting started" data-pt="Começando"></h4>
 						<ul>
-							<li><a href="#overview" data-en="Overview" data-pt="Resumo"></a></li>
-							<li><a href="#interface" data-en="Interface" data-pt="Interface"></a></li>
-							<li><a href="#startstopbot" data-en="Start/Stop Bot" data-pt="Iniciar/Parar Bot"></a></li>
-							<li><a href="#attack" data-en="Attack" data-pt="Attack"></a></li>
-							<li><a href="#potion" data-en="Potion" data-pt="Potion"></a></li>
-							<li><a href="#petfood" data-en="Pet Food" data-pt="Pet Food"></a></li>
-							<li><a href="#buff" data-en="Buff" data-pt="Buff"></a></li>
-							<li><a href="#helper" data-en="Helper" data-pt="Helper"></a></li>
-							<li><a href="#fairy" data-en="Fairy" data-pt="Fairy"></a></li>
-							<li><a href="#revive" data-en="Revive" data-pt="Revive"></a></li>
-							<li><a href="#delete" data-en="Delete" data-pt="Delete"></a></li>
-							<li><a href="#bc" data-en="Bewitcher Cave (BC)" data-pt="Bewitcher Cave (BC)"></a></li>
-							<li><a href="#autopick" data-en="Auto Pick" data-pt="Auto Pick"></a></li>
-							<li><a href="#sell" data-en="Sell" data-pt="Sell"></a></li>
-							<li><a href="#shortcuts" data-en="Shortcuts" data-pt="Atalhos"></a></li>
-							<li><a href="#loginrelog" data-en="Login/Relog" data-pt="Login/Relog"></a></li>
-							<li><a href="#hollow" data-en="Hollow" data-pt="Hollow"></a></li>
-							<li><a href="#drlure" data-en="DR Lure" data-pt="DR Lure"></a></li>
+							<li><a href="#hometab" data-en="Home" data-pt="Home"></a>
+							</li>
+							<li><a href="#startstopbot" data-en="Start/Stop Bot" data-pt="Iniciar/Parar Bot"></a>
+							</li>
 						</ul>
-					</nav>
+					</div>
+					<div class="nav-group">
+						<h4 data-en="Combat" data-pt="Combate"></h4>
+						<ul>
+							<li><a href="#attack" data-en="Attack" data-pt="Attack"></a>
+							</li>
+							<li><a href="#potion" data-en="Potion" data-pt="Potion"></a>
+							</li>
+							<li><a href="#petfood" data-en="Pet Food" data-pt="Pet Food"></a>
+							</li>
+							<li><a href="#buff" data-en="Buff" data-pt="Buff"></a>
+							</li>
+							<li><a href="#helper" data-en="Helper" data-pt="Helper"></a>
+							</li>
+							<li><a href="#fairy" data-en="Fairy" data-pt="Fairy"></a>
+							</li>
+							<li><a href="#revive" data-en="Revive" data-pt="Revive"></a>
+							</li>
+						</ul>
+					</div>
+					<div class="nav-group">
+						<h4 data-en="Items" data-pt="Itens"></h4>
+						<ul>
+							<li><a href="#delete" data-en="Delete" data-pt="Delete"></a>
+							</li>
+							<li><a href="#mail" data-en="Mail" data-pt="Mail"></a>
+							</li>
+							<li><a href="#autopick" data-en="Auto Pick" data-pt="Auto Pick"></a>
+							</li>
+							<li><a href="#sell" data-en="Sell" data-pt="Sell"></a>
+							</li>
+						</ul>
+					</div>
+					<div class="nav-group">
+						<h4 data-en="Caves" data-pt="Caves"></h4>
+						<ul>
+							<li><a href="#caveshortcuts" data-en="Cave Shortcuts" data-pt="Cave Shortcuts"></a>
+							</li>
+							<li><a href="#bc" data-en="Bewitcher Cave (BC)" data-pt="Bewitcher Cave (BC)"></a>
+								<ul class="sub">
+									<li><a href="#bcpotions" data-en="Potions" data-pt="Potions"></a></li>
+									<li><a href="#bcmail" data-en="Mail" data-pt="Mail"></a></li>
+									<li><a href="#bcstats" data-en="Stats" data-pt="Stats"></a></li>
+								</ul>
+							</li>
+							<li><a href="#hollow" data-en="Hollow" data-pt="Hollow"></a>
+								<ul class="sub">
+									<li><a href="#hollowpotions" data-en="Potions" data-pt="Potions"></a></li>
+								</ul>
+							</li>
+							<li><a href="#pcp" data-en="PCP" data-pt="PCP"></a>
+								<ul class="sub">
+									<li><a href="#pcppotions" data-en="Potions" data-pt="Potions"></a></li>
+									<li><a href="#pcploot" data-en="Loot" data-pt="Loot"></a></li>
+									<li><a href="#pcpmail" data-en="Mail" data-pt="Mail"></a></li>
+								</ul>
+							</li>
+							<li><a href="#drlure" data-en="DR Lure" data-pt="DR Lure"></a>
+							</li>
+						</ul>
+					</div>
+					<div class="nav-group">
+						<h4 data-en="System" data-pt="Sistema"></h4>
+						<ul>
+							<li><a href="#key" data-en="Key" data-pt="Key"></a>
+							</li>
+							<li><a href="#shortcuts" data-en="Shortcuts" data-pt="Atalhos"></a>
+							</li>
+							<li><a href="#loginrelog" data-en="Login/Relog" data-pt="Login/Relog"></a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<p class="no-hits" data-en="No section matches." data-pt="Nenhuma seção encontrada."></p>
+			</aside>
 
-					<!-- Overview -->
-					<h3 id="overview" data-en="Overview" data-pt="Resumo"></h3>
-					<span class="image main"><img src="images/raaskibot.jpg" alt=""/></span>
-
-					<ul>
-						<li>
-							<span data-en="RaaskiBot has features to assist with Farming, Leveling Up, Quests and Caves."
-								data-pt="RaaskiBot possui funções para auxiliar o Farm, Level Up, Quests e Caves.">
-							</span>	
+			<div class="content">
+				<div class="page-head">
+					<p class="eyebrow" data-en="Documentation" data-pt="Documentação"></p>
+					<h1 data-en="Tutorials" data-pt="Tutoriais"></h1>
+					<p data-en="Every bot feature, one section each. The numbers next to each step match the numbers marked on the screenshot above it."
+					   data-pt="Cada função do bot em uma seção. Os números ao lado de cada passo correspondem aos números marcados na imagem acima."></p>
+				</div>
+				<section class="section" id="hometab">
+					<h2><span data-en="Home" data-pt="Home"></span><a class="anchor" href="#hometab" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/home.png" width="749" height="586" loading="lazy" decoding="async" alt="Home">
+					</button>
+					<p class="lede"><span data-en="Home is where you turn features on and off. Tick the ones you want to use, then open each feature's own tab to set it up." data-pt="A Home é onde você liga e desliga as funções. Marque as que quiser usar e depois configure cada uma na sua respectiva aba."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Functions" data-pt="Functions"></span></h3>
+							<p><span data-en="One checkbox per feature. Ticking it here is what makes the bot run that feature — the settings live in the tab with the same name." data-pt="Uma caixinha para cada função. Marcar aqui é o que faz o bot executar aquela função — as configurações ficam na aba de mesmo nome."></span></p>
 						</li>
-						<li>
-							<span data-en="The features inside the <span style='color: green; font-weight: bold;'>Green</span> square are part of the <span style='color: green; font-weight: bold;'>Basic</span> plan."
-								data-pt="As funções do quadrado <span style='color: green; font-weight: bold;'>Verde</span> fazem parte do plano <span style='color: green; font-weight: bold;'>Padrão</span>.">
-							</span>	
+						<li class="step step--named">
+							<h3><span data-en="Char Info" data-pt="Char Info"></span></h3>
+							<p><span data-en="The panel on the left shows the character's HP and MP bars and the map it is on." data-pt="O painel da esquerda mostra as barras de HP e MP do char e o mapa em que ele está."></span></p>
 						</li>
-						<li>
-							<span data-en="The features inside the <span style='color: rgb(183, 173, 0); font-weight: bold;'>Yellow</span> square are additional features of the <span style='color: rgb(183, 173, 0); font-weight: bold;'>Premium</span> plan."
-								data-pt="As funções do quadrado <span style='color: rgb(183, 173, 0); font-weight: bold;'>Amarelo</span> são funções extras do plano <span style='color: rgb(183, 173, 0); font-weight: bold;'>Premium</span>.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Target Info" data-pt="Target Info"></span></h3>
+							<p><span data-en="The panel on the right shows the current target's HP and the mob kill counter. Some features count kills from here — Helper, for example." data-pt="O painel da direita mostra o HP do alvo atual e o contador de mobs mortos. Algumas funções usam essa contagem — o Helper, por exemplo."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Log" data-pt="Log"></span></h3>
+							<p><span data-en="What the bot is doing, split between Info and Warning." data-pt="O que o bot está fazendo, separado entre Info e Warning."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Chars" data-pt="Chars"></span></h3>
+							<p><span data-en="The list of characters. Select one and use Start / Stop selected to run or stop the bot for it." data-pt="A lista de chars. Selecione um e use o Start / Stop selected para rodar ou parar o bot nele."></span></p>
 						</li>
 					</ul>
-					
-					<!-- Interface -->
-					<h3 id="interface" data-en="Interface" data-pt="Interface"></h3>
-					<span class="image main"><img src="images/tut_interface.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<span style='color: rgb(112, 146, 190); font-weight: bold;'>(1) Main Menu</span>"
-								data-pt="<span style='color: rgb(112, 146, 190); font-weight: bold;'>(1) Menu Principal</span>">
-							</span>
+				</section>
+				<section class="section" id="startstopbot">
+					<h2><span data-en="Start/Stop Bot" data-pt="Iniciar/Parar Bot"></span><a class="anchor" href="#startstopbot" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/tut_startbot.jpg" width="552" height="313" loading="lazy" decoding="async" alt="Start/Stop Bot">
+					</button>
+					<p class="lede"><span data-en="To Start/Stop the bot for the desired Char, click the checkbox to the left of the Char's name." data-pt="Para Iniciar/Parar o bot do Char desejado, clique na caixinha à esquerda do nome do Char."></span></p>
+					<p class="lede"><span data-en="To Select another Char, click on his Name." data-pt="Para Selecionar outro char, clique no Nome dele."></span></p>
+				</section>
+				<section class="section" id="attack">
+					<h2><span data-en="Attack" data-pt="Attack"></span><a class="anchor" href="#attack" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/attack.png" width="748" height="589" loading="lazy" decoding="async" alt="Attack">
+					</button>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Skill" data-pt="Skill"></span></h3>
+							<p><span data-en="Set the shortcut for each skill and the Delay between them. The bot keeps looping the skills until the target is dead." data-pt="Defina o atalho de cada skill e o Delay entre elas. O bot fica usando em loop até matar o target."></span></p>
 						</li>
-						<li>
-							<span data-en="<span style='color: rgb(255, 127, 39); font-weight: bold;'>(2) Menu to configure the Functions</span>"
-								data-pt="<span style='color: rgb(255, 127, 39); font-weight: bold;'>(2) Menu para configurar as Funções</span>">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Target List" data-pt="Target List"></span></h3>
+							<p><span data-en="Defines which targets to attack. Useful on bosses, for example." data-pt="Define quais targets quer atacar. Útil para usar em boss, por exemplo."></span></p>
+							<ul class="opts">
+								<li><dfn data-en="Enable" data-pt="Enable"></dfn><span data-en="Turns the target list on or off." data-pt="Ativa ou desativa a target list."></span></li>
+								<li><dfn data-en="Mode" data-pt="Mode"></dfn><span data-en="Attack only what is on the list, or ignore what is on it. Stick to one mode per list." data-pt="Atacar somente o que está na lista, ou ignorar o que está nela. Use só um modo por lista."></span></li>
+								<li><dfn data-en="Name" data-pt="Name"></dfn><span data-en="Filled in automatically from the selected target. Tick Manual to type it yourself, then Add." data-pt="Preenchido automaticamente com o alvo selecionado. Marque Manual para digitar, depois Add."></span></li>
+								<li><dfn data-en="Clear" data-pt="Clear"></dfn><span data-en="Empties the list." data-pt="Limpa a lista inteira."></span></li>
+								<li><dfn data-en="Delete" data-pt="Delete"></dfn><span data-en="Removes the selected target from the list." data-pt="Remove da lista o alvo selecionado."></span></li>
+							</ul>
 						</li>
-						<li>
-							<span data-en="<span style='color: rgb(34, 177, 76); font-weight: bold;'>(3) Information about Char and selected Target</span>"
-								data-pt="<span style='color: rgb(34, 177, 76); font-weight: bold;'>(3) Informações do Char e do Target selecionado</span>">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Spot" data-pt="Spot"></span></h3>
+							<p><span data-en="Holds the character to one spot." data-pt="Prende o char em um spot."></span></p>
+							<ul class="opts">
+								<li><dfn data-en="Enable" data-pt="Enable"></dfn><span data-en="Turns the spot lock on or off." data-pt="Ativa ou desativa a função de spot."></span></li>
+								<li><dfn data-en="Distance" data-pt="Distance"></dfn><span data-en="How far the character may walk — or, with Check Mob Range on, the radius used to measure the mob." data-pt="Limite de distância para o char andar — ou, com o Check Mob Range ativado, o raio usado para verificar a distância do mob."></span></li>
+								<li><dfn data-en="Check Mob Range" data-pt="Check Mob Range"></dfn><span data-en="Only attacks mobs within the Distance above." data-pt="Só ataca mobs dentro da Distance acima."></span></li>
+								<li><dfn data-en="Back Every Mob Kill" data-pt="Back Every Mob Kill"></dfn><span data-en="Returns to the starting position after every kill." data-pt="Volta pra posição inicial depois de matar cada mob."></span></li>
+								<li><dfn data-en="Use Leader Position" data-pt="Use Leader Position"></dfn><span data-en="In a team with a character logged in on the same computer, uses the leader's position instead of its own." data-pt="Se estiver em team com um char logado no mesmo computador, usa a posição dele."></span></li>
+							</ul>
 						</li>
-						<li>
-							<span data-en="<span style='color: rgb(255, 242, 0); font-weight: bold;'>(4) Enable/Disable the Functions you want to use</span>"
-								data-pt="<span style='color: rgb(255, 242, 0); font-weight: bold;'>(4) Habilitar/Desabilitar as funções que deseja utilizar</span>">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Anti Loot Bug" data-pt="Anti Loot Bug"></span></h3>
+							<p><span data-en="Move Char Every 1min nudges the character once a minute, which prevents the lockups that happen when it stands still for too long." data-pt="O Move Char Every 1min mexe o char uma vez por minuto, o que evita os travamentos que acontecem quando ele fica parado muito tempo."></span></p>
 						</li>
-						<li>
-							<span data-en="<span style='color: rgb(237, 28, 36); font-weight: bold;'>(5) Char List</span>"
-								data-pt="<span style='color: rgb(237, 28, 36); font-weight: bold;'>(5) Lista dos Chars</span>">
-							</span>
-						</li>
-					</ul>
-
-					<!-- Start/Stop Bot -->
-					<h3 id="startstopbot" data-en="Start/Stop Bot" data-pt="Iniciar/Parar Bot"></h3>
-					<span class="image main"><img src="images/tut_startbot.jpg" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="To Start/Stop the bot for the desired Char, click the checkbox to the left of the Char's name."
-								data-pt="Para Iniciar/Parar o bot do Char desejado, clique na caixinha à esquerda do nome do Char.">
-							</span>
-						</li>
-						<li>
-							<span data-en="To Select another Char, click on his Name."
-								data-pt="Para Selecionar outro char, clique no Nome dele.">
-							</span>
-						</li>
-					</ul>
-
-					<!-- Attack -->
-					<h3 id="attack" data-en="Attack" data-pt="Attack"></h3>
-					<span class="image main"><img src="images/tut_attack.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>(1) Attack:</b> Select the shortcuts for the Skills, enable or disable them, and select the Delay between them. The bot will keep repeating the Skills until the target is dead."
-								data-pt="<b>(1) Attack:</b> Selecione os atalhos para as Skills, ative ou desative-as e configure o Delay entre elas. O bot continuará repetindo as Skills até que o alvo esteja morto.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(2) Spot:</b> Function to lock the Char in a specific coordinate, preventing it from moving far from the Spot where the bot started. 
-									<br><b>• Enable:</b> Enables/Disables the Spot function.
-									<br><b>• Distance:</b> Defines the distance the Char can walk.
-									<br><b>• Check Mob Range:</b> With this option enabled, the Char will only attack mobs within a radius of X distance (defined in Distance above).
-									<br><b>• Back Every Mob Kill:</b> Returns to the starting point every time a mob is killed.
-									<br><b>• Use Leader Position:</b> If in a Team with another Char logged in on the same PC and in the same Char List of the Bot, you can enable this option for all Team chars to use the Leader's position as a reference (example: 1 Fairy and 4 Tamers - the Fairy is the Team Leader, and the 4 Tamers have this option enabled)."
-								data-pt="<b>(2) Spot:</b> Função para travar o Char em uma coordenada específica, evitando que ele vá longe do Spot em que iniciou o bot. 
-									<br><b>• Enable:</b> Ativa/Desativa a função de Spot.
-									<br><b>• Distance:</b> Define a distância que o Char pode andar.
-									<br><b>• Check Mob Range:</b> Com essa opção ativada, o Char só vai atacar mobs que estejam em um raio de até X de distância (definido no Distance acima).
-									<br><b>• Back Every Mob Kill:</b> Volta para o ponto inicial toda vez que matar um mob.
-									<br><b>• Use Leader Position:</b> Caso esteja em Team com outro Char que esteja logado no mesmo PC e na mesma Lista de Char do Bot, você pode ativar essa opção para que todos os Chars do Team usem a posição do Líder como referência (exemplo: 1 Fairy e 4 Tamers - a Fairy é Líder do Team e as 4 Tamers com essa opção ativada).">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(3) Target List:</b> Function to attack/ignore only the targets (mobs or players) added to the list. 
-									<br><b>• Enable:</b> Enables/Disables the Target List function.
-									<br><b>• Mode:</b> Defines which mode to use for the target in question, Attack or Ignore (it is recommended to use only 1 mode in the List).
-									<br><b>• Name:</b> Target's name. The name is automatically filled when a target is selected, but if you click on the Manual checkbox, the name becomes editable.
-									<br><b>• List:</b> List of targets.
-									<br><b>• Clear:</b> Button to clear the entire list.
-									<br><b>• Delete:</b> Button to remove the selected target from the list."
-								data-pt="<b>(3) Target List:</b> Função para Atacar/Ignorar somente os alvos (mobs ou jogadores) adicionados na lista. 
-									<br><b>• Enable:</b> Ativa/Desativa a função de Target List.
-									<br><b>• Mode:</b> Define qual modo usar para o alvo em questão, Atacar ou Ignorar (recomendado usar somente 1 modo na Lista).
-									<br><b>• Name:</b> Nome do Target. O Nome é preenchido automaticamente quando tem um alvo selecionado, mas se clicar na caixinha de Manual, o nome é liberado para edição.
-									<br><b>• List:</b> Lista dos alvos.
-									<br><b>• Clear:</b> Botão para limpar toda a lista.
-									<br><b>• Delete:</b> Botão para remover o alvo selecionado na lista.">
-							</span>	
-						</li>
-						<li>
-							<span data-en="<b>(4) Config:</b> Additional functions and settings. 
-									<br><b>• Unstuck:</b> Switches the target if it hasn't been attacked in X seconds (defined in the box next to it), OR if the target isn't killed within 30 seconds.
-									<br><b>• Focus Leader's Target:</b> Attacks the same target as the Team Leader. The Leader must be logged in on the same PC and in the same Char List in the bot.
-									<br><b>• Next Target:</b> Shortcut to switch to the nearest target (Tab is the default shortcut).
-									<br><b>• Passive:</b> Optimizes the stacking of Assassin and Monk passives. Skill 1 and 2 must be active for it to work (this option only appears for these two classes)."
-								data-pt="<b>(4) Config:</b> Funções e Configurações adicionais. 
-									<br><b>• Unstuck:</b> Troca de alvo caso não ataque ele em X segundos (definido na caixinha ao lado), OU caso não mate o alvo em 30 segundos.
-									<br><b>• Focus Leader's Target:</b> Ataca o mesmo alvo que o Líder do Team. O Líder precisar estar logado no mesmo PC e na mesma Lista de Char do bot.
-									<br><b>• Next Target:</b> Atalho para trocar para o alvo mais próximo (Tab é o atalho padrão).
-									<br><b>• Passive:</b> Otimiza os acúmulos das passivas de Assassin e Monk. Skill 1 e 2 devem estar ativas para funcionar (essa opção só aparece para essas duas classes).">
-							</span>	
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Unstuck" data-pt="Unstuck"></dfn><span data-en="Switches target after the set number of seconds if it can't attack the current one." data-pt="Troca de target depois dos segundos definidos, caso não consiga atacar ele."></span></li>
+								<li><dfn data-en="Focus Leader's Target" data-pt="Focus Leader's Target"></dfn><span data-en="Attacks whatever the team leader is attacking. The leader has to be logged in on the same PC. Best used in caves only." data-pt="Foca o mesmo target que o líder do team. O líder tem que estar logado no mesmo PC. Recomendado usar somente em Cave."></span></li>
+								<li><dfn data-en="Next Target" data-pt="Next Target"></dfn><span data-en="Shortcut for switching target. Tab is the game default." data-pt="Atalho para trocar de target. Tab é o padrão do jogo."></span></li>
+								<li><dfn data-en="Passive" data-pt="Passive"></dfn><span data-en="Optimizes passive stacking for Assassin and Monk. Skill 1 and 2 must be active, and the option only shows for those two classes." data-pt="Otimiza o acúmulo das passivas de Assassin e Monk. Skill 1 e 2 precisam estar ativas, e a opção só aparece para essas duas classes."></span></li>
+							</ul>
 						</li>
 					</ul>
-
-					<!-- Potion -->
-					<h3 id="potion" data-en="Potion" data-pt="Potion"></h3>
-					<span class="image main"><img src="images/tut_potion.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>(1) Potions:</b> Configuration of normal potions (HP/Mana)."
-								data-pt="<b>(1) Potions:</b> Configuração das poções normais (HP/Mana).">
-							</span>
+				</section>
+				<section class="section" id="potion">
+					<h2><span data-en="Potion" data-pt="Potion"></span><a class="anchor" href="#potion" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/potions.png" width="748" height="590" loading="lazy" decoding="async" alt="Potion">
+					</button>
+					<p class="lede"><span data-en="Set the shortcut for each potion and the percentage at which it should be used." data-pt="Defina o atalho das poções e a % de uso de cada uma."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Potions" data-pt="Potions"></span></h3>
+							<p><span data-en="Shortcut and trigger percentage for the normal HP and Mana potions." data-pt="Atalho e porcentagem de uso das poções normais de HP e Mana."></span></p>
+							<ul class="opts">
+								<li><dfn data-en="Use until HP/Mana is full" data-pt="Use until HP/Mana is full"></dfn><span data-en="Keeps drinking until the bar is full instead of stopping at one potion." data-pt="Fica usando poções até encher o HP/Mana, em vez de parar em uma."></span></li>
+								<li><dfn data-en="Go to Saved Spot" data-pt="Go to Saved Spot"></dfn><span data-en="Walks to a saved position before drinking. Save Spot records the current one. Handy for sitting a little away from the mob respawns." data-pt="Vai até uma posição salva antes de usar as poções. O Save Spot grava a posição atual. Útil para ficar um pouco longe dos respawns dos mobs."></span></li>
+							</ul>
 						</li>
-						<li>
-							<span data-en="<b>(2) Button:</b> Defines the shortcuts for HP and Mana potions."
-								data-pt="<b>(2) Button:</b> Define os atalhos das poções de HP e Mana.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(3) Percentage:</b> Defines the percentage of use for HP and Mana."
-								data-pt="<b>(3) Porcentagem:</b> Define a porcentagem de uso para HP e Mana.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(4) Use:</b> Defines which potion to use."
-								data-pt="<b>(4) Use:</b> Define qual poção quer usar.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(5) Config:</b> 
-									<br><b>• Use until HP/Mana is full:</b> The Char will use HP/Mana potions until HP/Mana is full.
-									<br><b>• Go to Saved Spot:</b> The Char will walk to the coordinate where it was when the bot was started to use the potions (the Spot function in Attack must be enabled for this to work)."
-								data-pt="<b>(5) Config:</b> 
-									<br><b>• Use until HP/Mana is full:</b> O char vai usar as poções de HP/Mana até que o HP/Mana estejam cheios.
-									<br><b>• Go to Saved Spot:</b> O char vai andar até a coordenada em que estava quando o bot foi iniciado para usar as poções (a função Spot em Attack deve estar ativada para essa funcionar).">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(6) Battle Potions:</b> Configuration of battle potions. The same concept explained above applies to this part."
-								data-pt="<b>(6) Battle Potions:</b> Configuração das poções de batalha. O mesmo conceito explicado acima vale pra essa parte.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Battle Potions" data-pt="Battle Potions"></span></h3>
+							<p><span data-en="Same thing for the battle potions, with their own shortcuts and percentages." data-pt="A mesma coisa para as poções de batalha, com atalhos e porcentagens próprios."></span></p>
 						</li>
 					</ul>
-
-					<!-- Pet Food -->
-					<h3 id="petfood" data-en="Pet Food" data-pt="Pet Food"></h3>
-					<span class="image main"><img src="images/tut_petfood.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>(1) Pet Food Shortcut:</b> Shortcut to use the Pet Food."
-								data-pt="<b>(1) Pet Food Shortcut:</b> Atalho para usar o Pet Food.">
-							</span>
+				</section>
+				<section class="section" id="petfood">
+					<h2><span data-en="Pet Food" data-pt="Pet Food"></span><a class="anchor" href="#petfood" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/petfood.png" width="745" height="586" loading="lazy" decoding="async" alt="Pet Food">
+					</button>
+					<p class="lede"><span data-en="Summons the pet and feeds it from time to time." data-pt="Summona o pet e usa pet food de tempos em tempos."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Pet Food" data-pt="Pet Food"></span></h3>
+							<p><span data-en="Shortcut for the pet food and how often to use it. Tamers have a separate shortcut for their own pet food." data-pt="Atalho da pet food e de quanto em quanto tempo usar. Tamer tem um atalho separado para a pet food dela."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(2) Tamer Pet Food Shortcut:</b> Enables/Disables Pet Food for the Tamer's pet. Shortcut for the Tamer's Pet Food."
-								data-pt="<b>(2) Tamer Pet Food Shortcut:</b> Ativa/Desativa o Pet Food para o pet da Tamer. Atalho do Pet Food para Tamer.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(3) Delay:</b> Sets the interval at which Pet Food will be used."
-								data-pt="<b>(3) Delay:</b> Define de quanto em quanto tempo vai usar Pet Food.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(4) Pet Food Timer</b>."
-								data-pt="<b>(4) Cronômetro do Pet Food</b>.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Summon Pet" data-pt="Summon Pet"></span></h3>
+							<p><span data-en="Shortcut used to summon the pet." data-pt="Atalho usado para summonar o pet."></span></p>
 						</li>
 					</ul>
-
-					<!-- Buff -->
-					<h3 id="buff" data-en="Buff" data-pt="Buff"></h3>
-					<span class="image main"><img src="images/tut_buff.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>(1)</b> Select the Buff shortcut (<b>Skill</b>), the Waiting Time after using the Buff (<b>ms</b>), and enable or disable it (<b>Use</b>)."
-								data-pt="<b>(1)</b> Selecione o atalho do Buff (<b>Skill</b>), o Tempo de Espera após usar o Buff (<b>ms</b>) e ative ou desative-o (<b>Use</b>).">
-							</span>
+				</section>
+				<section class="section" id="buff">
+					<h2><span data-en="Buff" data-pt="Buff"></span><a class="anchor" href="#buff" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/buffs.png" width="750" height="586" loading="lazy" decoding="async" alt="Buff">
+					</button>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Buffs" data-pt="Buffs"></span></h3>
+							<p><span data-en="Set the shortcut for each buff and the wait after it, in milliseconds. 1200 ms is the recommended delay." data-pt="Defina o atalho de cada buff e a espera depois dele, em milissegundos. 1200 ms é o delay recomendado."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(2) Config:</b>
-									<br><b>• Self Select:</b> The Char will select itself before using a Buff.
-									<br><b>• Buff every X minute(s):</b> The Char will use the Buff function every X minutes (set in the box).
-									<br><b>• [0m 0s]:</b> Buff timer."
-														
-								data-pt="<b>(2) Config:</b>
-									<br><b>• Self Select:</b> O Char vai selecionar ele mesmo antes de usar um Buff.
-									<br><b>• Buff every X minute(s):</b> Buffar a cada X minutos (definido na caixinha).
-									<br><b>• [0m 0s]:</b> Cronômetro do Buff.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Self Select" data-pt="Self Select"></dfn><span data-en="The character selects itself before buffing." data-pt="O char vai se selecionar para usar os buffs."></span></li>
+								<li><dfn data-en="Buff every X minutes" data-pt="Buff every X minutes"></dfn><span data-en="Timer for re-applying the buffs." data-pt="Timer para usar os buffs."></span></li>
+							</ul>
 						</li>
 					</ul>
-
-					<!-- Helper -->
-					<h3 id="helper" data-en="Helper" data-pt="Helper"></h3>
-					<span class="image main"><img src="images/tut_helper.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>Helper:</b> Used for everything that doesn't fit into Buff, such as: Tamer's Pet Heal, Pet Level Up Book, consumable items (HP/Defense/XP/Energy pills)."
-								data-pt="<b>Helper:</b> Serve para tudo que não se encaixa em Buff, como por exemplo: Heal do Pet de Tamer, Pet Level Up Book, itens consumíveis (pill de HP/Defesa/XP/Energia).">
-							</span>
+				</section>
+				<section class="section" id="helper">
+					<h2><span data-en="Helper" data-pt="Helper"></span><a class="anchor" href="#helper" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/helper.png" width="747" height="586" loading="lazy" decoding="async" alt="Helper">
+					</button>
+					<p class="lede"><span data-en="For everything that doesn't fit under Buff: a Tamer's Pet Heal, the Pet Level Up Book, consumables such as HP, Defense, XP and Energy pills." data-pt="Serve para tudo que não se encaixa em Buff: Heal do Pet de Tamer, Pet Level Up Book, itens consumíveis como pill de HP, Defesa, XP e Energia."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Helper" data-pt="Helper"></span></h3>
+							<p><span data-en="For each action, pick the shortcut (Skill) and the wait after running it, in milliseconds." data-pt="Para cada ação, escolha o atalho (Skill) e o tempo de espera depois de executá-la, em milissegundos."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(1):</b> Select the shortcut for the action (<b>Skill</b>), the Waiting Time after performing the action (<b>ms</b>), and enable or disable it (<b>Use</b>)."
-								data-pt="<b>(1):</b> Selecione o atalho da ação (<b>Skill</b>), o Tempo de Espera após executar a ação (<b>ms</b>) e ative ou desative-a (<b>Use</b>).">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<p><span data-en="Run at every X mob kills — the actions run after that many kills. The kill count is on the Home tab, under the target info." data-pt="Run at every X mob kills — as ações são executadas depois de matar essa quantidade de mobs. A contagem fica na aba Home, nas informações do alvo."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(2) Run at every X Mob Kills:</b> The action will be performed after killing X mobs (defined in the box). The Mob count can be seen on the Home tab, in Target Info."
-								data-pt="<b>(2) Run at every X Mob Kills:</b> A ação será executada após matar X mobs (definidos na caixinha). A contagem de Mobs pode ser visualizada na aba Home, em Target Info.">
-							</span>
-						</li>
-					</ul>
-
-					<!-- Fairy -->
-					<h3 id="fairy" data-en="Fairy" data-pt="Fairy"></h3>
-					<span class="image main"><img src="images/tut_fairy.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>(1) Shortcuts:</b> Select the shortcuts for the Fairy skills."
-								data-pt="<b>(1) Shortcuts:</b> Selecione os atalhos das skills da Fairy.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(2) Self Heal at:</b> With this option enabled, the Fairy will heal herself using the <b>Healing Spell</b> skill when her HP reaches the defined %."
-								data-pt="<b>(2) Self Heal at:</b> Com essa opção ativada, a Fairy irá se curar com a skill <b>Healing Spell</b> quando o HP dela chegar na % definida.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(3) Team:</b> This section is for configuring what to do with team members.
-									<br><b>• Heal Team at:</b> Heals the team member with the <b>Healing Spell</b> skill when their HP falls below the defined %.
-									<br><b>• Revive Team Constantly:</b> Continuously selects team members and tries to revive them (useful for the PCP cave, for example).
-									<br><b>• Infinite Cure Spell:</b> Continuously selects team members and uses the Cure Spell skill (it is recommended to disable 'Heal Team At' if you want to use this option).
-									<br><b>• Heal / Revive:</b> Select which team members the Fairy will heal (it is necessary to check the members along with 'Heal Team At' for the Fairy to heal them)."
-								data-pt="<b>(3) Team:</b> Essa seção é para configurar o que vai fazer com os membros do team.
-									<br><b>• Heal Team at:</b> Vai curar o membro do team, com a skill <b>Healing Spell</b>, que estiver com o HP abaixo da % definida.
-									<br><b>• Revive Team Constantly:</b> Vai ficar selecionando os membros do team e tentando reviver eles (útil para a cave PCP, por exemplo).
-									<br><b>• Infinite Cure Spell:</b> Vai ficar selecionando os membros do team e usando a skill Cure Spell (recomendado desativar o 'Heal Team At' caso queira utilizar essa opção).
-									<br><b>• Heal / Revive:</b> Selecione quais membros do team a fairy irá curar (é necessário marcar os membros juntamente com o 'Heal Team At' para a Fairy curar eles).">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Assassin Lure" data-pt="Assassin Lure"></span></h3>
+							<p><span data-en="For Assassins using a Simitar to lure mobs." data-pt="Útil para usar em Assassins com Simitar lurando os mobs."></span></p>
+							<ul class="opts">
+								<li><dfn data-en="Enable" data-pt="Enable"></dfn><span data-en="Turns the lure on or off." data-pt="Ativa ou desativa o lure."></span></li>
+								<li><dfn data-en="Lure / AOE / Stun" data-pt="Lure / AOE / Stun"></dfn><span data-en="Shortcuts for each of the three skills used in the rotation." data-pt="Atalhos de cada uma das três skills usadas na rotação."></span></li>
+								<li><dfn data-en="Range (m)" data-pt="Range (m)"></dfn><span data-en="How far out it gathers mobs." data-pt="A que distância ele junta os mobs."></span></li>
+								<li><dfn data-en="Back to Starting Position" data-pt="Back to Starting Position"></dfn><span data-en="Returns to where it started after the lure." data-pt="Volta para onde começou depois do lure."></span></li>
+							</ul>
 						</li>
 					</ul>
-
-					<!-- Revive -->
-					<h3 id="revive" data-en="Revive" data-pt="Revive"></h3>
-					<span class="image main"><img src="images/tut_revive.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>Revive:</b> This is an automatic function to return to the spot where the character was when the bot started. If the character has a Jackstraw in their inventory, it will be used."
-								data-pt="<b>Revive:</b> É uma função automática para retornar ao Spot que o Char estava quando o bot foi iniciado. Caso o Char tenha Jackstraw no inventário, ele será usado.">
-							</span>
+				</section>
+				<section class="section" id="fairy">
+					<h2><span data-en="Fairy" data-pt="Fairy"></span><a class="anchor" href="#fairy" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/fairy.png" width="743" height="585" loading="lazy" decoding="async" alt="Fairy">
+					</button>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Shortcuts" data-pt="Shortcuts"></span></h3>
+							<p><span data-en="Select the shortcuts for the Fairy skills." data-pt="Selecione os atalhos das skills da Fairy."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(1) Position:</b> The position (coordinate [x, y]) on the map where the character will return after reviving. The location where characters revive must be on the same map where the character will return.
-									<br><b>• Save on Start:</b> The character's position will be automatically saved when the bot starts.
-									<br><b>• Save Button:</b> Will save the character's position. The <b>Save on Start</b> option must be disabled if you want to save a position different from where the bot started."
-								data-pt="<b>(1) Position:</b> A Posição (coordenada [x, y]) no mapa que o Char vai retornar depois de Reviver. O lugar em que os Chars revivem deve estar no mesmo mapa para onde o Char vai retornar.
-									<br><b>• Save on Start:</b> A Posição do Char será salva automaticamente quando iniciar o bot.
-									<br><b>• Botão Save:</b> Vai salvar a Posição do Char. A opção <b>Save on Start</b> deve estar desabilitada caso queira salvar uma posição diferente de onde iniciou o bot.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Self Heal at" data-pt="Self Heal at"></span></h3>
+							<p><span data-en="With this option enabled, the Fairy will heal herself using the <b>Healing Spell</b> skill when her HP reaches the defined %." data-pt="Com essa opção ativada, a Fairy irá se curar com a skill <b>Healing Spell</b> quando o HP dela chegar na % definida."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(2) Mount:</b> When this option is enabled, the character will mount to return to the saved position.
-								  	<br><b>• Shortcut:</b> Mount shortcut."
-								data-pt="<b>(2) Mount:</b> Com essa opção ativada, o Char irá subir na montaria para retornar até a Posição salva.
-								  	<br><b>• Shortcut:</b> Atalho da montaria.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(3) Fairy:</b> This section is for when the character is in a team with a Fairy (logged in on the same PC/same bot).
-									<br><b>• Team Mode:</b> The character that dies will accept the Fairy's revive and then return to the position where the bot started (if the Attack -> Spot option is enabled).
-									<br><b>• Cave Mode:</b> The character that dies will accept the Fairy's revive and will continue attacking the same target without returning to the position where the bot started."
-								data-pt="<b>(3) Fairy:</b> Essa seção é para caso esteja em team com uma Fairy (logada no mesmo PC/mesmo bot).
-									<br><b>• Team Mode:</b> O char que morrer vai aceitar o Revive da Fairy e depois irá retornar à Posição que estava quando iniciou o bot (caso a opção Attack -> Spot esteja habilitada).
-									<br><b>• Cave Mode:</b> O char que morrer vai aceitar o Revive da Fairy e vai continuar atacando o mesmo target, sem voltar para a Posição de onde iniciou o bot.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(4) Tamer Assist:</b> This section is for the Tamer class using the Tamer's pet. With this option enabled, it will revive and heal the pet.
-									<br><b>• Revive Pet:</b> Shortcut for the skill to revive the Tamer's pet.
-									<br><b>• Heal Pet:</b> Shortcut for the skill to heal the Tamer's pet."
-								data-pt="<b>(4) Tamer Assist:</b> Essa seção é para a classe Tamer que esteja utilizando o Pet de Tamer. Com essa opção ativada, ela vai reviver e curar o Pet.
-									<br><b>• Revive Pet:</b> Atalho da Skill de reviver o Pet da Tamer.
-									<br><b>• Heal Pet:</b> Atalho da Skill de curar o Pet da Tamer.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(5) Close Talisman After Death:</b> After the character revives, the game will close. If the character has a Jackstraw in their inventory, it will be used."
-								data-pt="<b>(5) Close Talisman After Death:</b> Depois que o Char reviver, o jogo será fechado. Caso o Char tenha Jackstraw no inventário, ele será usado.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Team" data-pt="Team"></span></h3>
+							<p><span data-en="This section is for configuring what to do with team members." data-pt="Essa seção é para configurar o que vai fazer com os membros do team."></span></p>
+							<ul class="opts">
+								<li><dfn data-en="Heal Team at" data-pt="Heal Team at"></dfn><span data-en="Heals the team member with the <b>Healing Spell</b> skill when their HP falls below the defined %." data-pt="Vai curar o membro do team, com a skill <b>Healing Spell</b>, que estiver com o HP abaixo da % definida."></span></li>
+								<li><dfn data-en="Revive team constantly" data-pt="Revive team constantly"></dfn><span data-en="Continuously selects team members and tries to revive them (useful for the PCP cave, for example)." data-pt="Vai ficar selecionando os membros do team e tentando reviver eles (útil para a cave PCP, por exemplo)."></span></li>
+								<li><dfn data-en="Infinite Cure Spell" data-pt="Infinite Cure Spell"></dfn><span data-en="Continuously selects team members and uses the Cure Spell skill (it is recommended to disable 'Heal Team At' if you want to use this option)." data-pt="Vai ficar selecionando os membros do team e usando a skill Cure Spell (recomendado desativar o 'Heal Team At' caso queira utilizar essa opção)."></span></li>
+								<li><dfn data-en="Heal / Revive" data-pt="Heal / Revive"></dfn><span data-en="Select which team members the Fairy will heal (it is necessary to check the members along with 'Heal Team At' for the Fairy to heal them)." data-pt="Selecione quais membros do team a fairy irá curar (é necessário marcar os membros juntamente com o 'Heal Team At' para a Fairy curar eles)."></span></li>
+							</ul>
 						</li>
 					</ul>
-
-					<!-- Delete -->
-					<h3 id="delete" data-en="Delete" data-pt="Delete"></h3>
-					<span class="image main"><img src="images/tut_delete.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>(1) Item List:</b> List of items that will be deleted.
-									<br><b>• Clear:</b> Button to clear the entire list.
-									<br><b>• Delete:</b> Button to delete a selected item from the list."
-								data-pt="<b>(1) Item List:</b> Lista dos itens que serão deletados.
-									<br><b>• Clear:</b> Botão para limpar toda a lista.
-									<br><b>• Delete:</b> Botão para deletar um item selecionado da lista.">
-							</span>
+				</section>
+				<section class="section" id="revive">
+					<h2><span data-en="Revive" data-pt="Revive"></span><a class="anchor" href="#revive" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/revive.png" width="748" height="585" loading="lazy" decoding="async" alt="Revive">
+					</button>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Position" data-pt="Position"></span></h3>
+							<p><span data-en="The position the character goes back to after reviving. Save on Start records it when the bot starts; Save records wherever the character is now." data-pt="A posição para onde o char volta depois de reviver. O Save on Start grava quando o bot inicia; o Save grava onde o char está agora."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(2) Import Delete List:</b> You can import (load) a Delete List."
-								data-pt="<b>(2) Importar Lista de Delete:</b> Você pode importar (carregar) uma Lista de Delete.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Fairy" data-pt="Fairy"></span></h3>
+							<p><span data-en="Team Mode and Cave Mode change how a Fairy handles reviving in each situation." data-pt="Team Mode e Cave Mode mudam como a Fairy lida com o revive em cada situação."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(3) Export Delete List:</b> You can export (save) a Delete List to reuse with other characters."
-								data-pt="<b>(3) Exportar Lista de Delete:</b> Você pode exportar (salvar) uma Lista de Delete, para reaproveitar em outros Chars.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Mount" data-pt="Mount"></span></h3>
+							<p><span data-en="Shortcut for the mount used on the way back." data-pt="Atalho da montaria usada na volta."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(4) Item Icon:</b> You need to 'capture' the icon of the item you want to delete. For this, you have two options:
-									<br><b>• [Ctrl + S] to Add:</b> By pressing this shortcut with the mouse centered on the desired item (e.g., red dot on the Green Identify Gem), a box to type the item's name will appear. The item's name does not need to match the game's name exactly; it is just for you to identify it in the Item List.
-									<br><b>• Get Item Icon:</b> By clicking this button, you have 2 seconds to move the mouse to the center of the item. The item name box will appear as explained above."
-								data-pt="<b>(4) Ícone do Item:</b> Você precisa 'capturar' o ícone do item que deseja deletar. Para isso você tem duas opções:
-									<br><b>• [Ctrl + S] to Add:</b> Ao apertar este atalho com o mouse no meio do item desejado (exemplo: ponto vermelho no Green Identify Gem), uma caixinha para digitar o Nome do Item vai aparecer. O Nome do Item não precisa ser exatamente igual ao do jogo, é apenas para você se localizar na Item List.
-									<br><b>• Get Item Icon:</b> Ao clicar nesse botão, você tem 2 segundos para mover o mouse para o meio do item. A caixinha do nome do item vai aparecer igual explicado acima.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Tamer Assist" data-pt="Tamer Assist"></span></h3>
+							<p><span data-en="Shortcuts a Tamer uses to revive and heal the pet." data-pt="Atalhos que a Tamer usa para reviver e curar o pet."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(5) Item Name:</b> Type the name of the item to be added to the Item List. The name does not need to match the game's name exactly; it is just for you to identify it in the list."
-								data-pt="<b>(5) Item Name:</b> Digitar o Nome do Item que vai ser adicionado à Item List. O nome não precisa ser igual no jogo, é apenas para você se localizar na lista.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(6) Config:</b> Additional delete settings.
-									<br><b>• Delete Speed:</b> The speed (ms) at which items will be deleted.
-									<br><b>• Delete Every X Minute(s):</b> Delete items every X minutes (as defined in the box).
-									<br><b>• Test Delete:</b> The bot will click on the items added to the list but will not delete them. This is just to verify if the item was correctly added to the list. It is recommended to always click Test Delete after adding an item to the list."
-								data-pt="<b>(6) Config: </b> Configurações adicionais do Delete.
-									<br><b>• Delete Speed:</b> Velocidade (ms) em que os itens serão deletados.
-									<br><b>• Delete Every X Minute(s):</b> Deletar itens a cada X minutos (definidos na caixinha).
-									<br><b>• Test Delete:</b> O bot vai clicar nos items que foram adicionados na lista, mas não vai deletar eles. É apenas para verificar se o item foi adicionado corretamente na lista. Recomendado sempre clicar no Test Delete após adicionar um item na lista.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(7) Delete Timer:</b> Timer for the delete operation."
-								data-pt="<b>(7) Cronômetro do Delete.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Close Talisman after reviving" data-pt="Close Talisman after reviving"></dfn><span data-en="Closes the game once the character has revived." data-pt="Fecha o jogo depois que o char revive."></span></li>
+								<li><dfn data-en="Stop bot after reviving" data-pt="Stop bot after reviving"></dfn><span data-en="Stops the bot after reviving. The character stays at the respawn point." data-pt="Para o bot depois de reviver. O char fica no respawn."></span></li>
+								<li><dfn data-en="Go back to saved Position on login/start" data-pt="Go back to saved Position on login/start"></dfn><span data-en="Walks to the saved Revive position automatically when the bot starts." data-pt="Vai automaticamente para a posição de Revive salva ao iniciar o bot."></span></li>
+							</ul>
 						</li>
 					</ul>
-					
-					<!-- Bewitcher Cave -->
-					<h3 id="bc" data-en="Bewitcher Cave (BC)" data-pt="Bewitcher Cave (BC)"></h3>
-					<span class="image main"><img src="images/tut_bc_farmer.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>For the BC function to work correctly, only the 'BC' checkbox should be enabled in the Home tab for both characters (Farmer and Reseter).</b>" 
-								data-pt="<b>Para a função de BC funcionar corretamente, apenas a caixinha de 'BC' deve estar ativada na aba Home para ambos os chars (Farmer e Reseter).</b>">
-						 	</span>
+				</section>
+				<section class="section" id="delete">
+					<h2><span data-en="Delete" data-pt="Delete"></span><a class="anchor" href="#delete" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/delete_main.png" width="746" height="588" loading="lazy" decoding="async" alt="Delete">
+					</button>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/delete_selectitem.png" width="467" height="469" loading="lazy" decoding="async" alt="Delete">
+					</button>
+					<p class="lede"><span data-en="Throws away the drops you don't want to carry." data-pt="Joga fora os drops que você não quer carregar."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Add Item" data-pt="Add Item"></span></h3>
+							<p><span data-en="Adds items to the Delete list. It opens the game's item list, where you can search by name. Ctrl + S saves a new item into the images folder if it isn't there yet." data-pt="Adiciona itens na lista de Delete. Abre a lista de itens do jogo, onde dá para buscar pelo nome. Ctrl + S salva um item novo na pasta de imagens, caso ele ainda não exista."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(1) Tabs:</b> The BC function has 4 tabs:
-									<br><b>• Main:</b> Main settings for the function.
-									<br><b>• Shortcuts:</b> Shortcuts for Skills, Mounts, Pet, and Potions.
-									<br><b>• Potions:</b> Configuration for potion usage percentages (Fairy Healing Spell and Wizard Super Skill are included in the HP potion percentage).
-									<br><b>• Stats:</b> Information on how many times BC has been completed, how long the bot has been running, and more."
-								data-pt="<b>(1) Abas:</b> A função de BC possui 4 abas:
-									<br><b>• Main:</b> Configurações principais da função.
-									<br><b>• Shortcuts:</b> Atalhos de Skills, Montaria, Pet e Poções.
-									<br><b>• Potions:</b> Configuração de % de uso de Poções (Healing Spell de Fairy e Super Skill de Wizard estão inclusos na % de poção de HP).
-									<br><b>• Stats:</b> Informações de quantas vezes fez a cave BC, quanto tempo está rodando o bot e mais.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Clear" data-pt="Clear"></span></h3>
+							<p><span data-en="Empties the whole list." data-pt="Limpa a lista toda."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(2) Team:</b> Configuration of who will be part of the team. <b>Farmer</b> is the one running the BC function. <b>Reseter</b> is the one accepting the Farmer's team requests to reset the BC cave.
-									<br><b>• !Important!:</b> The Reseter must be added to the Farmers' Block List.
-									<br><b>• Member Name:</b> With the Farmer selected in the bot, enter the Reseter's name in the Member Name box, and vice versa.
-									<br><b>• Reseter:</b> This option should only be activated on the Reseter. It determines who will accept team requests to reset the cave."
-								data-pt="<b>(2) Team:</b> Configuração de quem vai fazer parte do team. <b>Farmer</b> é quem vai rodar a função de BC. <b>Reseter</b> é quem vai ficar aceitando team do Farmer para resetar a cave de BC.
-									<br><b>• !Importante!:</b> O Reseter deve ser adicionado na Block List do Farmer.
-									<br><b>• Member Name:</b> Com o Farmer selecionado no bot, coloque o nome do Reseter na caixinha de Member Name, e vice-versa.
-									<br><b>• Reseter:</b> Essa opção só deve ser ativada no Reseter. Ela vai definir quem vai ficar aceitando team pra resetar a cave.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Delete" data-pt="Delete"></span></h3>
+							<p><span data-en="Removes the selected item from the list." data-pt="Deleta um item selecionado da lista."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(3) General:</b> General settings.
-									<br><b>• Return to Stone every X run(s):</b> The Farmer will return to Stone City after completing the BC cave X times (as defined in the box). The default is 5 runs. The Farmer will complete the cave, exit it via the Teleport NPC, and re-enter the cave without returning to Stone City. Each 'run' drops about 5 items, so ensure the Farmer has 25 free inventory slots for 5 consecutive runs without returning.
-									<br><b>• Initial Selling Slot:</b> Slot in the Sell menu where the Farmer will click to sell items. Slot number 7 corresponds to the first slot in the second row. Hovering over the (?) shows the slot numbering in the bot. It's recommended to place Potions in the first inventory slots to avoid selling them.
-									<br><b>• Buy Return Charm after selling:</b> The Farmer will buy 1 Stone City Return Charm after selling items, eliminating the need to stockpile them in the inventory.
-									<br><b>• Manual Auto Pick:</b> Option for when the Farmer's Pet doesn't have the Auto Pick Skill Book. The Farmer will manually loot the boss.
-									<br><b>• Get Treasure Box:</b> Option to collect the box after killing the Blaze Skull Marshal."
-								data-pt="<b>(3) General:</b> Configurações gerais.
-									<br><b>• Return to Stone every X run(s):</b> O Farmer vai voltar para Stone City depois de fazer a cave de BC por X vezes (definidas na caixinha). O padrão é 5 vezes, então o Farmer vai completar a cave, sair dela pelo NPC de Teleport e já entrar na cave novamente, sem voltar para Stone City. Cada 'run' dropa cerca de 5 items, então tenha em mente que para as 5 runs sem voltar pra Stone City o Farmer precisa ter 25 espaços livres no inventário.
-									<br><b>• Initial Selling Slot:</b> Slot do menu de Sell que o Farmer vai ficar clicando para vender os itens. O número 7 indica o primeiro slot da segunda fileira. Ao passar o mouse por cima do (?) a númeração dos slots é mostrada no bot. É recomendado colocar suas Poções nos primeiros slots do inventário, para evitar que sejam vendidas.
-									<br><b>• Buy Return Charm after selling:</b> Vai comprar 1 Stone City Return Charm toda vez que for vender os itens. Dessa forma não precisa estocar Stone City Return Charm no inventário do Farmer.
-									<br><b>• Manual Auto Pick:</b> Opção para caso o Pet do Farmer não tenha o Skill Book de Auto Pick. O Farmer vai pegar o loot do boss.
-									<br><b>• Get Treasure Box:</b> Opção para pegar a box depois de matar o Blaze Skull Marshal.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Import / Export" data-pt="Import / Export"></span></h3>
+							<p><span data-en="Saves the list to a file, or loads one you saved before." data-pt="Salva a lista em um arquivo, ou carrega uma que você salvou antes."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(4) Route:</b> Possible routes in the Boss's lair.
-									<br><b>• Standard (Straight to Boss):</b> The Farmer will go straight to the Boss. Recommended for Wizards (with Sword), Tamers (with Bow), and strong characters.
-									<br><b>• Safe (Kill Gun Witches + Potion):</b> The Farmer will stop at the 4 Gun Witches, kill them, use Potions if necessary, and then proceed to the Boss. Recommended for characters that don't kill the Boss with AOE (Assassin, Fairy, and Monk).
-									<br><b>• Lure Powerfuls:</b> With this option enabled, the Farmer will lure mobs in the lair to help kill the Boss.
-									<br><b>• Heal Before Second Phase:</b> The <b>Lure Powerfuls</b> option must be enabled to use this. With this option activated, the Farmer will finish the Boss's first phase and go heal while the lured mobs attack the second phase of the Boss (when it dismounts).
-									<br><b>• Recommended to use the Safe + Lure Powerfuls + Heal Before Second Phase route for weaker characters.</b>"
-								data-pt="<b>(4) Route:</b> Rotas possíveis no covil do Boss.
-									<br><b>• Standard (Straight to Boss):</b> O Farmer vai ir direto para o Boss. Recomendado para Wizards (com Sword), Tamers (com Bow) e Chars fortes.
-									<br><b>• Safe (Kill Gun Witches + Potion):</b> O Farmer vai parar nos 4 Gun Witches, matar eles, usar Poção se necessário e depois ir para o Boss. Recomendado para chars que não matam o Boss com AOE (Assassin, Fairy e Monk).
-									<br><b>• Lure Powerfuls:</b> Com essa opção ativada, o Farmer vai lurar os mobs do covil para ajudarem a matar o Boss.
-									<br><b>• Heal Before Second Phase:</b> A opção <b>Lure Powerfuls</b> precisa estar ativada para poder usar essa opção. Com essa opção ativada, o Farmer vai finalizar a primeira fase do Boss e vai ir se curar enquanto os mobs que foram lurados ficam atacando a segunda fase do boss (quando ele desce do cavalo).
-									<br><b>• Recomendado usar a rota Safe + Lure Powerfuls + Heal Before Second Phase para chars mais fracos.</b>">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(5) Misc:</b> Additional settings for Wizard, Assassin, and Monk classes.
-									<br><b>• Use AOE until mana is X %:</b> If the Farmer is a Wizard, this option will be available. The Farmer will use Sword AOE until Mana reaches the defined percentage, preventing it from depleting.
-									<br><b>• Passive Opt.:</b> If the Farmer is an Assassin or Monk, this option will be available. It optimizes the Passive Skill of these two classes, increasing damage. Skill 1 and Skill 2 shortcuts must be configured in the Shortcuts tab for this option to work properly."
-								data-pt="<b>(5) Misc:</b> Configurações adicionais para classes Wizard, Assassin e Monk.
-									<br><b>• Use AOE until mana is X %:</b> Caso o Farmer seja um Wizard, essa opção ficará disponível. O Farmer vai usar AOE da Sword até que a Mana chegue na % definida, evitando zerar a Mana.
-									<br><b>• Passive Opt.:</b> Caso o Farmer seja um Assassin ou Monk, essa opção ficará disponível. Serve para otimizar a Passiva dessas duas classes, causando mais dano. Os Shortcuts de Skill 1 e Skill 2 devem estar configurados na aba Shortcuts para essa opção funcionar corretamente.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Delete Speed" data-pt="Delete Speed"></dfn><span data-en="How fast the bot clicks while deleting the items." data-pt="Velocidade que o bot vai fazer os clicks para deletar os itens."></span></li>
+								<li><dfn data-en="Delete every X minute(s)" data-pt="Delete every X minute(s)"></dfn><span data-en="How often it clears the drops." data-pt="De quanto em quanto tempo deve excluir os drops."></span></li>
+								<li><dfn data-en="Test Delete" data-pt="Test Delete"></dfn><span data-en="Doesn't delete anything — it only clicks the item, so you can check the bot is finding the right one." data-pt="Não deleta item. Vai apenas clicar no item, para você conferir se o bot está achando o certo."></span></li>
+							</ul>
 						</li>
 					</ul>
-					
-					<!-- Shortcuts -->
-					<h3 id="bcshortcuts" data-en="Shortcuts" data-pt="Shortcuts"></h3>
-					<span class="image main"><img src="images/tut_bc_shortcuts.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>For all shortcuts you won't use, click on them and then press Esc to disable them.</b>" 
-								data-pt="<b>Para todos os atalhos que não for usar, clique neles e depois pressione Esc para desativá-los.</b>">
-							</span>
+				</section>
+				<section class="section" id="mail">
+					<h2><span data-en="Mail" data-pt="Mail"></span><a class="anchor" href="#mail" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/mail.png" width="748" height="589" loading="lazy" decoding="async" alt="Mail">
+					</button>
+					<p class="lede"><span data-en="Mails the items you list to another character." data-pt="Manda por correio os itens da lista para outro char."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Item List" data-pt="Item List"></span></h3>
+							<p><span data-en="The items that get mailed. Add Item opens the game's item list; Import and Export save or load the list as a file; Test runs the flow without committing to it." data-pt="Os itens que vão ser enviados. O Add Item abre a lista de itens do jogo; Import e Export salvam ou carregam a lista em arquivo; o Test roda a rotina sem valer."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(1) Skills:</b> Shortcuts for Skills, AOE (Area Attack), Super Skill (Wizards), Buff, Break Soul (+12 Mount Skill), Healing Spell (Fairy Skill - only available if the Farmer is a Fairy)."
-								data-pt="<b>(1) Skills</b>: Atalhos para Skills, AOE (Ataque em Área), Super Skill (Wizards), Buff, Break Soul (Skill de montaria +12), Healing Spell (Skill de Fairy - só fica disponível caso o Farmer seja uma Fairy).">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(2) General:</b> Main shortcuts.
-									<br><b>• Mount:</b> Shortcut for the mount.
-									<br><b>• Speed Skill:</b> Shortcut for the mount's Speed Skill.
-									<br><b>• Summon Pet:</b> Shortcut to summon the Pet.
-									<br><b>• Pet Food:</b> Shortcut for Pet Food.
-									<br><b>• Stone Charm:</b> Shortcut for the Stone City Return Charm."
-								data-pt="<b>(2) General:</b> Atalhos principais.
-									<br><b>• Mount:</b> Atalho da montaria.
-									<br><b>• Speed Skill:</b> Atalhos para Skill de Velocidade da montaria.
-									<br><b>• Summon Pet:</b> Atalho para Summonar o Pet.
-									<br><b>• Pet Food:</b> Atalho para Pet Food.
-									<br><b>• Stone Charm:</b> Atalho para o Stone City Return Charm.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(3) Potions:</b> Shortcuts for potions.
-									<br><b>• HP:</b> Shortcut for normal HP Potion.
-									<br><b>• Mana:</b> Shortcut for normal Mana Potion.
-									<br><b>• Battle HP:</b> Shortcut for Battle HP Potion.
-									<br><b>• Battle Mana:</b> Shortcut for Battle Mana Potion."
-								data-pt="<b>(3) Potions:</b> Atalhos para poções.
-									<br><b>• HP:</b> Atalho da Poção de HP normal.
-									<br><b>• Mana:</b> Atalho da Poção de Mana normal.
-									<br><b>• Battle HP:</b> Atalho para Poção de HP de batalha.
-									<br><b>• Battle Mana:</b> Atalho para Poção de Mana de batalha.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Send items to" data-pt="Send items to"></dfn><span data-en="Name of the player who receives the items." data-pt="Nome do player que vai receber os itens."></span></li>
+								<li><dfn data-en="Item Limit" data-pt="Item Limit"></dfn><span data-en="How many items from the list have to be in the bag before the bot mails. The count is for the list as a whole, not per item: with MR and ME on the list and a limit of 4, it sends at 4 ME, or 4 MR, or 2 of each, and so on. Set it to 1 to mail every time one of the listed items drops." data-pt="Quantidade de itens da lista que precisa ter na bag para o bot mandar. A conta é do conjunto, não de cada item: com MR e ME na lista e limite 4, ele manda com 4 ME, ou 4 MR, ou 2 de cada, e assim por diante. Com 1, manda toda hora que aparecer um item da lista."></span></li>
+								<li><dfn data-en="Check items (m)" data-pt="Check items (m)"></dfn><span data-en="How often the bot opens the inventory to look for the listed items." data-pt="De quanto em quanto tempo o bot abre o inventário para verificar os itens."></span></li>
+								<li><dfn data-en="Send Gold" data-pt="Send Gold"></dfn><span data-en="Sends gold along with the items." data-pt="Manda gold junto com os itens."></span></li>
+								<li><dfn data-en="Mount" data-pt="Mount"></dfn><span data-en="Shortcut for the mount used on the way to the mailbox." data-pt="Atalho da montaria usada no caminho até o correio."></span></li>
+							</ul>
 						</li>
 					</ul>
-					
-					<!-- Potions -->
-					<h3 id="bcpotions" data-en="Potions" data-pt="Potions"></h3>
-					<span class="image main"><img src="images/tut_bc_potions.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>(1) Potions:</b> Defines the percentage for using <b>HP</b> potions (includes Wizard's Super Skill / Fairy's Healing Spell) and <b>Mana</b> potions."
-								data-pt="<b>(1) Potions</b>: Define a Porcentagem de uso de Poção de <b>HP</b> (inclui Super Skill de Wizard / Healing Spell de Fairy) e <b>Mana</b>.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(2) Battle Potions:</b> Defines the percentage for using battle potions."
-								data-pt="<b>(2) Battle Potions:</b> Define a porcentagem de uso das poções de batalha.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>Situations where the Farmer will use Potions</b> (or Wizard's Super Skill / Fairy's Healing Spell), <b>if necessary</b>:
-									<br><b>• Stone City.</b>
-									<br><b>• Beginning of the Cave.</b>
-									<br><b>• Beginning of the Boss's lair.</b>
-									<br><b>• After defeating the Gun Witches</b> (if the Safe route is selected in the Main tab).
-									<br><b>• After defeating the Boss's first phase</b> (if the Heal Before Second Phase option is selected in the Main tab)."
-								data-pt="<b>Pontos em que o Farmer vai usar as Poções</b> (ou Super Skill do Wizard / Healing Spell da Fairy), <b>se necessário</b>:
-									<br><b>• Stone City.</b>
-									<br><b>• Início da Cave.</b>
-									<br><b>• Início do covil do Boss.</b>
-									<br><b>• Depois de matar os Gun Witches</b> (se a rota Safe estiver marcada na aba Main).
-									<br><b>• Depois de matar a primeira fase do boss</b> (se a opção Heal Before Second Phase estiver marcarda na aba Main).">
-							</span>
+				</section>
+				<section class="section" id="autopick">
+					<h2><span data-en="Auto Pick" data-pt="Auto Pick"></span><a class="anchor" href="#autopick" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/autopick.png" width="745" height="588" loading="lazy" decoding="async" alt="Auto Pick">
+					</button>
+					<p class="lede"><span data-en="Runs on its own — just tick Auto Pick on the Home tab." data-pt="Função automática, só ativar na aba Home."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Delay" data-pt="Delay"></span></h3>
+							<p><span data-en="Wait between killing the mob and picking up its loot." data-pt="Tempo de espera entre matar o mob e pegar o loot dele."></span></p>
 						</li>
 					</ul>
-					
-					<!-- Stats -->
-					<h3 id="bcstats" data-en="Stats" data-pt="Stats"></h3>
-					<span class="image main"><img src="images/tut_bc_stats.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en=""
-								data-pt="<b>Informações da função de BC</b>:
-									<br><b>• Runs:</b> Quantidade de vezes que fez a cave BC.
-									<br><b>• Sucess:</b> Quantidade de sucessos.
-									<br><b>• Fail:</b> Quantidade de falhas.
-									<br><b>• Run Time:</b> Tempo da run atual.
-									<br><b>• Last Run Time:</b> Tempo da última run.
-									<br><b>• Total Running Time:</b> Tempo total que está rodando a função de BC.
-									<br><b>• Courage Badge:</b> Quantidade total de Courage Badges farmados.">
-							</span>
+				</section>
+				<section class="section" id="sell">
+					<h2><span data-en="Sell" data-pt="Sell"></span><a class="anchor" href="#sell" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/sell.png" width="747" height="589" loading="lazy" decoding="async" alt="Sell">
+					</button>
+					<p class="lede"><span data-en="Runs on its own — just tick Sell on the Home tab. The bot looks for the nearest selling NPC and goes there." data-pt="Função automatizada, só habilitar ela na Home. O bot vai procurar o npc de venda mais próximo e vai ir vender."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="NPC" data-pt="NPC"></span></h3>
+							<p><span data-en="Name and coordinates of the NPC the bot found. It searches for the nearest selling NPC by itself." data-pt="Nome e coordenadas do NPC que o bot encontrou. Ele procura sozinho o NPC de venda mais próximo."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Mount" data-pt="Mount"></span></h3>
+							<p><span data-en="Set the mount shortcut if you want the character to ride to the NPC and back to the spot." data-pt="Configure o atalho da montaria caso queira que o char vá vender e volte para o spot montado."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="TP Stone / Return Charm" data-pt="TP Stone / Return Charm"></span></h3>
+							<p><span data-en="If there is a Teleport Stone near the NPC, set its shortcut here." data-pt="Caso tenha uma Teleport Stone próxima ao NPC, configure o atalho dela aqui."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Sell at every X min" data-pt="Sell at every X min"></dfn><span data-en="How many minutes between selling trips." data-pt="A cada quantos minutos o char vai ir vender os itens."></span></li>
+								<li><dfn data-en="Item Limit" data-pt="Item Limit"></dfn><span data-en="Item count that triggers a trip. A full bag holds 30 items, so 30 sends the character out once the first bag fills up." data-pt="Quantidade limite de itens. Uma bag cheia contém 30 itens, então 30 faz o char ir vender quando a primeira bag encher."></span></li>
+								<li><dfn data-en="Initial Selling Slot" data-pt="Initial Selling Slot"></dfn><span data-en="Which sell slot the character keeps clicking. 1 is the first slot, 7 is the first slot of the second row, and so on — the ? button shows the numbering." data-pt="Slot de Sell que o char vai ficar clicando. 1 é o primeiro slot, 7 é o primeiro slot da segunda fileira, e assim por diante — o botão ? mostra a numeração."></span></li>
+								<li><dfn data-en="Near Distance" data-pt="Near Distance"></dfn><span data-en="How closely the character adjusts its position on the way back to the spot. Useful for tight spots." data-pt="Distância para o char ajustar a posição quando estiver voltando para o spot. Útil para alguns spots apertados."></span></li>
+								<li><dfn data-en="Sell at Start" data-pt="Sell at Start"></dfn><span data-en="Goes selling as soon as the bot starts." data-pt="Vai vender assim que o bot iniciar."></span></li>
+							</ul>
 						</li>
 					</ul>
-
-					<!-- Reseter -->
-					<h3 id="bcstats" data-en="Reseter" data-pt="Reseter"></h3>
-					<span class="image main"><img src="images/tut_bc_reseter.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>Example configuration for the Reseter</b>:
-									<br><b>• Member Name:</b> With the Reseter selected in the bot, enter the Farmer's name in the Member Name box.
-									<br><b>• 1 Reseter for multiple Farmers:</b> It is possible to use a single Reseter for multiple Farmers. Simply enter the names of the Farmers separated by commas in the Member Name box (e.g., Farmer, Tamer1, Fairy2, Char3).
-									<br><b>• Leave Team:</b> The Reseter will leave the team every 1min. Useful for multiple Farmers using the same Reseter. Disable this option if you use 1 Reseter for 1 Farmer."
-								data-pt="<b>Exemplo de configuração para o Reseter</b>:
-									<br><b>• Member Name:</b> Com o Reseter selecionado no bot, coloque o Nome do Farmer na caixinha de Member Name.
-									<br><b>• 1 Reseter para vários Farmers:</b> É possível utilizar apenas 1 Reseter para vários Farmers. Basta colocar os nomes dos Farmers separados por vírgula na caixinha de Member Name (por exemplo: Farmer, Tamer1, Fairy2, Char3).
-									<br><b>• Leave Team:</b> O Reseter vai sair do team a cada 1min. Útil para vários Farmers utilizando o mesmo Reseter. Desative esta opção caso use 1 Reseter para 1 Farmer.">
-							</span>
+				</section>
+				<section class="section" id="caveshortcuts">
+					<h2><span data-en="Cave Shortcuts" data-pt="Cave Shortcuts"></span><a class="anchor" href="#caveshortcuts" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/cave_shortcuts.png" width="397" height="476" loading="lazy" decoding="async" alt="Cave Shortcuts">
+					</button>
+					<p class="lede"><span data-en="One shared set of shortcuts used by BC, Hollow and PCP. Open it with the Shortcuts button on any of those tabs — setting it once covers all three." data-pt="Um único conjunto de atalhos compartilhado por BC, Hollow e PCP. Abra pelo botão Shortcuts em qualquer uma dessas abas — configurar uma vez vale para as três."></span></p>
+					<p class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span data-en="Press Esc on a shortcut to remove or disable it." data-pt="Pressione Esc em um atalho para removê-lo ou desativá-lo."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Skills" data-pt="Skills"></span></h3>
+							<p><span data-en="Attack 1 to 3, Attack AOE, Super Skill, Buff, Break Soul and Healing Spell. Healing Spell only unlocks when the character is a Fairy." data-pt="Attack 1 a 3, Attack AOE, Super Skill, Buff, Break Soul e Healing Spell. O Healing Spell só libera quando o char é Fairy."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="General" data-pt="General"></span></h3>
+							<p><span data-en="Mount, Speed Skill, Summon Pet, Pet Food and Stone Charm." data-pt="Mount, Speed Skill, Summon Pet, Pet Food e Stone Charm."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Potions" data-pt="Potions"></span></h3>
+							<p><span data-en="HP, Mana, Battle HP and Battle Mana." data-pt="HP, Mana, Battle HP e Battle Mana."></span></p>
 						</li>
 					</ul>
-
-					<!-- Auto Pick -->
-					<h3 id="autopick" data-en="Auto Pick" data-pt="Auto Pick"></h3>
-					<span class="image main"><img src="images/tut_autopick.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>(1) Pick up All</b>: This is the coordinate of the 'Pick up all' button in the Loot box (example number <span style='color: rgb(34, 177, 76); font-weight: bold;'>3</span>). The default coordinate in the bot is the game's default coordinate. You only need to configure this coordinate if you have moved the Loot box's position within the game.
-									<br>To configure, click Set Coord and move the mouse over the Pick up all button (3) in the game."
-								data-pt="<b>(1) Pick up All</b>: Essa é a coordenada do botão de 'Pick up all' da caixinha de Loot (exemplo número <span style='color: rgb(34, 177, 76); ; font-weight: bold;'>3</span>). A coordenada padrão que está no bot é a coordenada padrão do jogo. Só precisar configurar essa coordenada caso tenha movido a posição da caixinha de Loot dentro do jogo. 
-								  	<br>Para configurar, clique em Set Coord e mova o mouse pra cima do botão de Pick up all (3) no jogo.">
-							</span>
+				</section>
+				<section class="section" id="bc">
+					<h2><span data-en="Bewitcher Cave (BC)" data-pt="Bewitcher Cave (BC)"></span><a class="anchor" href="#bc" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/bc_main.png" width="741" height="590" loading="lazy" decoding="async" alt="Bewitcher Cave (BC)">
+					</button>
+					<p class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span data-en="For BC to work, BC should be the only box ticked on the Home tab, on both characters (Farmer and Reseter)." data-pt="Para a função de BC funcionar, apenas a caixinha de BC deve estar marcada na aba Home, nos dois chars (Farmer e Reseter)."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Team" data-pt="Team"></span></h3>
+							<p><span data-en="Member Name is the other character in the run. Tick Reseter on the character that plays the reseter role." data-pt="O Member Name é o outro char da run. Marque Reseter no char que faz o papel de reseter."></span></p>
 						</li>
-						<li>
-							<span data-en="<b>(2) Delay</b>: Waiting time between killing the mob and looting it."
-								data-pt="<b>(2) Delay</b>: Tempo de espera entre matar o mob e pegar o loot dele.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="General" data-pt="General"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Return to Stone every X run(s)" data-pt="Return to Stone every X run(s)"></dfn><span data-en="How many runs before going back to Stone City." data-pt="Quantas runs antes de voltar para Stone City."></span></li>
+								<li><dfn data-en="Initial Selling Slot" data-pt="Initial Selling Slot"></dfn><span data-en="Which sell slot to start clicking from, same numbering as the Sell tab." data-pt="Slot de venda por onde começar a clicar, mesma numeração da aba Sell."></span></li>
+								<li><dfn data-en="Buy Return Charm after selling" data-pt="Buy Return Charm after selling"></dfn><span data-en="Restocks the return charm on each selling trip." data-pt="Repõe o return charm a cada ida para vender."></span></li>
+								<li><dfn data-en="Get Treasure Box" data-pt="Get Treasure Box"></dfn><span data-en="Picks up the treasure box at the end of the run." data-pt="Pega o treasure box no fim da run."></span></li>
+								<li><dfn data-en="Manual Pick" data-pt="Manual Pick"></dfn><span data-en="Leaves the looting to you instead of picking automatically." data-pt="Deixa o loot por sua conta, em vez de pegar automaticamente."></span></li>
+							</ul>
 						</li>
-					</ul>
-
-					<!-- Sell -->
-					<h3 id="sell" data-en="Sell" data-pt="Sell"></h3>
-					<span class="image main"><img src="images/tut_sell.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>(1) To configure the Sell function</b>: 
-									<br>• Click on <b>Surroundings</b> <img src='images/tut_surroundings2.png' class='image'/> (next to the minimap).
-									<br>• Enter the full name of the NPC where you want to sell the items <img src='images/tut_searchbar.png' class='image'/> <img src='images/tut_surroundingsnpc.png' class='image'/>.
-									<br>• Click Get NPC Info on the Bot <img src='images/tut_getnpcinfo.png' class='image'/>.
-									<br>• The NPC's information should appear on the bot (Name and Coordinates) <img src='images/tut_npcinfo.png' class='image'/>.
-									<br>• If the information does not appear automatically, enter the details manually (be very careful with the coordinates, as many NPCs have negative coordinates, e.g., [868, -465]).
-									<br>• Go to the NPC and interact with them.
-									<br>• In the 'Sell Items coords' section on the Bot, click the <b>Set</b> button <img src='images/tut_setsellcoord.png' class='image'/> and move the mouse over the NPC's Sell Item option <img src='images/tut_sellitem.png' class='image'/>.
-									<br>• The first step is complete."
-								data-pt="<b>(1) Para configurar a função de Sell</b>: 
-									<br>• Clique em <b>Surroundings</b> <img src='images/tut_surroundings2.png' class='image'/> (ao lado do minimapa).
-									<br>• Digite o Nome completo do NPC que deseja vender os itens <img src='images/tut_searchbar.png' class='image'/> <img src='images/tut_surroundingsnpc.png' class='image'/>.
-									<br>• Clique em Get NPC Info no Bot <img src='images/tut_getnpcinfo.png' class='image'/>.
-									<br>• As informações do NPC devem aparecer no bot (Nome e Coordenadas) <img src='images/tut_npcinfo.png' class='image'/>.
-									<br>• Caso as informações não tenham aparecido automaticamente, digite as informações manualmente (muita atenção nas coordenadas, pois muitos NPCs possuem coordenadas negativas, por exemplo: [868, -465]).
-									<br>• Vá até o NPC e fale com ele.
-									<br>• Na parte de 'Sell Items coords' no Bot, clique no botão <b>Set</b> <img src='images/tut_setsellcoord.png' class='image'/> e mova o mouse pra cima da opção Sell Item do NPC <img src='images/tut_sellitem.png' class='image'/>.
-									<br>• A primeira etapa está concluída.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Route" data-pt="Route"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Standard" data-pt="Standard"></dfn><span data-en="Straight to the boss." data-pt="Direto para o boss."></span></li>
+								<li><dfn data-en="Safe" data-pt="Safe"></dfn><span data-en="Kills the Gun Witches and uses potions on the way. Slower, but steadier on weaker characters." data-pt="Mata as Gun Witches e usa poções no caminho. Mais lento, mas mais seguro em chars fracos."></span></li>
+								<li><dfn data-en="Lure Powerfuls" data-pt="Lure Powerfuls"></dfn><span data-en="Lures the powerful mobs out of the way." data-pt="Lura os mobs powerful para fora do caminho."></span></li>
+								<li><dfn data-en="Heal Before Second Phase" data-pt="Heal Before Second Phase"></dfn><span data-en="Tops the character up before the boss's second phase." data-pt="Recupera o char antes da segunda fase do boss."></span></li>
+							</ul>
 						</li>
-						<li>
-							<span data-en="<b>(2) Teleport Stone / Return Charm</b>: If there is a Teleport Stone near the NPC, mark the position of this Teleport Stone, enable the option (Use), and configure the Teleport Stone's shortcut."
-								data-pt="<b>(2) Teleport Stone / Return Charm</b>: Caso tenha uma Teleport Stone próxima ao NPC, marque a posição dessa Teleport Stone, ative a opção (Use) e configure o atalho (Shortcut) da Teleport Stone.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(3) Mount</b>: If you want to use a mount to sell items and then return to the Spot, enable this option and configure the mount's shortcut."
-								data-pt="<b>(3) Mount</b>: Caso queira usar uma montaria para ir vender items e depois voltar para o Spot, ative essa opção e configure o atalho da montaria.">
-							</span>
-						</li>
-						<li>
-							<span data-en="<b>(4) Config</b>:
-									<br><b>• Sell at Every X min:</b> How many minutes the character will wait before selling items.
-									<br><b>• Items Amount:</b> Maximum amount of items. A full bag contains 30 items. If configured to 30, the character will sell when the first bag is full.
-									<br><b>• Initial Selling Slot:</b> The Sell slot where the character will keep clicking to sell the items. 1 = first Sell slot, 7 = first Sell slot of the second row, etc.
-									<br><b>• Near Distance:</b> Distance that the character adjust the position when returning to the Spot. Useful for some narrow spots.
-									<br><b>• Sell at Start:</b> With this option enabled, the character will execute the sell function when the bot starts."
-								data-pt="<b>(4) Config</b>:
-									<br><b>• Sell at Every X min:</b> A cada quantos minutos o Char vai ir vender os itens.
-									<br><b>• Items Amount:</b> Quantidade limite de itens. Uma bag cheia contém 30 itens. Se tiver configurado para 30, o char vai ir vender quando a primeira bag estiver cheia.
-									<br><b>• Initial Selling Slot:</b> Slot de Sell que o Char vai ficar clicando para vender os itens. 1 = primeiro slot do Sell, 7 = primeiro slot da segunda fileira de sell, etc.
-									<br><b>• Near Distance:</b> Distância para o char ajustar a posição quando estiver voltando para o Spot. Útil para alguns spots apertados.
-									<br><b>• Sell at Start:</b> Com essa opção marcada, o Char vai executar a função de venda quando iniciar o bot.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Misc" data-pt="Misc"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Use AOE until Mana is X%" data-pt="Use AOE until Mana is X%"></dfn><span data-en="Keeps using the area attack until mana drops to that percentage." data-pt="Fica usando o ataque em área até a mana cair nessa porcentagem."></span></li>
+								<li><dfn data-en="Passive Opt." data-pt="Passive Opt."></dfn><span data-en="Passive stacking optimization, same idea as the one on the Attack tab." data-pt="Otimização do acúmulo de passivas, mesma ideia da que existe na aba Attack."></span></li>
+							</ul>
 						</li>
 					</ul>
-					
-					<!-- Shortcuts -->
-					<h3 id="shortcuts" data-en="Shortcuts" data-pt="Atalhos"></h3>
-					<span class="image main"><img src="images/tut_menu_config.png" alt=""/></span>
-					<span class="image main"><img src="images/tut_shortcuts.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>The shortcuts need to be activated in the box on the left. You can put the shortcuts you want for each function. The shortcuts with (Selected Bots) in the name will only work for the selected bots. To select multiple bots, hold Ctrl and click on the name of the bots in the bot list. Example of selected bot:</b>"
-								data-pt="<b>Os atalhos precisam ser ativados na caixinha ao lado esquerdo. Você pode colocar os atalhos que desejar para cada função. Os atalhos com (Selected Bots) no nome funcionarão apenas para os chars selecionados na lista de bots. Para selecionar vários chars, segure Ctrl e clique no nome dos chars na lista do bot. Exemplo de bot selecionado:</b>">
-							</span>
+				</section>
+				<section class="section" id="bcpotions">
+					<h2><span data-en="Potions" data-pt="Potions"></span><a class="anchor" href="#bcpotions" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/bc_potions.png" width="748" height="588" loading="lazy" decoding="async" alt="Potions">
+					</button>
+					<p class="lede"><span data-en="Percentages used inside the cave, separate from the ones on the Potion tab." data-pt="Porcentagens usadas dentro da cave, separadas das que ficam na aba Potion."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Potions" data-pt="Potions"></span></h3>
+							<p><span data-en="Normal HP and Mana potions." data-pt="Poções normais de HP e Mana."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Battle Potions" data-pt="Battle Potions"></span></h3>
+							<p><span data-en="Battle HP and Mana potions." data-pt="Poções de batalha de HP e Mana."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Fairy self-heal in battle" data-pt="Fairy self-heal in battle"></span></h3>
+							<p><span data-en="The HP percentage at which a Fairy casts Healing Spell on herself during the fight." data-pt="A porcentagem de HP em que a Fairy usa Healing Spell nela mesma durante a luta."></span></p>
 						</li>
 					</ul>
-
-					<span class="image main"><img src="images/tut_shortcut_example.png" alt=""/></span>
-
-					<ul>
-						<li>
-							<span data-en="<b> Description of the Shortcuts:</b> 
-								    <br><b>• Mount Shortcut (Selected Bots):</b> Shortcut of the mount.
-									<br><b>• Mount Follow (Selected Bots):</b> The character will mount (using the shortcut above) and follow the leader.
-									<br><b>• Mount Up (Selected Bots):</b> The character will mount (using the shortcut above).
-									<br><b>• Mount Down (Selected Bots):</b> The character will dismount (using the shortcut above).
-									<br><b>• Follow (Selected Bots):</b> The character will select the leader and follow him.
-									<br><b>• Start/Stop (Selected Bots):</b> Start or stop the selected bots.
-									<br><b>• Start/Stop (All Bots):</b> Start or stop all bots in the list.
-									<br><b>• Start/Stop (Selected Window)</b> Start or stop the character with the selected window. Example: click on the TO window of your character and press this shortcut."
-								data-pt="<b> Descrição dos atalhos:</b>
-									<br><b>• Mount Shortcut (Selected Bots):</b> Atalho da montaria.
-									<br><b>• Mount Follow (Selected Bots):</b> O char vai subir na montaria (pressionando o atalho setado acima) e vai seguir o líder.
-									<br><b>• Mount Up (Selected Bots):</b> O char vai subir na montaria (pressionando o atalho setado acima).
-									<br><b>• Mount Down (Selected Bots):</b> O char desce da montaria (pressionando o atalho setado acima).
-									<br><b>• Follow (Selected Bots):</b> O char vai selecionar o líder e vai seguir ele.
-									<br><b>• Start/Stop (Selected Bots):</b> Inicia ou para os bots selecionados.
-									<br><b>• Start/Stop (All Bots):</b> Inicia ou para todos os bots da lista.
-									<br><b>• Start/Stop (Selected Window)</b> Inicia ou para o char que estiver com a janela selecionada. Exemplo: clique na janela do TO do seu char e pressione este atalho.">
-							</span>
+				</section>
+				<section class="section" id="bcmail">
+					<h2><span data-en="Mail" data-pt="Mail"></span><a class="anchor" href="#bcmail" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/bc_mail.png" width="749" height="589" loading="lazy" decoding="async" alt="Mail">
+					</button>
+					<p class="lede"><span data-en="Mails the cave drops without leaving the run. Same idea as the Mail tab, but the list here is the BC one." data-pt="Manda os drops da cave sem sair da run. Mesma ideia da aba Mail, mas a lista aqui é a do BC."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Item List" data-pt="Item List"></span></h3>
+							<p><span data-en="The items to mail. Add Item, Import, Export, Clear and Delete work as they do on the Mail tab." data-pt="Os itens que vão ser enviados. Add Item, Import, Export, Clear e Delete funcionam como na aba Mail."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Send items to" data-pt="Send items to"></dfn><span data-en="Name of the character that receives them." data-pt="Nome do char que vai receber."></span></li>
+								<li><dfn data-en="Item Limit" data-pt="Item Limit"></dfn><span data-en="How many items from the list are needed before it mails." data-pt="Quantidade de itens da lista necessária para mandar."></span></li>
+							</ul>
 						</li>
 					</ul>
-
-					<!-- Login/Relog -->
-					<h3 id="loginrelog" data-en="Login/Relog" data-pt="Login/Relog"></h3>
-					<span class="image main"><img src="images/tut_menu_login.png" alt=""/></span>
-					<span class="image main"><img src="images/tut_login_setpath.png" alt=""/></span>
-					<span class="image main"><img src="images/tut_login_acclist.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>To configure the Login/Relog function</b>: 
-									<br>• Click on menu Login.
-									<br>• Click on menu Config and then Set Path to define the Talisman folder.
-									<br>• Add the account you want to use.
-									<br>• Check the box next to the character's name to Login the character if it's not in the Bot list, or relog in case of disconnection and automatically start the bot after logging in."
-								data-pt="<b>Para configurar a função de Login/Relog</b>: 
-									<br>• Clique no menu Login.
-									<br>• Clique no menu Config e depois em Set Path para definir a pasta do Talisman.
-									<br>• Adicione a conta que deseja usar.
-									<br>• Marque a caixinha ao lado do nome do char para logar o char caso ele não esteja na lista do Bot, ou relogar caso tenha levado DC e iniciar automaticamente o bot depois de logar.">
-							</span>
+				</section>
+				<section class="section" id="bcstats">
+					<h2><span data-en="Stats" data-pt="Stats"></span><a class="anchor" href="#bcstats" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/bc_stats.png" width="747" height="589" loading="lazy" decoding="async" alt="Stats">
+					</button>
+					<p class="lede"><span data-en="The tally for the current session." data-pt="O balanço da sessão atual."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Runs, Success, Fail" data-pt="Runs, Success, Fail"></span></h3>
+							<p><span data-en="How many runs were attempted and how they ended." data-pt="Quantas runs foram feitas e como terminaram."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Run Time" data-pt="Run Time"></span></h3>
+							<p><span data-en="Current run, last run, and total time the function has been going." data-pt="Run atual, run anterior, e tempo total que a função está rodando."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Courage Badge" data-pt="Courage Badge"></span></h3>
+							<p><span data-en="Badges farmed so far." data-pt="Badges farmados até agora."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Reset Stats" data-pt="Reset Stats"></span></h3>
+							<p><span data-en="Zeroes the counters. With Auto Reset Stats ticked, that happens on its own every time the bot starts." data-pt="Zera os contadores. Com o Auto Reset Stats marcado, isso acontece sozinho toda vez que o bot inicia."></span></p>
 						</li>
 					</ul>
-
-					<!-- Hollow -->
-					<h3 id="hollow" data-en="Hollow" data-pt="Hollow"></h3>
-					<span class="image main"><img src="images/tut_hollow.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>To configure the Hollow function</b>: 
-									<br>• Select who will be the leader of the team (Fairy cannot be leader).
-									<br>• Every time the Hollow function is started from zero, the leader must be selected and the 'Reset State' button on the Hollow tab must be clicked. This will reset the leader's progress and all team members.
-									<br>• Add the members that will be part of the team.
-									<br>• Choose which settings you want to use: 
-									<br>• • Hollow 1 to 3 times. 
-									<br>• • LW (Ice Mirror Faerie).
-									<br>• • Exchange Courage for Soul Bell (you need to have 90 Courage Badge in the inventory each time you want to exchange).
-									<br>• • Super Skill quest after finishing the runs.
-									<br>• Kite Mode: will attack the Hollow keeping a safe distance.
-									<br>• Stay Safe: will not attack the Hollow, only will stay safe. Useful for weak characters."
-								data-pt="<b>Para configurar a função de Hollow</b>: 
-									<br>• Selecione quem vai ser o líder do time (Fairy não pode ser líder).
-									<br>• Sempre que for iniciar a função de Hollow do zero, é necessário selecionar o líder do time e clicar no botão 'Reset State' na aba Hollow. Isso irá resetar o progresso do líder e de todos os membros do time.
-									<br>• Adicione os membros que farão parte do time.
-									<br>• Escolha quais configurações deseja usar: 
-									<br>• • Hollow de 1 a 3 vezes. 
-									<br>• • LW (Ice Mirror Faerie).
-									<br>• • Exchange Courage for Soul Bell (tem que ter 90 Courage Badge no inventário cada vez que for trocar).
-									<br>• • Quest de Super Skill após finalizar as runs.
-									<br>• Kite Mode: vai atacar o Hollow mantendo uma distância segura.
-									<br>• Stay Safe: não vai atacar o Hollow, apenas vai se manter seguro. Útil para chars fracos.">
-							</span>
+				</section>
+				<section class="section" id="hollow">
+					<h2><span data-en="Hollow" data-pt="Hollow"></span><a class="anchor" href="#hollow" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/hollow.png" width="747" height="590" loading="lazy" decoding="async" alt="Hollow">
+					</button>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Team" data-pt="Team"></span></h3>
+							<p><span data-en="Pick who leads the team — a Fairy cannot be the leader. Whenever you start the function from scratch, select the leader and press Reset State, which clears the progress of the leader and of every member." data-pt="Selecione quem vai ser o líder do time — Fairy não pode ser líder. Sempre que for iniciar a função do zero, selecione o líder e clique em Reset State, que reseta o progresso do líder e de todos os membros do time."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Members" data-pt="Members"></span></h3>
+							<p><span data-en="Add the characters that make up the team." data-pt="Adicione os membros que farão parte do time."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Hollow 1x / 2x / 3x" data-pt="Hollow 1x / 2x / 3x"></dfn><span data-en="How many times to run it." data-pt="Quantas vezes vai rodar."></span></li>
+								<li><dfn data-en="Kite Mode" data-pt="Kite Mode"></dfn><span data-en="Attacks the Hollow while keeping a safe distance." data-pt="Vai atacar o Hollow mantendo uma distância segura."></span></li>
+								<li><dfn data-en="Stay Safe" data-pt="Stay Safe"></dfn><span data-en="Doesn't attack the boss at all, just keeps out of danger. Useful for weak characters." data-pt="Não vai atacar o Hollow, apenas vai se manter seguro. Útil para chars fracos."></span></li>
+								<li><dfn data-en="LW" data-pt="LW"></dfn><span data-en="Runs the Ice Mirror Faerie." data-pt="Faz a LW (Ice Mirror Faerie)."></span></li>
+								<li><dfn data-en="Exchange Courage for Soul Bell" data-pt="Exchange Courage for Soul Bell"></dfn><span data-en="Trades badges for a Soul Bell. Each trade needs 90 Courage Badges in the inventory." data-pt="Troca badges por Soul Bell. Cada troca precisa de 90 Courage Badge no inventário."></span></li>
+								<li><dfn data-en="Super Skill quest after finishing runs" data-pt="Super Skill quest after finishing runs"></dfn><span data-en="Does the Super Skill quest once the runs are done." data-pt="Faz a quest de Super Skill depois de finalizar as runs."></span></li>
+							</ul>
 						</li>
 					</ul>
-
-					<!-- DR Lure -->
-					<h3 id="drlure" data-en="DR Lure" data-pt="DR Lure"></h3>
-					<span class="image main"><img src="images/tut_drlure.png" alt=""/></span>
-					<ul>
-						<li>
-							<span data-en="<b>To configure the DR Lure function</b>: 
-									<br>• Enable the DR Lure function in the Home tab.
-									<br>• Select the Lure option.
-									<br>• Start the bot."
-								data-pt="<b>Para configurar a função de DR Lure</b>: 
-									<br>• Ative a função de DR Lure na aba Home.
-									<br>• Selecione a opção de Lure.
-									<br>• Inicie o bot.">
-							</span>
+				</section>
+				<section class="section" id="hollowpotions">
+					<h2><span data-en="Potions" data-pt="Potions"></span><a class="anchor" href="#hollowpotions" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/hollow_potions.png" width="746" height="585" loading="lazy" decoding="async" alt="Potions">
+					</button>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Potions and Battle Potions" data-pt="Potions e Battle Potions"></span></h3>
+							<p><span data-en="HP and Mana percentages used during the run." data-pt="Porcentagens de HP e Mana usadas durante a run."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Safe HP % to fight Hollow" data-pt="Safe HP % to fight Hollow"></span></h3>
+							<p><span data-en="The character only engages the boss above this HP percentage." data-pt="O char só encara o boss acima dessa porcentagem de HP."></span></p>
 						</li>
 					</ul>
-
-					<h4 id="wip" data-en="Work in progress..." data-pt="Em construção..."></h3>
-				</article>
-
-				<!-- Patch Notes -->
-				<article id="patchnotes">
-					<h2 class="major" data-en="Patch Notes" data-pt="Patch Notes"></h2>
-
-					<!-- Version 4.7 - [August 24, 2026] -->
-					<h3 data-en="Version 4.7 - [August 24, 2026]"
-						data-pt="Versão 4.7 - [24/08/2026]"></h3>
-					<ul>
-						<li>
-							<span data-en='<b>New:</b> The bot now includes an installer. Open it via Desktop shortcut or Start Menu.'
-								data-pt='<b>Novo:</b> O bot agora possui instalador. Abra pelo atalho da Área de Trabalho ou Menu Iniciar.'>
-							</span>
+				</section>
+				<section class="section" id="pcp">
+					<h2><span data-en="PCP" data-pt="PCP"></span><a class="anchor" href="#pcp" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/pcp_main.png" width="747" height="587" loading="lazy" decoding="async" alt="PCP">
+					</button>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Team" data-pt="Team"></span></h3>
+							<p><span data-en="Pick who leads the team." data-pt="Defina quem vai ser o líder do team."></span></p>
 						</li>
-						<li>
-							<span data-en='<b>General:</b> Moved bot files from Documents/RaaskiBot to %localappdata%/RaaskiBot.'
-								data-pt='<b>Geral:</b> Arquivos movidos de Documentos/RaaskiBot para %localappdata%/RaaskiBot.'>
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Members" data-pt="Members"></span></h3>
+							<p><span data-en="Add the characters that make up the team." data-pt="Adicione os membros na caixinha de Members."></span></p>
 						</li>
-						<li>
-							<span data-en='<b>General:</b> Improved NPC dialogue detection logic.'
-								data-pt='<b>Geral:</b> Alterada a forma como o bot identifica diálogo de NPCs.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>General:</b> Reworked shortcut assignment for Attack, Potions, Buffs, etc.'
-								data-pt='<b>Geral:</b> Alterada a forma de setar atalhos para Attack, Potions, Buffs, etc.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Config – Bot/Dynamic Click:</b> Improved dynamic clicks for off-standard UI menu positions.'
-								data-pt='<b>Config/Bot/Dynamic Click:</b> Clicks dinâmicos melhorados para menus fora da posição padrão.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Delete:</b> Redesigned with built-in game item list and image support (.bmp/.png) in RaaskiBot/images/items.'
-								data-pt='<b>Delete:</b> Função refeita com lista de itens e uso de imagens (bmp/png) em RaaskiBot/images/items.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Login:</b> Redesigned UI with tabs to categorize chars (Main | Apps | Stall | Warehouse | War).'
-								data-pt='<b>Login:</b> Tela refeita com abas para separar chars (Main | Apps | Stall | Warehouse | War).'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Login:</b> Added "Just Login" option to right-click menu to bypass character name validation.'
-								data-pt='<b>Login:</b> Nova opção "Just Login" no menu do botão direito para logar ignorando a validação do nome do char.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Login:</b> Added drag-and-drop account reordering.'
-								data-pt='<b>Login:</b> Agora é possível reordenar as contas clicando e arrastando.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Login:</b> Added account edit option.'
-								data-pt='<b>Login:</b> Adicionada opção de editar conta.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>BC:</b> Moved BC Mail from Hollow tab to BC tab, using the new item list system.'
-								data-pt='<b>BC:</b> BC Mail movido da aba Hollow para a aba BC, usando o novo padrão de lista de itens.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Cave:</b> Cave shortcuts are now globally shared ("Cave Shortcuts").'
-								data-pt='<b>Cave:</b> Atalhos de Caves agora são "Cave Shortcuts" compartilhados.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Attack:</b> Reworked how Focus Leader Target works.'
-								data-pt='<b>Attack:</b> Alterada a forma que o Focus Leader Target funciona.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Attack:</b> Added "Anti Loot Bug" option to move the char every 1 minute (prevents idling lockups).'
-								data-pt='<b>Attack:</b> Nova opção "Anti Loot Bug" para mover o char a cada 1 minuto (evita travamentos em chars parados).'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Potion:</b> Added Save Spot option to improve "Go to Saved Spot" behavior.'
-								data-pt='<b>Potion:</b> Nova opção de Save Spot para melhorar a função "Go to Saved Spot".'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Sell:</b> Fully automated. Automatically finds and uses the nearest vendor NPC without setup.'
-								data-pt='<b>Sell:</b> Totalmente automatizado. Não precisa configurar o NPC; o bot procura o vendedor mais próximo.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Auto Pick:</b> Automatically detects the loot window across the entire screen.'
-								data-pt='<b>Auto Pick:</b> Agora identifica a loot window na tela inteira de forma automática.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Revive:</b> Reworked spot return logic. Now works even when respawning in a different city.'
-								data-pt='<b>Revive:</b> Alterada a forma de voltar ao spot. Funciona mesmo se o char nascer em outra cidade.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> General adjustments and Fairy heal fixes.'
-								data-pt='<b>Hollow:</b> Ajustes gerais e melhoria no heal da fairy.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>DR Lure:</b> Added boss position tracking methods for DR lure.'
-								data-pt='<b>DR Lure:</b> Adicionados métodos de busca de posição dos bosses na DR lure.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Mail:</b> New auto-mail function to send gold/items via the nearest Post Officer.'
-								data-pt='<b>Mail:</b> Nova função para enviar item e gold via Post Officer mais próximo.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>PCP:</b> Added new PCP farm feature.'
-								data-pt='<b>PCP:</b> Nova função para farm de PCP.'>
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Use mount on revive" data-pt="Use mount on revive"></dfn><span data-en="Mounts up after reviving to get back faster." data-pt="Usa a montaria depois de reviver, para voltar mais rápido."></span></li>
+								<li><dfn data-en="Fairy Heal Only" data-pt="Fairy Heal Only"></dfn><span data-en="Restricts the Fairy to healing." data-pt="Deixa a Fairy só curando."></span></li>
+								<li><dfn data-en="Use Package of Courage Badge" data-pt="Use Package of Courage Badge"></dfn><span data-en="Opens the badge packages picked up in the run." data-pt="Abre os pacotes de badge que pegar na run."></span></li>
+								<li><dfn data-en="Use Teleport Stone on Mail" data-pt="Use Teleport Stone on Mail"></dfn><span data-en="Uses the teleport stone when going to mail items." data-pt="Usa a teleport stone na hora de ir mandar os itens."></span></li>
+								<li><dfn data-en="Set Distribution to Golden" data-pt="Set Distribution to Golden"></dfn><span data-en="Sets the team's loot distribution to golden." data-pt="Configura a distribuição de loot do time para golden."></span></li>
+							</ul>
 						</li>
 					</ul>
-
-					<!-- Version 4.6 - [June 9, 2026] -->
-					<h3 data-en="Version 4.6 - [June 9, 2026]" 
-						data-pt="Versão 4.6 - [09/06/2026]"></h3>
-					<ul>
-						<li>
-							<span data-en='<b>Home:</b> Enabling/disabling functions in the Home tab now affects all characters selected in the bot.'
-								data-pt='<b>Home:</b> A ativação/desativação de funções na Home afeta todos os chars selecionados no bot.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Login:</b> Unchecking the login option now immediately interrupts the login process.'
-								data-pt='<b>Login:</b> Desmarcar a opção de login interrompe imediatamente o processo de login.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Login:</b> Added the option to choose which character slot (left, middle, or right) to log in to accounts with 2 or 3 characters.'
-								data-pt='<b>Login:</b> Possibilidade de escolher qual char vai logar na conta (slot esquerdo, meio ou direito) - para contas com 2 ou 3 chars.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>BC:</b> Added a new "Auto Reset Stats" option under the BC/Stats tab.'
-								data-pt='<b>BC:</b> Adicionada uma nova opção de Auto Reset Stats na aba BC/Stats.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>BC:</b> Optimized the mob/boss detection system to reduce failures.'
-								data-pt='<b>BC:</b> Otimizado o sistema de detecção de mobs/bosses para reduzir falhas.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>BC:</b> Added a new option under BC/Potions to set the fairy&#39;s heal percentage during the Blaze Skull Marshal fight.'
-								data-pt='<b>BC:</b> Adicionada uma nova opção na aba BC/Potions para definir a porcentagem em que a Fairy se cura durante a luta contra o Blaze Skull Marshal.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Script:</b> Added the ability to save a Default Script by class via character name right-click menu → Script → Save Default For → classes.'
-								data-pt='<b>Script:</b> Adicionada a opção de salvar um Script padrão por classe através do menu de botão direito no nome do char -> Script -> Save Default For -> classes.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Config – Bot/General/Char Scripts:</b> New options to save and load scripts.'
-								data-pt='<b>Config – Bot/General/Char Scripts:</b> Novas opções para salvar e carregar scripts.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Config – Bot/Pet Fix:</b> New options to prevent the client from closing during teleport or when entering caves. Automatic mode for BC and Hollow. (The same function is available in the character right-click menu in the bot list → Pet Fix.)'
-								data-pt='<b>Config – Bot/Pet Fix:</b> Novas opções para evitar que o client feche ao teleportar ou entrar em caves. Modo automático para BC e Hollow. (A mesma função está disponível no menu de botão direito no nome do char na lista do bot -> Pet Fix.)'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> Fixed the passive skill usage logic for Assassin (shortcuts Attack 1 and 2).'
-								data-pt='<b>Hollow:</b> Corrigida a lógica de uso da passiva no Assassin (shortcuts Attack 1 e 2).'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> Added "Auto Reset State" function for the team leader. This should only be used in conjunction with Pet Fix (without DC). If the character relogs, the State of the entire team will be reset mid-run, causing an infinite loop.'
-								data-pt='<b>Hollow:</b> Adicionada a função Auto Reset State para o líder do time. Deve ser usada apenas em conjunto com o Pet Fix (sem DC). Caso o char relogue, o State de todo o time será resetado no meio do percurso, causando um loop infinito.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> Added a "Start BC when finished" option to automatically start BC after completing Hollow functions.'
-								data-pt='<b>Hollow:</b> Adicionada a opção "Start BC when finished" para iniciar o BC automaticamente ao concluir as funções de Hollow.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> When "Kite Mode" is active, the character now takes one extra step toward the boss (useful for when the boss is not visible on the damager&lsquo;s screen).'
-								data-pt='<b>Hollow:</b> Quando a opção "Kite Mode" estiver ativa, o char agora dará um passo adicional em direção ao boss (útil quando o boss não está visível na tela do damager).'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> Added new "BC Trash" tab to send golden-dropped items from BC after completing Hollow.'
-								data-pt='<b>Hollow:</b> Adicionada nova aba "BC Trash" para enviar itens golden dropados na BC depois de completar o Hollow.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Revive:</b> Added an option to automatically stop the bot after reviving.'
-								data-pt='<b>Revive:</b> Adicionada uma opção para parar o bot automaticamente após reviver.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Revive:</b> Added an option to go to the saved Revive spot when starting the bot or logging/relogging the character.'
-								data-pt='<b>Revive:</b> Adicionada uma opção para ir ao spot salvo do Revive ao iniciar o bot ou logar/relogar o char.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Fairy:</b> Added the option for the Fairy to return to the initial position after reviving a member (Return to Initial Position after Revive).'
-								data-pt='<b>Fairy:</b> Adicionada a opção para a Fairy retornar à posição inicial após reviver um membro (Return to Initial Position after Revive).'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Fairy:</b> Added the option to manually enter the team members&#39; names.'
-								data-pt='<b>Fairy:</b> Adicionada a opção para inserir manualmente os nomes dos membros do team.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Fairy:</b> New "Invite" and "Accept" options to send or accept team invitations when logging in, relogging, or starting the bot. You do not need to enable the "Fairy" function in Home to use Invite/Accept.'
-								data-pt='<b>Fairy:</b> Novas opções de Invite e Accept para enviar ou aceitar convite de team ao logar, relogar ou iniciar o bot. Não é necessário ativar a função "Fairy" na Home para utilizar o Invite/Accept.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>DR Lure:</b> New function for luring DR bosses.'
-								data-pt='<b>DR Lure:</b> Nova função de lure dos bosses de DR.'>
-							</span>
+				</section>
+				<section class="section" id="pcppotions">
+					<h2><span data-en="Potions" data-pt="Potions"></span><a class="anchor" href="#pcppotions" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/pcp_potions.png" width="745" height="585" loading="lazy" decoding="async" alt="Potions">
+					</button>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Battle Potions" data-pt="Battle Potions"></span></h3>
+							<p><span data-en="HP and Mana percentages used inside the cave." data-pt="Porcentagens de HP e Mana usadas dentro da cave."></span></p>
 						</li>
 					</ul>
-
-					
-					<!-- Version 4.5.6 -->
-					<h3 data-en="Version 4.5.6 - [December 5, 2025]" 
-						data-pt="Versão 4.5.6 - [05/12/2025]"></h3>
-					<ul>
-						<li>
-							<span data-en='<b>Hollow:</b> Added a new "Safe HP %" option under Hollow → Potions, allowing you to set the HP percentage considered safe for characters to start fighting the boss (useful for teams without a fairy that stay seated for a long time waiting for HP to recover).'
-								data-pt='<b>Hollow:</b> Adicionada a opção "Safe HP %" em Hollow → Potions, permitindo definir qual porcentagem de HP é considerada segura para que os chars iniciem a luta contra o boss (útil para teams sem fairy que costumam permanecer sentadas aguardando o HP subir).'>
-							</span>
+				</section>
+				<section class="section" id="pcploot">
+					<h2><span data-en="Loot" data-pt="Loot"></span><a class="anchor" href="#pcploot" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/pcp_loot.png" width="746" height="587" loading="lazy" decoding="async" alt="Loot">
+					</button>
+					<p class="lede"><span data-en="Two lists that decide what the character does with each drop the team rolls on." data-pt="Duas listas que decidem o que o char faz com cada drop que o time sorteia."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Dice" data-pt="Dice"></span></h3>
+							<p><span data-en="Items worth rolling for." data-pt="Itens que vale a pena dar dado."></span></p>
 						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> Fixed a bug when forming the team at the start of a run where a member could become invisible to the leader (screen bug).'
-								data-pt='<b>Hollow:</b> Corrigido um bug ao formar o time no início da run, onde um membro ficava invisível para o líder (screen bug).'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> Fixed a bug when reforming the team after all characters disconnected while teleporting between maps.'
-								data-pt='<b>Hollow:</b> Corrigido um bug ao montar o time após todos os personagens levarem DC durante o teleport entre mapas.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> Fixed a bug where the leader kept checking the distance of a member who had just disconnected.'
-								data-pt='<b>Hollow:</b> Corrigido um bug onde o líder continuava verificando a distância de um membro que havia acabado de levar DC.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> Adjusted member positioning when using Kite Mode and Fairy → Heal Only before fighting the Hollow.'
-								data-pt='<b>Hollow:</b> Ajustadas as posições dos membros ao utilizar Kite Mode e Fairy → Heal Only antes da luta contra o Hollow.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Hollow:</b> Fixed a bug when using Battle Potions during the Hollow fight.'
-								data-pt='<b>Hollow:</b> Corrigido um bug ao utilizar Battle Potions na luta contra o Hollow.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Login:</b> Added a new "Start on Login" option to the right-click menu in the Login list. When disabled, the character will only log in without starting the bot.'
-								data-pt='<b>Login:</b> Adicionada a opção "Start on Login" no menu exibido ao clicar com o botão direito em um char na lista de Login, permitindo ativar ou desativar. Quando desativada, o char apenas fará login, sem iniciar o bot.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Login/Relog:</b> Improved the relog control. It now also relogs characters who disconnected and got stuck at the "Connection Interrupted" window.'
-								data-pt='<b>Login/Relog:</b> Melhoria no sistema de relog. Agora também reloga personagens que levaram DC e ficaram travados na janela "Connection Interrupted".'>
-							</span>
-						</li>
-						<li>
-							<span data-en='<b>Private Server:</b> The bot was not working on private servers in the previous version; it is now working again.'
-								data-pt='<b>Server Private:</b> O bot não estava funcionando em servidores privados na última versão, agora voltou a funcionar normalmente.'>
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Abandon" data-pt="Abandon"></span></h3>
+							<p><span data-en="Items to pass on." data-pt="Itens para abrir mão."></span></p>
 						</li>
 					</ul>
-
-					<h3 data-en="Version 4.5.5 - [November 29, 2025]" 
-						data-pt="Versão 4.5.5 - [29/11/2025]"></h3>
-					<ul>
-						<li>
-							<span data-en="The Hollow function was updated: it now saves the team's progress, allowing them to continue together after relog. Whenever you want to start the Hollow function from scratch, you must select the team leader and click the &quot;Reset State&quot; button in the Hollow tab. This resets the progress of the leader and all team members."
-								data-pt="A função de Hollow foi alterada: agora ela salva o progresso do time, permitindo que continuem juntos após o relog. Sempre que for iniciar a função de Hollow do zero, é necessário selecionar o líder do time e clicar no botão &quot;Reset State&quot; na aba Hollow. Isso irá resetar o progresso do líder e de todos os membros do time.">
-							</span>
+				</section>
+				<section class="section" id="pcpmail">
+					<h2><span data-en="Mail" data-pt="Mail"></span><a class="anchor" href="#pcpmail" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/pcp_mail.png" width="745" height="588" loading="lazy" decoding="async" alt="Mail">
+					</button>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Item List" data-pt="Item List"></span></h3>
+							<p><span data-en="The cave drops to mail." data-pt="Os drops da cave que vão ser enviados."></span></p>
 						</li>
-						<li>
-							<span data-en="The end of the Hollow path was adjusted to be safer."
-								data-pt="O final do caminho de Hollow foi ajustado para ficar mais seguro.">
-							</span>
-						</li>
-						<li>
-							<span data-en="Char Fairy cannot be leader of the team in the Hollow function."
-								data-pt="Char Fairy não pode ser lider do time na função de Hollow.">
-							</span>
-						</li>
-						<li>
-							<span data-en="The BC function now saves run progress, allowing you to use Return to Stone normally. Whenever you need to start the BC function from scratch, reset the progress in BC → Stats → Reset Stats."
-								data-pt="A função de BC agora salva o progresso das runs, permitindo usar o Return to Stone normalmente. Sempre que for iniciar a função de BC do zero, é necessário resetar o progresso em BC → Stats → Reset Stats.">
-							</span>
-						</li>
-						<li>
-							<span data-en="The character list sorting system was redone and is now more accurate."
-								data-pt="A ordenação da lista de chars foi refeita e agora está mais precisa.">
-							</span>
-						</li>
-						<li>
-							<span data-en='New "Reorder List" option in the menu that appears when right-clicking any character in the list.'
-								data-pt='Nova opção "Reorder List" no menu exibido ao clicar com o botão direito em qualquer char da lista.'>
-							</span>
-						</li>
-						<li>
-							<span data-en='New "Auto Relog" option in the menu that appears when right-clicking any character in the list — this makes the account automatically checked in the Login List when the bot starts (must be set individually per char).'
-								data-pt='Nova opção "Auto Relog" no menu exibido ao clicar com o botão direito em qualquer char da lista — isso faz com que a conta seja marcada automaticamente na Lista de Login ao iniciar o bot (deve ser configurado individualmente para cada char).'>
-							</span>
-						</li>
-						<li>
-							<span data-en='New "Auto Reorder" option in the "List" menu, which automatically reorders the character list.'
-								data-pt='Nova opção "Auto Reorder" no menu "List", que faz a lista de chars se reordenar automaticamente.'>
-							</span>
-						</li>
-						<li>
-							<span data-en="Several bugs/crashes related to Login/Relog and the character list have been fixed."
-								data-pt="Alguns bugs/crashes envolvendo Login/Relog e a lista de chars foram corrigidos.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Config" data-pt="Config"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Send items to" data-pt="Send items to"></dfn><span data-en="Name of the character that receives them." data-pt="Nome do char que vai receber."></span></li>
+								<li><dfn data-en="Item Limit" data-pt="Item Limit"></dfn><span data-en="How many items from the list are needed before it mails." data-pt="Quantidade de itens da lista necessária para mandar."></span></li>
+								<li><dfn data-en="Or every (min)" data-pt="Or every (min)"></dfn><span data-en="Mails after this many minutes even if the limit wasn't reached." data-pt="Manda depois desses minutos mesmo que o limite não tenha sido atingido."></span></li>
+							</ul>
 						</li>
 					</ul>
-					
-					<h3 data-en="Version 4.5 - [November 21, 2025]" 
-						data-pt="Versão 4.5 - [21/11/2025]"></h3>
-					<ul>
-						<li>
-							<span data-en="New Login/Relog function (bot menu -> Login): logs the character if it is not in the Bot list, relogs in case of disconnection, and automatically starts the bot after logging in. If you placed the Talisman folder in another directory, remember to set the folder location in the &quot;Config -> Set Path&quot; menu on the Login screen."
-								data-pt="Nova função de Login/Relog (menu do bot -> Login): loga o char caso ele não esteja na lista do Bot, reloga caso tenha levado DC e inicia automaticamente o bot depois de logar. Caso voce tenha colocado a pasta do Talisman em outro diretório, lembre-se de definir o local da pasta no menu &quot;Config -> Set Path&quot; da tela de Login.">
-							</span>
+				</section>
+				<section class="section" id="drlure">
+					<h2><span data-en="DR Lure" data-pt="DR Lure"></span><a class="anchor" href="#drlure" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/drlure.png" width="749" height="587" loading="lazy" decoding="async" alt="DR Lure">
+					</button>
+					<p class="lede"><span data-en="Keeps luring the DR bosses. Pick the boss, the distance and how the bot locates it." data-pt="Função para ficar lurando os bosses de DR. Escolha o boss, a distância e o modo de captura de posição."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Boss" data-pt="Boss"></span></h3>
+							<p><span data-en="Flower Aroma, Ding Yin (two spots), Cinnabar Asura, and Cinnabar Asura near the teleport." data-pt="Flower Aroma, Ding Yin (dois spots), Cinnabar Asura, e Cinnabar Asura perto do teleporte."></span></p>
 						</li>
-						<li>
-							<span data-en="New &quot;Hollow&quot; function, which covers SSC Hollow, LW (Ice Mirror Faerie), and Super Skill quest, for farming Residual Shadow."
-								data-pt="Nova função &quot;Hollow&quot;, que engloba SSC Hollow, LW (Ice Mirror Faerie) e quest de Super Skill, para farm de Residual Shadow.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Distance" data-pt="Distance"></span></h3>
+							<p><span data-en="How far the character keeps from the boss while luring." data-pt="A que distância o char fica do boss enquanto lura."></span></p>
 						</li>
-						<li>
-							<span data-en="New option in the BC tab, &quot;Get Treasure Box&quot;, to collect the box after killing the Blaze Skull Marshal."
-								data-pt="Nova opção na aba de BC, &quot;Get Treasure Box&quot;, para pegar a box depois de matar o Blaze Skull Marshal.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Boss Position Method" data-pt="Boss Position Method"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Target" data-pt="Target"></dfn><span data-en="You have to select the boss yourself." data-pt="Você precisa selecionar o boss."></span></li>
+								<li><dfn data-en="Auto" data-pt="Auto"></dfn><span data-en="Finds the boss without you selecting it." data-pt="Acha o boss sem você selecionar."></span></li>
+							</ul>
 						</li>
-					</ul>
-
-					<h3 data-en="Version 4.4 - [September 29, 2025]" 
-						data-pt="Versão 4.4 - [29/09/2025]"></h3>
-					<ul>
-						<li>
-							<span data-en="New Lure feature for Assassin added under the Helper tab."
-								data-pt="Nova função de Lure para Assassin na aba Helper.">
-							</span>
-						</li>
-						<li>
-							<span data-en="New Team Invite and Team Accept features added under the Fairy tab to improve app control."
-								data-pt="Nova função de Team Invite e Team Accept na aba Fairy, para facilitar o controle dos apps.">
-							</span>
-						</li>
-						<li>
-							<span data-en="New &quot;References&quot; settings added under Config -> Bot -> General, for cases where the Talisman appears blurry on the user's computer and the bot is unable to recognize open Inventory, open Map, or Courage Badge in the inventory."
-								data-pt="Novas configurações de &quot;Referencias&quot; em Config -> Bot -> General, para casos em que o Talisman fica borrado no computador do usuário e o bot não consegue reconhecer Inventário aberto, mapa aberto, Courage Badge no inventário.">
-							</span>
-						</li>
-						<li>
-							<span data-en="Versions 4.3 and earlier will stop working on September 30."
-								data-pt="As versões 4.3 e anteriores deixarão de funcionar no dia 30 de Setembro.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Force Reset" data-pt="Force Reset"></span></h3>
+							<p><span data-en="If the lurer isn't finding the boss, this resets the game's entity list." data-pt="Se o lurer não estiver achando o boss, isso reseta a lista de entidades do jogo."></span></p>
 						</li>
 					</ul>
-
-					<h3 data-en="Version 4.3 - [August 18, 2025]" 
-						data-pt="Versão 4.3 - [18/08/2025]"></h3>
-					<ul>
-						<li>
-							<span data-en="Improved Revive and Sell functions."
-								data-pt="Melhoria nas funções Revive e Sell.">
-							</span>
+				</section>
+				<section class="section" id="key">
+					<h2><span data-en="Key" data-pt="Key"></span><a class="anchor" href="#key" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/key.png" width="746" height="588" loading="lazy" decoding="async" alt="Key">
+					</button>
+					<p class="lede"><span data-en="Where you activate your licence and check how long it lasts." data-pt="Onde você ativa sua licença e confere até quando ela vale."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Activation" data-pt="Activation"></span></h3>
+							<p><span data-en="Paste the product key you received and press Activate." data-pt="Cole a product key que você recebeu e clique em Activate."></span></p>
 						</li>
-						<li>
-							<span data-en="Fixed a bug that caused the bot to close when using the Sell function in certain specific spots."
-								data-pt="Bug corrigido que causava fechamento do bot ao utilizar função Sell em alguns spots específicos.">
-							</span>
-						</li>
-						<li>
-							<span data-en="BC: when starting the bot with the character inside the cave, right at the entrance, the character will follow the run instead of going to Stone City."
-								data-pt="BC: ao iniciar o bot com o char dentro da cave, logo na entrada, o char vai seguir a run ao invés de ir para Stone City.">
-							</span>
-						</li>
-						<li>
-							<span data-en="Pet Food: option to summon the Pet when starting the bot. If the character runs out of pet food, it will summon the pet."
-								data-pt="Pet Food: opção para summonar o Pet ao iniciar o bot. Caso o char fique sem pet food, ele vai summonar o pet.">
-							</span>
-						</li>
-						<li>
-							<span data-en="Some menu changes."
-								data-pt="Algumas mudanças no menu.">
-							</span>
+						<li class="step step--named">
+							<h3><span data-en="Key Info" data-pt="Key Info"></span></h3>
+							<p><span data-en="The active key, when it was activated, when it expires, the plan length in months, and whether it is Premium. Refresh key re-checks all of it." data-pt="A key ativa, quando foi ativada, quando expira, a duração do plano em meses, e se é Premium. O Refresh key confere tudo de novo."></span></p>
 						</li>
 					</ul>
-					
-					<h3 data-en="Version 4.2 - [April 28, 2025]" 
-						data-pt="Versão 4.2 - [28/04/2025]"></h3>
-					<ul>
-						<li>
-							<span data-en="&quot;Abnormal program termination&quot; error fixed."
-								data-pt="Erro de &quot;Abnormal program termination&quot; corrigido.">
-							</span>
-						</li>
-						<li>
-							<span data-en="BC: Improved boss/mob search to avoid the need to relog."
-								data-pt="BC: Melhoria na busca do boss/mobs, para evitar necessidade de relogar.">
-							</span>
-						</li>
-						<li>
-							<span data-en="Attack: New &quot;Trap&quot; option for Tamers."
-								data-pt="Attack: Nova opção de &quot;Trap&quot; para Tamers.">
-							</span>
-						</li>
-						<li>
-							<span data-en="Sell: New options to set the item quantity limit in the inventory and the distance to adjust the return to the spot."
-								data-pt="Sell: Novas opções para definir a quantidade limite de items no inventário e distancia para ajustar a volta ao spot.">
-							</span>
-						</li>
-					</ul>
-
-					<h4 id="wip" data-en="Work in progress..." data-pt="Em construção..."></h3>
-				</article>
-
-				<!-- About -->
-				<article id="about">
-					<h2 class="major" data-en="About" data-pt="Sobre">About</h2>
-					<span class="image main"><img src="images/to logo.jpg" alt=""/></span>
-
-					<p data-en="RaaskiBot is a paid bot developed for the game <a href='https://www.talismanonline.com/' target='_blank'>Talisman Online</a>."
-						data-pt="RaaskiBot é um bot pago desenvolvido para o jogo <a href='https://www.talismanonline.com/' target='_blank'>Talisman Online</a>.">
-					</p>
-				</article>
-
-				<!-- Contact -->
-				<article id="contact">
-					<h2 class="major" data-en="Contact" data-pt="Contato">Contact</h2>
-
-					<p data-en="Payment in <b>USD</b> can be made via <b>Revolut, Wise, Binance or PayPal</b>. For information about prices and plans, here are the available contact options:"
-						data-pt="O pagamento em <b>Reais</b> pode ser feito via <b>Pix</b> ou <b>PicPay</b>. Para informações sobre valores e planos, seguem as opções disponíveis para contato:">
-					</p>
-
-					<h3><span class="icon brands fa-whatsapp"> </span> WhatsApp</h3>
-					<ul>
-						<li>
-							<a href="https://wa.me/5541984847735?text=%231" target="_blank">Raaski: +55 (41) 8484-7735</a>	
-						</li>
-						<li>
-							<a href="https://wa.me/5585989647458?text=%231" target="_blank">Strokes: +55 (85) 8964-7458</a>		
+				</section>
+				<section class="section" id="shortcuts">
+					<h2><span data-en="Shortcuts" data-pt="Atalhos"></span><a class="anchor" href="#shortcuts" aria-label="Link">#</a></h2>
+					<p class="note note--stale"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span data-en="Screenshot from an earlier version - this screen has changed since." data-pt="Imagem de uma versao anterior - essa tela mudou desde entao."></span></p>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/tut_menu_config.png" width="343" height="162" loading="lazy" decoding="async" alt="Shortcuts">
+					</button>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/tut_shortcuts.png" width="441" height="467" loading="lazy" decoding="async" alt="Shortcuts">
+					</button>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/tut_shortcut_example.png" width="738" height="590" loading="lazy" decoding="async" alt="Shortcuts">
+					</button>
+					<p class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span data-en="The shortcuts need to be activated in the box on the left. You can put the shortcuts you want for each function. The shortcuts with (Selected Bots) in the name will only work for the selected bots. To select multiple bots, hold Ctrl and click on the name of the bots in the bot list. Example of selected bot" data-pt="Os atalhos precisam ser ativados na caixinha ao lado esquerdo. Você pode colocar os atalhos que desejar para cada função. Os atalhos com (Selected Bots) no nome funcionarão apenas para os chars selecionados na lista de bots. Para selecionar vários chars, segure Ctrl e clique no nome dos chars na lista do bot. Exemplo de bot selecionado"></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Description of the Shortcuts" data-pt="Descrição dos atalhos"></span></h3>
+							<ul class="opts">
+								<li><dfn data-en="Mount Shortcut (Selected Bots)" data-pt="Mount Shortcut (Selected Bots)"></dfn><span data-en="Shortcut of the mount." data-pt="Atalho da montaria."></span></li>
+								<li><dfn data-en="Mount Follow (Selected Bots)" data-pt="Mount Follow (Selected Bots)"></dfn><span data-en="The character will mount (using the shortcut above) and follow the leader." data-pt="O char vai subir na montaria (pressionando o atalho setado acima) e vai seguir o líder."></span></li>
+								<li><dfn data-en="Mount Up (Selected Bots)" data-pt="Mount Up (Selected Bots)"></dfn><span data-en="The character will mount (using the shortcut above)." data-pt="O char vai subir na montaria (pressionando o atalho setado acima)."></span></li>
+								<li><dfn data-en="Mount Down (Selected Bots)" data-pt="Mount Down (Selected Bots)"></dfn><span data-en="The character will dismount (using the shortcut above)." data-pt="O char desce da montaria (pressionando o atalho setado acima)."></span></li>
+								<li><dfn data-en="Follow (Selected Bots)" data-pt="Follow (Selected Bots)"></dfn><span data-en="The character will select the leader and follow him." data-pt="O char vai selecionar o líder e vai seguir ele."></span></li>
+								<li><dfn data-en="Start/Stop (Selected Bots)" data-pt="Start/Stop (Selected Bots)"></dfn><span data-en="Start or stop the selected bots." data-pt="Inicia ou para os bots selecionados."></span></li>
+								<li><dfn data-en="Start/Stop (All Bots)" data-pt="Start/Stop (All Bots)"></dfn><span data-en="Start or stop all bots in the list." data-pt="Inicia ou para todos os bots da lista."></span></li>
+								<li><dfn data-en="Start/Stop (Selected Window)" data-pt="Start/Stop (Selected Window)"></dfn><span data-en="Start or stop the character with the selected window. Example: click on the TO window of your character and press this shortcut." data-pt="Inicia ou para o char que estiver com a janela selecionada. Exemplo: clique na janela do TO do seu char e pressione este atalho."></span></li>
+							</ul>
 						</li>
 					</ul>
-
-					<h3><span class="icon brands fa-telegram"></span> Telegram</h3>
-					<ul>
-						<li>
-							<a href="https://t.me/raaski" target="_blank">@raaski</a>	
+				</section>
+				<section class="section" id="loginrelog">
+					<h2><span data-en="Login/Relog" data-pt="Login/Relog"></span><a class="anchor" href="#loginrelog" aria-label="Link">#</a></h2>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/menu_login.png" width="571" height="299" loading="lazy" decoding="async" alt="Login/Relog">
+					</button>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/login_main.png" width="502" height="626" loading="lazy" decoding="async" alt="Login/Relog">
+					</button>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/login_setpath.png" width="307" height="271" loading="lazy" decoding="async" alt="Login/Relog">
+					</button>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/login_addaccount.png" width="266" height="540" loading="lazy" decoding="async" alt="Login/Relog">
+					</button>
+					<p class="lede"><span data-en="Logs the account in on its own, and logs it back in after a disconnect. Open it from the Login menu at the top of the bot." data-pt="Loga a conta sozinho, e loga de novo depois de um DC. Abra pelo menu Login, no topo do bot."></span></p>
+					<ul class="steps">
+						<li class="step step--named">
+							<h3><span data-en="Set Path" data-pt="Set Path"></span></h3>
+							<p><span data-en="Before anything else, go to Config and then Set Path to point the bot at your Talisman folder." data-pt="Antes de tudo, vá em Config e depois Set Path para indicar a pasta do Talisman."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Add account" data-pt="Adicionar conta"></span></h3>
+							<p><span data-en="The + button opens the form for a new account." data-pt="O botão + abre o formulário de uma conta nova."></span></p>
+							<ul class="opts">
+								<li><dfn data-en="Login and Password" data-pt="Login e Password"></dfn><span data-en="The account credentials. Show reveals what you typed." data-pt="As credenciais da conta. O Show mostra o que você digitou."></span></li>
+								<li><dfn data-en="Char Name" data-pt="Char Name"></dfn><span data-en="Name of the character to log in." data-pt="Nome do char que vai logar."></span></li>
+								<li><dfn data-en="Server" data-pt="Server"></dfn><span data-en="Which server the character is on." data-pt="Em qual servidor o char está."></span></li>
+								<li><dfn data-en="Slot" data-pt="Slot"></dfn><span data-en="Where the character sits on the selection screen: Left, Middle or Right." data-pt="Onde o char fica na tela de seleção: Left, Middle ou Right."></span></li>
+								<li><dfn data-en="Start bot on login" data-pt="Start bot on login"></dfn><span data-en="Starts the bot by itself once the character is in." data-pt="Inicia o bot sozinho assim que o char entra."></span></li>
+								<li><dfn data-en="Tab" data-pt="Tab"></dfn><span data-en="Which tab the account goes into." data-pt="Em qual aba a conta vai ficar."></span></li>
+								<li><dfn data-en="Clear fields after add" data-pt="Clear fields after add"></dfn><span data-en="Empties the form after adding, so you can go straight into the next account." data-pt="Limpa o formulário depois de adicionar, para você já cadastrar a próxima conta."></span></li>
+							</ul>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Tabs" data-pt="Abas"></span></h3>
+							<p><span data-en="Main, Apps, Stall, Warehouse and War split the accounts by what each one is for." data-pt="Main, Apps, Stall, Warehouse e War separam as contas pelo que cada uma faz."></span></p>
+						</li>
+						<li class="step step--named">
+							<h3><span data-en="Account list" data-pt="Lista de contas"></span></h3>
+							<p><span data-en="Tick the box next to a character to log it in, or to log it back in after a disconnect. Drag a row to reorder the list, and right-click it to edit the account or to use Just Login, which skips the character name check." data-pt="Marque a caixinha ao lado do char para logar, ou para relogar depois de um DC. Arraste uma linha para reordenar a lista, e clique com o botão direito para editar a conta ou usar o Just Login, que ignora a validação do nome do char."></span></p>
 						</li>
 					</ul>
+				</section>
+				<p class="wip" data-en="Work in progress..." data-pt="Em construção..."></p>
+			</div>
+		</div>
+	</main>
 
-					<ul class="icons">
-						<li><a href="https://wa.me/5541984847735?text=%231" target="_blank" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
-						<li><a href="https://www.youtube.com/@raaskibot2876" target="_blank" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
-						<li><a href="https://t.me/raaski" target="_blank" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
-					</ul>
-				</article>
+	<!-- ========================================================== PATCH NOTES -->
+	<main class="view" data-view="patch-notes">
+		<div class="pn">
+			<div class="page-head">
+				<p class="eyebrow" data-en="Changelog" data-pt="Histórico"></p>
+				<h1 data-en="Patch Notes" data-pt="Patch Notes"></h1>
+				<p data-en="What changed in each version. Click a tag to open that feature's tutorial."
+				   data-pt="O que mudou em cada versão. Clique numa etiqueta para abrir o tutorial daquela função."></p>
 			</div>
 
-			<!-- Footer -->
-			<footer id="footer">
-				<p class="copyright">&copy; RaaskiBot</p>
-			</footer>
-
+			<ul class="timeline">
+					<li>
+					<details class="release is-latest" open>
+						<summary>
+							<span class="v-num">4.7</span>
+							<span class="v-date" data-en="August 24, 2026" data-pt="24/08/2026"></span>
+							<span class="v-meta">
+								<span class="v-latest" data-en="Latest" data-pt="Atual"></span>
+								<span class="v-count" data-en="22 changes" data-pt="22 mudanças"></span>
+								<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+							</span>
+						</summary>
+						<ul class="changes">
+							<li class="change"><span class="chip is-new" data-en="New" data-pt="Novo"></span><span data-en="The bot now includes an installer. Open it via Desktop shortcut or Start Menu." data-pt="O bot agora possui instalador. Abra pelo atalho da Área de Trabalho ou Menu Iniciar."></span></li>
+							<li class="change"><span class="chip" data-en="General" data-pt="Geral"></span><span data-en="Moved bot files from Documents/RaaskiBot to %localappdata%/RaaskiBot." data-pt="Arquivos movidos de Documentos/RaaskiBot para %localappdata%/RaaskiBot."></span></li>
+							<li class="change"><span class="chip" data-en="General" data-pt="Geral"></span><span data-en="Improved NPC dialogue detection logic." data-pt="Alterada a forma como o bot identifica diálogo de NPCs."></span></li>
+							<li class="change"><span class="chip" data-en="General" data-pt="Geral"></span><span data-en="Reworked shortcut assignment for Attack, Potions, Buffs, etc." data-pt="Alterada a forma de setar atalhos para Attack, Potions, Buffs, etc."></span></li>
+							<li class="change"><span class="chip" data-en="Config – Bot/Dynamic Click" data-pt="Config/Bot/Dynamic Click"></span><span data-en="Improved dynamic clicks for off-standard UI menu positions." data-pt="Clicks dinâmicos melhorados para menus fora da posição padrão."></span></li>
+							<li class="change"><a class="chip" href="#delete" data-en="Delete" data-pt="Delete"></a><span data-en="Redesigned with built-in game item list and image support (.bmp/.png) in RaaskiBot/images/items." data-pt="Função refeita com lista de itens e uso de imagens (bmp/png) em RaaskiBot/images/items."></span></li>
+							<li class="change"><a class="chip" href="#loginrelog" data-en="Login" data-pt="Login"></a><span data-en="Redesigned UI with tabs to categorize chars (Main | Apps | Stall | Warehouse | War)." data-pt="Tela refeita com abas para separar chars (Main | Apps | Stall | Warehouse | War)."></span></li>
+							<li class="change"><a class="chip" href="#loginrelog" data-en="Login" data-pt="Login"></a><span data-en="Added &quot;Just Login&quot; option to right-click menu to bypass character name validation." data-pt="Nova opção &quot;Just Login&quot; no menu do botão direito para logar ignorando a validação do nome do char."></span></li>
+							<li class="change"><a class="chip" href="#loginrelog" data-en="Login" data-pt="Login"></a><span data-en="Added drag-and-drop account reordering." data-pt="Agora é possível reordenar as contas clicando e arrastando."></span></li>
+							<li class="change"><a class="chip" href="#loginrelog" data-en="Login" data-pt="Login"></a><span data-en="Added account edit option." data-pt="Adicionada opção de editar conta."></span></li>
+							<li class="change"><a class="chip" href="#bc" data-en="BC" data-pt="BC"></a><span data-en="Moved BC Mail from Hollow tab to BC tab, using the new item list system." data-pt="BC Mail movido da aba Hollow para a aba BC, usando o novo padrão de lista de itens."></span></li>
+							<li class="change"><a class="chip" href="#caveshortcuts" data-en="Cave" data-pt="Cave"></a><span data-en="Cave shortcuts are now globally shared (&quot;Cave Shortcuts&quot;)." data-pt="Atalhos de Caves agora são &quot;Cave Shortcuts&quot; compartilhados."></span></li>
+							<li class="change"><a class="chip" href="#attack" data-en="Attack" data-pt="Attack"></a><span data-en="Reworked how Focus Leader Target works." data-pt="Alterada a forma que o Focus Leader Target funciona."></span></li>
+							<li class="change"><a class="chip" href="#attack" data-en="Attack" data-pt="Attack"></a><span data-en="Added &quot;Anti Loot Bug&quot; option to move the char every 1 minute (prevents idling lockups)." data-pt="Nova opção &quot;Anti Loot Bug&quot; para mover o char a cada 1 minuto (evita travamentos em chars parados)."></span></li>
+							<li class="change"><a class="chip" href="#potion" data-en="Potion" data-pt="Potion"></a><span data-en="Added Save Spot option to improve &quot;Go to Saved Spot&quot; behavior." data-pt="Nova opção de Save Spot para melhorar a função &quot;Go to Saved Spot&quot;."></span></li>
+							<li class="change"><a class="chip" href="#sell" data-en="Sell" data-pt="Sell"></a><span data-en="Fully automated. Automatically finds and uses the nearest vendor NPC without setup." data-pt="Totalmente automatizado. Não precisa configurar o NPC; o bot procura o vendedor mais próximo."></span></li>
+							<li class="change"><a class="chip" href="#autopick" data-en="Auto Pick" data-pt="Auto Pick"></a><span data-en="Automatically detects the loot window across the entire screen." data-pt="Agora identifica a loot window na tela inteira de forma automática."></span></li>
+							<li class="change"><a class="chip" href="#revive" data-en="Revive" data-pt="Revive"></a><span data-en="Reworked spot return logic. Now works even when respawning in a different city." data-pt="Alterada a forma de voltar ao spot. Funciona mesmo se o char nascer em outra cidade."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="General adjustments and Fairy heal fixes." data-pt="Ajustes gerais e melhoria no heal da fairy."></span></li>
+							<li class="change"><a class="chip" href="#drlure" data-en="DR Lure" data-pt="DR Lure"></a><span data-en="Added boss position tracking methods for DR lure." data-pt="Adicionados métodos de busca de posição dos bosses na DR lure."></span></li>
+							<li class="change"><a class="chip" href="#mail" data-en="Mail" data-pt="Mail"></a><span data-en="New auto-mail function to send gold/items via the nearest Post Officer." data-pt="Nova função para enviar item e gold via Post Officer mais próximo."></span></li>
+							<li class="change"><a class="chip" href="#pcp" data-en="PCP" data-pt="PCP"></a><span data-en="Added new PCP farm feature." data-pt="Nova função para farm de PCP."></span></li>
+						</ul>
+					</details>
+					</li>
+					<li>
+					<details class="release">
+						<summary>
+							<span class="v-num">4.6</span>
+							<span class="v-date" data-en="June 9, 2026" data-pt="09/06/2026"></span>
+							<span class="v-meta">
+								<span class="v-count" data-en="20 changes" data-pt="20 mudanças"></span>
+								<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+							</span>
+						</summary>
+						<ul class="changes">
+							<li class="change"><a class="chip" href="#hometab" data-en="Home" data-pt="Home"></a><span data-en="Enabling/disabling functions in the Home tab now affects all characters selected in the bot." data-pt="A ativação/desativação de funções na Home afeta todos os chars selecionados no bot."></span></li>
+							<li class="change"><a class="chip" href="#loginrelog" data-en="Login" data-pt="Login"></a><span data-en="Unchecking the login option now immediately interrupts the login process." data-pt="Desmarcar a opção de login interrompe imediatamente o processo de login."></span></li>
+							<li class="change"><a class="chip" href="#loginrelog" data-en="Login" data-pt="Login"></a><span data-en="Added the option to choose which character slot (left, middle, or right) to log in to accounts with 2 or 3 characters." data-pt="Possibilidade de escolher qual char vai logar na conta (slot esquerdo, meio ou direito) - para contas com 2 ou 3 chars."></span></li>
+							<li class="change"><a class="chip" href="#bc" data-en="BC" data-pt="BC"></a><span data-en="Added a new &quot;Auto Reset Stats&quot; option under the BC/Stats tab." data-pt="Adicionada uma nova opção de Auto Reset Stats na aba BC/Stats."></span></li>
+							<li class="change"><a class="chip" href="#bc" data-en="BC" data-pt="BC"></a><span data-en="Optimized the mob/boss detection system to reduce failures." data-pt="Otimizado o sistema de detecção de mobs/bosses para reduzir falhas."></span></li>
+							<li class="change"><a class="chip" href="#bc" data-en="BC" data-pt="BC"></a><span data-en="Added a new option under BC/Potions to set the fairy&amp;#39;s heal percentage during the Blaze Skull Marshal fight." data-pt="Adicionada uma nova opção na aba BC/Potions para definir a porcentagem em que a Fairy se cura durante a luta contra o Blaze Skull Marshal."></span></li>
+							<li class="change"><span class="chip" data-en="Script" data-pt="Script"></span><span data-en="Added the ability to save a Default Script by class via character name right-click menu → Script → Save Default For → classes." data-pt="Adicionada a opção de salvar um Script padrão por classe através do menu de botão direito no nome do char -> Script -> Save Default For -> classes."></span></li>
+							<li class="change"><span class="chip" data-en="Config – Bot/General/Char Scripts" data-pt="Config – Bot/General/Char Scripts"></span><span data-en="New options to save and load scripts." data-pt="Novas opções para salvar e carregar scripts."></span></li>
+							<li class="change"><span class="chip" data-en="Config – Bot/Pet Fix" data-pt="Config – Bot/Pet Fix"></span><span data-en="New options to prevent the client from closing during teleport or when entering caves. Automatic mode for BC and Hollow. (The same function is available in the character right-click menu in the bot list → Pet Fix.)" data-pt="Novas opções para evitar que o client feche ao teleportar ou entrar em caves. Modo automático para BC e Hollow. (A mesma função está disponível no menu de botão direito no nome do char na lista do bot -> Pet Fix.)"></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Fixed the passive skill usage logic for Assassin (shortcuts Attack 1 and 2)." data-pt="Corrigida a lógica de uso da passiva no Assassin (shortcuts Attack 1 e 2)."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Added &quot;Auto Reset State&quot; function for the team leader. This should only be used in conjunction with Pet Fix (without DC). If the character relogs, the State of the entire team will be reset mid-run, causing an infinite loop." data-pt="Adicionada a função Auto Reset State para o líder do time. Deve ser usada apenas em conjunto com o Pet Fix (sem DC). Caso o char relogue, o State de todo o time será resetado no meio do percurso, causando um loop infinito."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Added a &quot;Start BC when finished&quot; option to automatically start BC after completing Hollow functions." data-pt="Adicionada a opção &quot;Start BC when finished&quot; para iniciar o BC automaticamente ao concluir as funções de Hollow."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="When &quot;Kite Mode&quot; is active, the character now takes one extra step toward the boss (useful for when the boss is not visible on the damager&amp;lsquo;s screen)." data-pt="Quando a opção &quot;Kite Mode&quot; estiver ativa, o char agora dará um passo adicional em direção ao boss (útil quando o boss não está visível na tela do damager)."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Added new &quot;BC Trash&quot; tab to send golden-dropped items from BC after completing Hollow." data-pt="Adicionada nova aba &quot;BC Trash&quot; para enviar itens golden dropados na BC depois de completar o Hollow."></span></li>
+							<li class="change"><a class="chip" href="#revive" data-en="Revive" data-pt="Revive"></a><span data-en="Added an option to automatically stop the bot after reviving." data-pt="Adicionada uma opção para parar o bot automaticamente após reviver."></span></li>
+							<li class="change"><a class="chip" href="#revive" data-en="Revive" data-pt="Revive"></a><span data-en="Added an option to go to the saved Revive spot when starting the bot or logging/relogging the character." data-pt="Adicionada uma opção para ir ao spot salvo do Revive ao iniciar o bot ou logar/relogar o char."></span></li>
+							<li class="change"><a class="chip" href="#fairy" data-en="Fairy" data-pt="Fairy"></a><span data-en="Added the option for the Fairy to return to the initial position after reviving a member (Return to Initial Position after Revive)." data-pt="Adicionada a opção para a Fairy retornar à posição inicial após reviver um membro (Return to Initial Position after Revive)."></span></li>
+							<li class="change"><a class="chip" href="#fairy" data-en="Fairy" data-pt="Fairy"></a><span data-en="Added the option to manually enter the team members&amp;#39; names." data-pt="Adicionada a opção para inserir manualmente os nomes dos membros do team."></span></li>
+							<li class="change"><a class="chip" href="#fairy" data-en="Fairy" data-pt="Fairy"></a><span data-en="New &quot;Invite&quot; and &quot;Accept&quot; options to send or accept team invitations when logging in, relogging, or starting the bot. You do not need to enable the &quot;Fairy&quot; function in Home to use Invite/Accept." data-pt="Novas opções de Invite e Accept para enviar ou aceitar convite de team ao logar, relogar ou iniciar o bot. Não é necessário ativar a função &quot;Fairy&quot; na Home para utilizar o Invite/Accept."></span></li>
+							<li class="change"><a class="chip" href="#drlure" data-en="DR Lure" data-pt="DR Lure"></a><span data-en="New function for luring DR bosses." data-pt="Nova função de lure dos bosses de DR."></span></li>
+						</ul>
+					</details>
+					</li>
+					<li>
+					<details class="release">
+						<summary>
+							<span class="v-num">4.5.6</span>
+							<span class="v-date" data-en="December 5, 2025" data-pt="05/12/2025"></span>
+							<span class="v-meta">
+								<span class="v-count" data-en="9 changes" data-pt="9 mudanças"></span>
+								<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+							</span>
+						</summary>
+						<ul class="changes">
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Added a new &quot;Safe HP %&quot; option under Hollow → Potions, allowing you to set the HP percentage considered safe for characters to start fighting the boss (useful for teams without a fairy that stay seated for a long time waiting for HP to recover)." data-pt="Adicionada a opção &quot;Safe HP %&quot; em Hollow → Potions, permitindo definir qual porcentagem de HP é considerada segura para que os chars iniciem a luta contra o boss (útil para teams sem fairy que costumam permanecer sentadas aguardando o HP subir)."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Fixed a bug when forming the team at the start of a run where a member could become invisible to the leader (screen bug)." data-pt="Corrigido um bug ao formar o time no início da run, onde um membro ficava invisível para o líder (screen bug)."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Fixed a bug when reforming the team after all characters disconnected while teleporting between maps." data-pt="Corrigido um bug ao montar o time após todos os personagens levarem DC durante o teleport entre mapas."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Fixed a bug where the leader kept checking the distance of a member who had just disconnected." data-pt="Corrigido um bug onde o líder continuava verificando a distância de um membro que havia acabado de levar DC."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Adjusted member positioning when using Kite Mode and Fairy → Heal Only before fighting the Hollow." data-pt="Ajustadas as posições dos membros ao utilizar Kite Mode e Fairy → Heal Only antes da luta contra o Hollow."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Fixed a bug when using Battle Potions during the Hollow fight." data-pt="Corrigido um bug ao utilizar Battle Potions na luta contra o Hollow."></span></li>
+							<li class="change"><a class="chip" href="#loginrelog" data-en="Login" data-pt="Login"></a><span data-en="Added a new &quot;Start on Login&quot; option to the right-click menu in the Login list. When disabled, the character will only log in without starting the bot." data-pt="Adicionada a opção &quot;Start on Login&quot; no menu exibido ao clicar com o botão direito em um char na lista de Login, permitindo ativar ou desativar. Quando desativada, o char apenas fará login, sem iniciar o bot."></span></li>
+							<li class="change"><a class="chip" href="#loginrelog" data-en="Login/Relog" data-pt="Login/Relog"></a><span data-en="Improved the relog control. It now also relogs characters who disconnected and got stuck at the &quot;Connection Interrupted&quot; window." data-pt="Melhoria no sistema de relog. Agora também reloga personagens que levaram DC e ficaram travados na janela &quot;Connection Interrupted&quot;."></span></li>
+							<li class="change"><span class="chip" data-en="Private Server" data-pt="Server Private"></span><span data-en="The bot was not working on private servers in the previous version; it is now working again." data-pt="O bot não estava funcionando em servidores privados na última versão, agora voltou a funcionar normalmente."></span></li>
+						</ul>
+					</details>
+					</li>
+					<li>
+					<details class="release">
+						<summary>
+							<span class="v-num">4.5.5</span>
+							<span class="v-date" data-en="November 29, 2025" data-pt="29/11/2025"></span>
+							<span class="v-meta">
+								<span class="v-count" data-en="9 changes" data-pt="9 mudanças"></span>
+								<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+							</span>
+						</summary>
+						<ul class="changes">
+							<li class="change no-chip"><span data-en="The Hollow function was updated: it now saves the team's progress, allowing them to continue together after relog. Whenever you want to start the Hollow function from scratch, you must select the team leader and click the &amp;quot;Reset State&amp;quot; button in the Hollow tab. This resets the progress of the leader and all team members." data-pt="A função de Hollow foi alterada: agora ela salva o progresso do time, permitindo que continuem juntos após o relog. Sempre que for iniciar a função de Hollow do zero, é necessário selecionar o líder do time e clicar no botão &amp;quot;Reset State&amp;quot; na aba Hollow. Isso irá resetar o progresso do líder e de todos os membros do time."></span></li>
+							<li class="change no-chip"><span data-en="The end of the Hollow path was adjusted to be safer." data-pt="O final do caminho de Hollow foi ajustado para ficar mais seguro."></span></li>
+							<li class="change no-chip"><span data-en="Char Fairy cannot be leader of the team in the Hollow function." data-pt="Char Fairy não pode ser lider do time na função de Hollow."></span></li>
+							<li class="change no-chip"><span data-en="The BC function now saves run progress, allowing you to use Return to Stone normally. Whenever you need to start the BC function from scratch, reset the progress in BC → Stats → Reset Stats." data-pt="A função de BC agora salva o progresso das runs, permitindo usar o Return to Stone normalmente. Sempre que for iniciar a função de BC do zero, é necessário resetar o progresso em BC → Stats → Reset Stats."></span></li>
+							<li class="change no-chip"><span data-en="The character list sorting system was redone and is now more accurate." data-pt="A ordenação da lista de chars foi refeita e agora está mais precisa."></span></li>
+							<li class="change no-chip"><span data-en="New &quot;Reorder List&quot; option in the menu that appears when right-clicking any character in the list." data-pt="Nova opção &quot;Reorder List&quot; no menu exibido ao clicar com o botão direito em qualquer char da lista."></span></li>
+							<li class="change no-chip"><span data-en="New &quot;Auto Relog&quot; option in the menu that appears when right-clicking any character in the list — this makes the account automatically checked in the Login List when the bot starts (must be set individually per char)." data-pt="Nova opção &quot;Auto Relog&quot; no menu exibido ao clicar com o botão direito em qualquer char da lista — isso faz com que a conta seja marcada automaticamente na Lista de Login ao iniciar o bot (deve ser configurado individualmente para cada char)."></span></li>
+							<li class="change no-chip"><span data-en="New &quot;Auto Reorder&quot; option in the &quot;List&quot; menu, which automatically reorders the character list." data-pt="Nova opção &quot;Auto Reorder&quot; no menu &quot;List&quot;, que faz a lista de chars se reordenar automaticamente."></span></li>
+							<li class="change no-chip"><span data-en="Several bugs/crashes related to Login/Relog and the character list have been fixed." data-pt="Alguns bugs/crashes envolvendo Login/Relog e a lista de chars foram corrigidos."></span></li>
+						</ul>
+					</details>
+					</li>
+					<li>
+					<details class="release">
+						<summary>
+							<span class="v-num">4.5</span>
+							<span class="v-date" data-en="November 21, 2025" data-pt="21/11/2025"></span>
+							<span class="v-meta">
+								<span class="v-count" data-en="3 changes" data-pt="3 mudanças"></span>
+								<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+							</span>
+						</summary>
+						<ul class="changes">
+							<li class="change no-chip"><span data-en="New Login/Relog function (bot menu -> Login): logs the character if it is not in the Bot list, relogs in case of disconnection, and automatically starts the bot after logging in. If you placed the Talisman folder in another directory, remember to set the folder location in the &amp;quot;Config -> Set Path&amp;quot; menu on the Login screen." data-pt="Nova função de Login/Relog (menu do bot -> Login): loga o char caso ele não esteja na lista do Bot, reloga caso tenha levado DC e inicia automaticamente o bot depois de logar. Caso voce tenha colocado a pasta do Talisman em outro diretório, lembre-se de definir o local da pasta no menu &amp;quot;Config -> Set Path&amp;quot; da tela de Login."></span></li>
+							<li class="change no-chip"><span data-en="New &amp;quot;Hollow&amp;quot; function, which covers SSC Hollow, LW (Ice Mirror Faerie), and Super Skill quest, for farming Residual Shadow." data-pt="Nova função &amp;quot;Hollow&amp;quot;, que engloba SSC Hollow, LW (Ice Mirror Faerie) e quest de Super Skill, para farm de Residual Shadow."></span></li>
+							<li class="change no-chip"><span data-en="New option in the BC tab, &amp;quot;Get Treasure Box&amp;quot;, to collect the box after killing the Blaze Skull Marshal." data-pt="Nova opção na aba de BC, &amp;quot;Get Treasure Box&amp;quot;, para pegar a box depois de matar o Blaze Skull Marshal."></span></li>
+						</ul>
+					</details>
+					</li>
+					<li>
+					<details class="release">
+						<summary>
+							<span class="v-num">4.4</span>
+							<span class="v-date" data-en="September 29, 2025" data-pt="29/09/2025"></span>
+							<span class="v-meta">
+								<span class="v-count" data-en="4 changes" data-pt="4 mudanças"></span>
+								<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+							</span>
+						</summary>
+						<ul class="changes">
+							<li class="change no-chip"><span data-en="New Lure feature for Assassin added under the Helper tab." data-pt="Nova função de Lure para Assassin na aba Helper."></span></li>
+							<li class="change no-chip"><span data-en="New Team Invite and Team Accept features added under the Fairy tab to improve app control." data-pt="Nova função de Team Invite e Team Accept na aba Fairy, para facilitar o controle dos apps."></span></li>
+							<li class="change no-chip"><span data-en="New &amp;quot;References&amp;quot; settings added under Config -> Bot -> General, for cases where the Talisman appears blurry on the user's computer and the bot is unable to recognize open Inventory, open Map, or Courage Badge in the inventory." data-pt="Novas configurações de &amp;quot;Referencias&amp;quot; em Config -> Bot -> General, para casos em que o Talisman fica borrado no computador do usuário e o bot não consegue reconhecer Inventário aberto, mapa aberto, Courage Badge no inventário."></span></li>
+							<li class="change no-chip"><span data-en="Versions 4.3 and earlier will stop working on September 30." data-pt="As versões 4.3 e anteriores deixarão de funcionar no dia 30 de Setembro."></span></li>
+						</ul>
+					</details>
+					</li>
+					<li>
+					<details class="release">
+						<summary>
+							<span class="v-num">4.3</span>
+							<span class="v-date" data-en="August 18, 2025" data-pt="18/08/2025"></span>
+							<span class="v-meta">
+								<span class="v-count" data-en="5 changes" data-pt="5 mudanças"></span>
+								<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+							</span>
+						</summary>
+						<ul class="changes">
+							<li class="change no-chip"><span data-en="Improved Revive and Sell functions." data-pt="Melhoria nas funções Revive e Sell."></span></li>
+							<li class="change no-chip"><span data-en="Fixed a bug that caused the bot to close when using the Sell function in certain specific spots." data-pt="Bug corrigido que causava fechamento do bot ao utilizar função Sell em alguns spots específicos."></span></li>
+							<li class="change no-chip"><span data-en="BC: when starting the bot with the character inside the cave, right at the entrance, the character will follow the run instead of going to Stone City." data-pt="BC: ao iniciar o bot com o char dentro da cave, logo na entrada, o char vai seguir a run ao invés de ir para Stone City."></span></li>
+							<li class="change no-chip"><span data-en="Pet Food: option to summon the Pet when starting the bot. If the character runs out of pet food, it will summon the pet." data-pt="Pet Food: opção para summonar o Pet ao iniciar o bot. Caso o char fique sem pet food, ele vai summonar o pet."></span></li>
+							<li class="change no-chip"><span data-en="Some menu changes." data-pt="Algumas mudanças no menu."></span></li>
+						</ul>
+					</details>
+					</li>
+					<li>
+					<details class="release">
+						<summary>
+							<span class="v-num">4.2</span>
+							<span class="v-date" data-en="April 28, 2025" data-pt="28/04/2025"></span>
+							<span class="v-meta">
+								<span class="v-count" data-en="4 changes" data-pt="4 mudanças"></span>
+								<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+							</span>
+						</summary>
+						<ul class="changes">
+							<li class="change no-chip"><span data-en="&amp;quot;Abnormal program termination&amp;quot; error fixed." data-pt="Erro de &amp;quot;Abnormal program termination&amp;quot; corrigido."></span></li>
+							<li class="change no-chip"><span data-en="BC: Improved boss/mob search to avoid the need to relog." data-pt="BC: Melhoria na busca do boss/mobs, para evitar necessidade de relogar."></span></li>
+							<li class="change no-chip"><span data-en="Attack: New &amp;quot;Trap&amp;quot; option for Tamers." data-pt="Attack: Nova opção de &amp;quot;Trap&amp;quot; para Tamers."></span></li>
+							<li class="change no-chip"><span data-en="Sell: New options to set the item quantity limit in the inventory and the distance to adjust the return to the spot." data-pt="Sell: Novas opções para definir a quantidade limite de items no inventário e distancia para ajustar a volta ao spot."></span></li>
+						</ul>
+					</details>
+					</li>
+			</ul>
+			<p class="wip" data-en="Work in progress..." data-pt="Em construção..."></p>
 		</div>
+	</main>
 
-		<!-- BG -->
-		<div id="bg"></div>
+	<!-- ============================================================== CONTATO -->
+	<main class="view" data-view="contato">
+		<div class="plain">
+			<div class="page-head">
+				<p class="eyebrow" data-en="Contact" data-pt="Contato"></p>
+				<h1 data-en="Prices and plans" data-pt="Valores e planos"></h1>
+				<p data-en="Payment in &lt;b&gt;USD&lt;/b&gt; can be made via &lt;b&gt;Revolut, Wise, Binance or PayPal&lt;/b&gt;. For information about prices and plans, here are the available contact options:"
+				   data-pt="O pagamento em &lt;b&gt;Reais&lt;/b&gt; pode ser feito via &lt;b&gt;Pix&lt;/b&gt; ou &lt;b&gt;PicPay&lt;/b&gt;. Para informações sobre valores e planos, seguem as opções disponíveis para contato:"></p>
+			</div>
+			<ul class="cards">
+				<li><a class="card" href="https://wa.me/5541984847735?text=%231" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1s-.7 1-.9 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.6L9 7.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.1 1.2-1.1 2.8s1.2 3.2 1.3 3.5c.2.2 2.3 3.6 5.6 4.9 2.1.8 2.9.9 3.9.8.6-.1 1.8-.8 2.1-1.5.2-.7.2-1.3.2-1.5-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><span><span class="who">Raaski</span><span class="how">WhatsApp +55 41 8484-7735</span></span></a></li>
+				<li><a class="card" href="https://wa.me/5585989647458?text=%231" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1s-.7 1-.9 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.6L9 7.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.1 1.2-1.1 2.8s1.2 3.2 1.3 3.5c.2.2 2.3 3.6 5.6 4.9 2.1.8 2.9.9 3.9.8.6-.1 1.8-.8 2.1-1.5.2-.7.2-1.3.2-1.5-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><span><span class="who">Strokes</span><span class="how">WhatsApp +55 85 8964-7458</span></span></a></li>
+				<li><a class="card" href="https://t.me/raaski" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 6.9-1.6 7.5c-.1.5-.4.7-.9.4l-2.4-1.8-1.2 1.1c-.1.1-.3.3-.5.3l.2-2.5 4.5-4.1c.2-.2 0-.3-.3-.1l-5.5 3.5-2.4-.7c-.5-.2-.5-.5.1-.8l9.4-3.6c.4-.2.8.1.6.8z"/></svg><span><span class="who">Raaski</span><span class="how">Telegram @raaski</span></span></a></li>
+				<li><a class="card" href="https://www.youtube.com/@raaskibot2876" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.4-.4-5c-.3-.9-1-1.6-1.9-1.9C19 4.7 12 4.7 12 4.7s-7 0-8.7.5c-.9.2-1.6 1-1.9 1.9C1 8.6 1 12 1 12s0 3.4.4 5c.3.9 1 1.6 1.9 1.9 1.7.4 8.7.4 8.7.4s7 0 8.7-.5c.9-.2 1.6-1 1.9-1.9.4-1.6.4-5 .4-5zM9.7 15.3V8.7l5.8 3.3-5.8 3.3z"/></svg><span><span class="who">RaaskiBot</span><span class="how">YouTube</span></span></a></li>
+			</ul>
+		</div>
+	</main>
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+	<footer class="foot"><span>&copy; RaaskiBot</span></footer>
+</div>
 
-		<script>
-			function changeLanguage(language) {
-				localStorage.setItem('selectedLanguage', language);
-		
-				const elements = document.querySelectorAll("[data-en][data-pt]");
-				elements.forEach(el => {
-					const text = el.getAttribute(`data-${language}`);
-					if (text) {
-						el.innerHTML = text;
-					}
-				});
-				
-				// Atualiza o texto do dropdown personalizado
-				const currentLanguage = document.getElementById('current-language');
-				if (currentLanguage) {
-					if (language === 'en') {
-						currentLanguage.innerHTML = '🇺🇸 ENG';
-					} else if (language === 'pt') {
-						currentLanguage.innerHTML = '🇧🇷 POR';
-					}
-				}
-				
-				// Esconde o dropdown após selecionar uma opção
-				const dropdownContent = document.getElementById('language-options');
-				if (dropdownContent) {
-					dropdownContent.classList.remove('show');
-				}
-			}
-		
-			document.addEventListener('DOMContentLoaded', () => {
-				const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-				
-				changeLanguage(savedLanguage);
-		
-				const languageSelect = document.getElementById('language');
-				if (languageSelect) {
-					languageSelect.value = savedLanguage;
-				}
-				
-				// Configuração do dropdown personalizado para abrir com clique
-				const selectedOption = document.getElementById('current-language');
-				const dropdownContent = document.getElementById('language-options');
-				
-				if (selectedOption && dropdownContent) {
-					// Abre/fecha o dropdown ao clicar no idioma selecionado
-					selectedOption.addEventListener('click', function(e) {
-						e.stopPropagation();
-						dropdownContent.classList.toggle('show');
-					});
-					
-					// Fecha o dropdown ao clicar em qualquer lugar da página
-					document.addEventListener('click', function() {
-						if (dropdownContent.classList.contains('show')) {
-							dropdownContent.classList.remove('show');
-						}
-					});
-					
-					// Evita que o dropdown feche ao clicar nele
-					dropdownContent.addEventListener('click', function(e) {
-						e.stopPropagation();
-					});
-				}
-				
-				// Configuração do dropdown personalizado
-				const dropdownOptions = document.querySelectorAll('.dropdown-option');
-				if (dropdownOptions) {
-					dropdownOptions.forEach(option => {
-						option.addEventListener('click', function() {
-							const value = this.getAttribute('data-value');
-							changeLanguage(value);
-							
-							// Atualiza também o select nativo para manter sincronizado
-							const languageSelect = document.getElementById('language');
-							if (languageSelect) {
-								languageSelect.value = value;
-							}
-							
-							// Fecha o dropdown após selecionar uma opção
-							dropdownContent.classList.remove('show');
-						});
-					});
-				}
-				
-				// Atualiza o texto inicial do dropdown personalizado
-				const currentLanguage = document.getElementById('current-language');
-				if (currentLanguage) {
-					if (savedLanguage === 'en') {
-						currentLanguage.innerHTML = '🇺🇸 ENG';
-					} else if (savedLanguage === 'pt') {
-						currentLanguage.innerHTML = '🇧🇷 POR';
-					}
-				}
-			});
-		</script>	
-	</body>
+<div class="scrim"></div>
+
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot">
+	<button type="button" class="lightbox-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+	<img alt="">
+</div>
+
+<script src="assets/js/modern.js" defer></script>
+</body>
 </html>

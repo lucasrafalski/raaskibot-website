@@ -1,0 +1,598 @@
+/* ==========================================================================
+   RaaskiBot - folha de estilo do redesign. Independente do template antigo.
+   ========================================================================== */
+
+:root {
+	--ink:        #0a0a0a;
+	--ink-2:      #121212;
+	--ink-3:      #1c1c1c;
+	--line:       #262626;
+	--line-2:     #383838;
+	--text:       #ededed;
+	--text-2:     #a1a1a1;
+	--text-3:     #6e6e6e;
+	/* Sem cor de destaque: o realce e o proprio branco. Verde e dourado
+	   abaixo ficam sendo as unicas cores da pagina, e por isso significam algo. */
+	--accent:     #ffffff;
+	--accent-2:   #ffffff;
+	--accent-dim: #1f1f1f;
+	/* Cores com significado fixo no produto - nao reutilizar para outra coisa. */
+	--basic:      #4ade80;   /* plano Padrao  */
+	--premium:    #fbbf24;   /* plano Premium */
+
+	--sans: "IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+	--mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+	--topbar: 60px;
+	--rail:   280px;
+	--read:   860px;
+	--radius: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: calc(var(--topbar) + 24px);
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--ink);
+	color: var(--text);
+	font: 400 16px/1.65 var(--sans);
+	overflow-wrap: break-word;
+}
+
+a { color: var(--text); text-decoration: none; }
+
+/* Sem cor para diferenciar link de texto, quem faz esse trabalho e o
+   sublinhado. Vale so para links dentro do conteudo - nav, chips e cards
+   ja se distinguem pela forma. */
+.content a:not(.anchor), .plain p a {
+	text-decoration: underline; text-decoration-color: var(--line-2);
+	text-underline-offset: 2px;
+}
+.content a:not(.anchor):hover, .plain p a:hover { text-decoration-color: var(--text); }
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+b, strong { font-weight: 600; color: #fff; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+.sr-only {
+	position: absolute; width: 1px; height: 1px;
+	padding: 0; margin: -1px; overflow: hidden;
+	clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* --------------------------------------------------------------- topbar -- */
+
+.topbar {
+	position: fixed; inset: 0 0 auto 0; z-index: 60;
+	height: var(--topbar);
+	display: flex; align-items: center; gap: 20px;
+	padding: 0 20px;
+	background: rgba(10, 10, 10, .84);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	border-bottom: 1px solid var(--line);
+}
+
+.brand {
+	display: flex; align-items: center; gap: 10px;
+	font-weight: 600; font-size: 1.02rem; letter-spacing: -.01em;
+	color: var(--text); flex-shrink: 0;
+}
+.brand:hover { text-decoration: none; }
+.brand svg { width: 26px; height: 26px; display: block; }
+
+.tabs { display: flex; gap: 2px; margin-left: 8px; }
+
+.tab {
+	appearance: none; border: 0; background: none;
+	font: 500 .8rem/1 var(--mono);
+	letter-spacing: .06em; text-transform: uppercase;
+	color: var(--text-3);
+	padding: 9px 13px; border-radius: 7px;
+	cursor: pointer; white-space: nowrap;
+	transition: color .15s, background-color .15s;
+}
+.tab:hover { color: var(--text-2); background: var(--ink-2); }
+.tab[aria-selected="true"] { color: var(--ink); background: var(--text); }
+
+/* O YouTube sai do site, entao nao e uma aba selecionavel - a seta avisa. */
+.tab--out { display: inline-flex; align-items: center; gap: 5px; }
+.tab--out:hover { text-decoration: none; }
+.tab--out::after { content: "\2197"; font-size: .9em; opacity: .55; }
+
+.topbar-end {
+	margin-left: auto; display: flex; align-items: center; gap: 8px;
+	flex-shrink: 0;   /* idioma e menu nunca saem da tela */
+}
+
+/* seletor de idioma */
+.lang {
+	display: flex; background: var(--ink-2);
+	border: 1px solid var(--line); border-radius: 7px; padding: 2px;
+}
+.lang button {
+	appearance: none; border: 0; background: none; cursor: pointer;
+	font: 500 .72rem/1 var(--mono); letter-spacing: .06em;
+	color: var(--text-3); padding: 6px 9px; border-radius: 5px;
+	transition: color .15s, background-color .15s;
+}
+.lang button:hover { color: var(--text); }
+.lang button[aria-pressed="true"] { color: var(--ink); background: var(--accent-2); }
+
+.drawer-toggle {
+	display: none; appearance: none; cursor: pointer;
+	background: var(--ink-2); border: 1px solid var(--line);
+	border-radius: 7px; padding: 8px; color: var(--text);
+}
+.drawer-toggle svg { width: 18px; height: 18px; display: block; }
+
+/* ---------------------------------------------------------------- shell -- */
+
+.shell { padding-top: var(--topbar); }
+
+.view { display: none; }
+.view.is-active { display: block; }
+
+/* ----------------------------------------------------------------- home -- */
+
+.home {
+	min-height: calc(100vh - var(--topbar) - 70px);
+	display: grid; place-items: center;
+	padding: 60px 24px 90px; text-align: center;
+}
+/* As margens automaticas vao no SVG, nao no container: o <div> tem largura
+   automatica (ja ocupa tudo), entao "margin: auto" nele nao centraliza nada. */
+.home-mark { margin: 0 0 30px; }
+.home-mark svg { width: 76px; height: 76px; display: block; margin-inline: auto; }
+
+.home h1 {
+	margin: 0; font-weight: 600;
+	font-size: clamp(1.75rem, 5vw, 3rem);
+	letter-spacing: -.03em; line-height: 1.12;
+}
+
+.home-links {
+	margin-top: 36px;
+	display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+}
+.home-links a {
+	font: 500 .78rem/1 var(--mono);
+	letter-spacing: .07em; text-transform: uppercase;
+	color: var(--text-2); background: var(--ink-2);
+	border: 1px solid var(--line); border-radius: 22px;
+	padding: 12px 20px;
+	transition: color .15s, background-color .15s, border-color .15s;
+}
+.home-links a:hover { color: var(--text); border-color: var(--line-2); text-decoration: none; }
+.home-links a.primary {
+	color: var(--ink); background: var(--text); border-color: var(--text);
+}
+.home-links a.primary:hover { background: var(--text-2); border-color: var(--text-2); }
+
+/* ------------------------------------------------------- sidebar (docs) -- */
+
+.docs { display: flex; align-items: flex-start; }
+
+.sidebar {
+	position: sticky; top: var(--topbar);
+	width: var(--rail); flex-shrink: 0;
+	height: calc(100vh - var(--topbar));
+	overflow-y: auto; overscroll-behavior: contain;
+	border-right: 1px solid var(--line);
+	padding: 20px 14px 60px;
+	scrollbar-width: thin; scrollbar-color: var(--line-2) transparent;
+}
+.sidebar::-webkit-scrollbar { width: 8px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 4px; }
+
+.search { position: relative; margin-bottom: 18px; }
+.search svg {
+	position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+	width: 15px; height: 15px; color: var(--text-3); pointer-events: none;
+}
+.search input {
+	width: 100%; font: 400 .875rem var(--sans); color: var(--text);
+	background: var(--ink-2); border: 1px solid var(--line);
+	border-radius: 8px; padding: 9px 11px 9px 34px;
+	transition: border-color .15s;
+}
+.search input::placeholder { color: var(--text-3); }
+.search input:focus { border-color: var(--text-2); outline: none; }
+
+.nav-group > h4 {
+	margin: 18px 0 6px; padding: 0 10px;
+	font: 500 .68rem/1 var(--mono);
+	letter-spacing: .13em; text-transform: uppercase;
+	color: var(--text-3);
+}
+.nav-group:first-of-type > h4 { margin-top: 0; }
+.nav-group.is-hidden { display: none; }
+
+.sidebar ul { list-style: none; margin: 0; padding: 0; }
+.sidebar li.is-hidden { display: none; }
+
+.sidebar a {
+	display: block; padding: 6px 10px; border-radius: 6px;
+	font-size: .875rem; color: var(--text-2);
+	border-left: 2px solid transparent;
+	transition: color .15s, background-color .15s, border-color .15s;
+}
+.sidebar a:hover { color: var(--text); background: var(--ink-2); text-decoration: none; }
+.sidebar a.is-current {
+	color: var(--accent-2); background: var(--accent-dim);
+	border-left-color: var(--accent); font-weight: 500;
+}
+
+.sidebar .sub { margin-left: 12px; border-left: 1px solid var(--line); padding-left: 4px; }
+.sidebar .sub a { font-size: .82rem; }
+
+.no-hits { padding: 10px; font-size: .85rem; color: var(--text-3); display: none; }
+.sidebar.is-empty .no-hits { display: block; }
+
+/* ------------------------------------------------------------- conteudo -- */
+
+.content { flex: 1; min-width: 0; padding: 0 40px 120px; }
+.content > * { max-width: var(--read); margin-inline: auto; }
+
+.page-head { padding: 44px 0 28px; border-bottom: 1px solid var(--line); margin-bottom: 40px; }
+.page-head .eyebrow {
+	font: 500 .72rem/1 var(--mono); letter-spacing: .14em;
+	text-transform: uppercase; color: var(--text-3); margin: 0 0 12px;
+}
+.page-head h1 {
+	margin: 0; font-size: clamp(1.9rem, 4vw, 2.5rem);
+	font-weight: 600; letter-spacing: -.025em; line-height: 1.15;
+}
+.page-head p { margin: 12px 0 0; color: var(--text-2); font-size: 1.02rem; max-width: 60ch; }
+
+/* --------------------------------------------------- secao de tutorial -- */
+
+.section { margin-bottom: 64px; scroll-margin-top: calc(var(--topbar) + 24px); }
+
+.section > h2 {
+	display: flex; align-items: center; gap: 10px;
+	margin: 0 0 20px; font-size: 1.55rem; font-weight: 600;
+	letter-spacing: -.02em; line-height: 1.2;
+}
+.anchor { opacity: 0; color: var(--text-3); font-size: 1rem; transition: opacity .15s, color .15s; }
+.anchor:hover { color: var(--text); text-decoration: none; }
+.section > h2:hover .anchor, .anchor:focus-visible { opacity: 1; }
+
+/* screenshot */
+.shot {
+	margin: 0 0 24px; border: 1px solid var(--line);
+	border-radius: var(--radius); overflow: hidden;
+	background: var(--ink-2); position: relative;
+	cursor: zoom-in; display: block; width: 100%;
+	padding: 0; appearance: none;
+}
+.shot img { width: 100%; }
+.shot::after {
+	content: attr(data-zoom);
+	position: absolute; right: 10px; bottom: 10px;
+	font: 500 .68rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+	background: rgba(10, 10, 10, .92); border: 1px solid var(--line-2);
+	color: var(--text-2); padding: 6px 9px; border-radius: 6px;
+	opacity: 0; transition: opacity .18s;
+}
+.shot:hover::after, .shot:focus-visible::after { opacity: 1; }
+
+/* nota destacada */
+.note {
+	display: flex; gap: 11px; margin: 0 0 22px;
+	background: var(--ink-2); border: 1px solid var(--line);
+	border-left: 2px solid var(--premium);
+	border-radius: 8px; padding: 13px 15px;
+	font-size: .93rem; color: var(--text-2);
+}
+.note svg { width: 17px; height: 17px; flex-shrink: 0; margin-top: 3px; color: var(--premium); }
+.note b { color: var(--text); }
+
+.lede { margin: 0 0 20px; color: var(--text-2); }
+
+/* ---- o rail: passos numerados que ecoam as chamadas da screenshot ------- */
+
+.steps { list-style: none; margin: 0; padding: 0 0 0 30px; border-left: 1px solid var(--line-2); }
+
+.step { position: relative; padding: 0 0 26px 4px; }
+.step:last-child { padding-bottom: 0; }
+
+.step-n {
+	position: absolute; left: -45px; top: -3px;
+	width: 30px; height: 30px; border-radius: 7px;
+	display: grid; place-items: center;
+	font: 500 .82rem/1 var(--mono);
+	color: var(--text-2); background: var(--ink-2);
+	border: 1px solid var(--line-2);
+	transition: color .18s, background-color .18s, border-color .18s;
+}
+.step:hover .step-n { color: var(--ink); background: var(--text); border-color: var(--text); }
+
+/* segmento do rail acende junto com o passo */
+.step::before {
+	content: ""; position: absolute; left: -31px; top: 0; bottom: 0;
+	width: 1px; background: var(--accent);
+	opacity: 0; transition: opacity .18s;
+}
+.step:hover::before { opacity: 1; }
+
+.step > h3 { margin: 0 0 6px; font-size: 1.02rem; font-weight: 600; letter-spacing: -.01em; }
+.step > p  { margin: 0; color: var(--text-2); font-size: .95rem; }
+
+/* Passo nomeado. As telas da v4.7 nao trazem mais as chamadas (1)(2)(3)
+   desenhadas, entao numerar seria inventar uma ordem que a imagem nao mostra:
+   o titulo e o nome da caixa na interface, em mono para o leitor reconhece-lo
+   na screenshot. O marcador no trilho vira um ponto. */
+.step--named > h3 { font: 500 .95rem/1.45 var(--mono); letter-spacing: -.01em; }
+.step--named::after {
+	content: ""; position: absolute; left: -36px; top: .45em;
+	width: 7px; height: 7px; border-radius: 50%;
+	background: var(--line-2); border: 2px solid var(--ink);
+	box-sizing: content-box;
+	transition: background-color .18s;
+}
+.step--named:hover::after { background: var(--text); }
+
+/* Aviso de screenshot defasada: mesma caixa da nota, sem o tom de alerta. */
+.note--stale { border-left-color: var(--line-2); }
+.note--stale svg { color: var(--text-3); }
+
+/* Telas que o conteudo original embutia no meio do texto de um passo. */
+.inline-shot {
+	margin: 12px 0; border: 1px solid var(--line);
+	border-radius: 8px; background: var(--ink-2);
+}
+
+/* Sub-definicoes. Uma unica grade para a lista inteira (os <li> viram
+   display:contents) para que todos os termos dividam a mesma coluna e as
+   descricoes comecem alinhadas - a lista so e escaneavel assim. */
+.opts {
+	margin: 12px 0 0; padding: 0; list-style: none;
+	/* fit-content trava a coluna de termos: um rotulo longo quebra em duas
+	   linhas em vez de esticar a lista e furar a largura da pagina. */
+	display: grid; grid-template-columns: fit-content(190px) 1fr;
+	gap: 8px 14px; align-items: baseline;
+}
+.opts li { display: contents; }
+.opts li.wide {
+	display: block; grid-column: 1 / -1;
+	padding-left: 13px; font-size: .91rem; color: var(--text-2);
+}
+.opts dfn {
+	position: relative; padding-left: 13px;
+	font: 500 .84rem/1.5 var(--mono); font-style: normal;
+	color: var(--text); overflow-wrap: anywhere;
+}
+.opts dfn::before {
+	content: ""; position: absolute; left: 0; top: .62em;
+	width: 4px; height: 4px; border-radius: 50%; background: var(--line-2);
+}
+.opts li > span { font-size: .91rem; color: var(--text-2); }
+
+/* ------------------------------------------------------- patch notes ---- */
+
+.pn { padding: 0 40px 120px; }
+.pn > * { max-width: var(--read); margin-inline: auto; }
+
+/* timeline: mesmo rail dos tutoriais.
+   margin-inline auto e obrigatorio aqui: esta regra vem depois de ".pn > *",
+   entao um "margin: 0" apagaria a centralizacao da coluna de leitura. */
+.timeline {
+	list-style: none; margin: 0 auto; padding: 0 0 0 26px;
+	border-left: 1px solid var(--line-2);
+}
+
+.release { position: relative; margin-bottom: 14px; }
+.release::before {
+	content: ""; position: absolute; left: -30px; top: 21px;
+	width: 9px; height: 9px; border-radius: 50%;
+	background: var(--line-2); border: 2px solid var(--ink);
+	box-sizing: content-box;
+}
+.release.is-latest::before { background: var(--accent); }
+
+.release > summary {
+	list-style: none; cursor: pointer;
+	display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+	padding: 14px 16px; border-radius: var(--radius);
+	background: var(--ink-2); border: 1px solid var(--line);
+	transition: border-color .15s;
+}
+.release > summary::-webkit-details-marker { display: none; }
+.release > summary:hover { border-color: var(--line-2); }
+.release[open] > summary {
+	border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+	border-bottom-color: transparent;
+}
+
+.v-num { font: 500 1.05rem/1 var(--mono); color: var(--text); letter-spacing: -.01em; }
+.v-date { font-size: .85rem; color: var(--text-3); }
+.v-meta { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.v-count { font: 500 .72rem/1 var(--mono); color: var(--text-3); letter-spacing: .05em; }
+.v-latest {
+	font: 500 .66rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+	color: var(--ink); background: var(--text);
+	padding: 5px 8px; border-radius: 5px;
+}
+.chev { width: 15px; height: 15px; color: var(--text-3); transition: transform .2s; flex-shrink: 0; }
+.release[open] .chev { transform: rotate(180deg); }
+
+.changes {
+	list-style: none; margin: 0;
+	padding: 6px 16px 16px;
+	background: var(--ink-2);
+	border: 1px solid var(--line); border-top: 0;
+	border-radius: 0 0 var(--radius) var(--radius);
+}
+/* A etiqueta fica inline no inicio da frase: rotulos longos como
+   "Config/Bot/Dynamic Click" nao empurram o texto das outras linhas. */
+.change {
+	padding: 9px 0; font-size: .93rem; color: var(--text-2);
+	border-top: 1px solid var(--line);
+}
+
+.chip {
+	display: inline-block; margin-right: 9px;
+	font: 500 .7rem/1 var(--mono); letter-spacing: .05em;
+	color: var(--text-2); background: var(--ink-3);
+	border: 1px solid var(--line-2);
+	padding: 5px 8px; border-radius: 5px; white-space: nowrap;
+	transition: color .15s, border-color .15s;
+}
+a.chip:hover { color: var(--text); border-color: var(--text-3); text-decoration: none; }
+a.chip::after { content: " \2197"; opacity: .5; }
+.chip.is-new { color: var(--basic); border-color: rgba(74, 222, 128, .38); }
+
+.wip {
+	margin: 40px auto 0; padding-top: 24px;
+	border-top: 1px solid var(--line);
+	font: 400 .85rem/1 var(--mono); color: var(--text-3);
+}
+
+/* -------------------------------------------------------- sobre/contato -- */
+
+.plain { padding: 0 40px 120px; }
+.plain > * { max-width: var(--read); margin-inline: auto; }
+.plain p { color: var(--text-2); }
+.plain h2 {
+	/* "auto" e obrigatorio: esta regra vem depois de ".plain > *" e um
+	   "margin: 40px 0" apagaria a centralizacao da coluna de leitura. */
+	margin: 40px auto 14px; font-size: 1.15rem; font-weight: 600;
+	letter-spacing: -.01em;
+}
+
+.cards {
+	display: grid; gap: 14px;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	margin-inline: auto; padding: 0; list-style: none;
+}
+.card {
+	display: flex; align-items: center; gap: 13px;
+	background: var(--ink-2); border: 1px solid var(--line);
+	border-radius: var(--radius); padding: 15px 17px;
+	color: var(--text); transition: border-color .15s, background-color .15s;
+}
+.card:hover { border-color: var(--text-3); background: var(--ink-3); text-decoration: none; }
+.card svg { width: 21px; height: 21px; flex-shrink: 0; color: var(--text-2); }
+.card .who { display: block; font-weight: 500; font-size: .95rem; }
+.card .how { display: block; font: 400 .82rem/1.4 var(--mono); color: var(--text-3); }
+
+.shot-plain {
+	border: 1px solid var(--line); border-radius: var(--radius);
+	overflow: hidden; margin: 0 auto 24px;
+}
+.shot-plain img { width: 100%; }
+
+/* ------------------------------------------------------------- lightbox -- */
+
+.lightbox {
+	position: fixed; inset: 0; z-index: 100;
+	display: none; place-items: center;
+	background: rgba(0, 0, 0, .93);
+	padding: 28px; cursor: zoom-out;
+}
+.lightbox.is-open { display: grid; }
+.lightbox img {
+	max-width: 100%; max-height: 100%;
+	border-radius: 8px; border: 1px solid var(--line-2);
+}
+.lightbox-close {
+	position: absolute; top: 18px; right: 18px;
+	appearance: none; cursor: pointer;
+	background: var(--ink-2); border: 1px solid var(--line-2);
+	color: var(--text); border-radius: 8px; padding: 9px;
+	line-height: 0;
+}
+.lightbox-close svg { width: 18px; height: 18px; }
+
+/* --------------------------------------------------------------- rodape -- */
+
+.foot {
+	border-top: 1px solid var(--line);
+	padding: 26px 40px;
+	font: 400 .8rem/1 var(--mono); color: var(--text-3);
+	display: flex; justify-content: center; gap: 8px;
+}
+
+/* ------------------------------------------------------------ responsivo -- */
+
+.scrim { display: none; }
+
+@media (max-width: 1080px) {
+	.drawer-toggle { display: block; }
+	.tabs .tab { padding: 9px 10px; font-size: .74rem; }
+
+	.sidebar {
+		position: fixed; top: var(--topbar); left: 0; z-index: 55;
+		width: min(300px, 84vw);
+		background: var(--ink-2);
+		transform: translateX(-100%);
+		transition: transform .22s ease;
+	}
+	.sidebar.is-open { transform: none; }
+
+	.scrim {
+		display: block; position: fixed; inset: var(--topbar) 0 0 0; z-index: 50;
+		background: rgba(0, 0, 0, .62);
+		opacity: 0; pointer-events: none; transition: opacity .22s;
+	}
+	.scrim.is-open { opacity: 1; pointer-events: auto; }
+
+	.content, .pn, .plain { padding-left: 24px; padding-right: 24px; }
+}
+
+@media (max-width: 640px) {
+	body { font-size: 15px; }
+	.topbar { gap: 8px; padding: 0 10px; }
+	.brand span { display: none; }
+	.tab { padding: 8px 8px; font-size: .68rem; letter-spacing: .03em; }
+
+	/* As quatro abas nao cabem em 375px. Rolam na horizontal em vez de
+	   empurrar o idioma e o menu para fora da tela. */
+	.tabs {
+		margin-left: 0; min-width: 0; flex: 1;
+		overflow-x: auto; scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+	}
+	.tabs::-webkit-scrollbar { display: none; }
+	.content, .pn, .plain, .foot { padding-left: 16px; padding-right: 16px; }
+	.page-head { padding-top: 30px; }
+
+	.steps { padding-left: 0; border-left: 0; }
+	.step { padding-left: 0; padding-bottom: 24px; }
+	.step-n { position: static; margin-bottom: 8px; }
+	.step::before, .step--named::after { display: none; }
+	.step--named + .step--named { border-top: 1px solid var(--line); padding-top: 20px; }
+
+	.opts { grid-template-columns: 1fr; gap: 3px; }
+	.opts li + li > dfn { margin-top: 11px; }
+	.timeline { padding-left: 16px; }
+	.v-meta { margin-left: 0; width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	*, *::before, *::after {
+		animation-duration: .01ms !important;
+		transition-duration: .01ms !important;
+	}
+}
+
+@media print {
+	.topbar, .sidebar, .scrim, .lightbox { display: none !important; }
+	body { background: #fff; color: #000; }
+	.view { display: block !important; }
+	.changes { display: block !important; }
+}
