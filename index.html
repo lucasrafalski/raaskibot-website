@@ -20,6 +20,7 @@
 		<button type="button" class="tab" data-view="home" aria-selected="true" data-en="Home" data-pt="Início"></button>
 		<button type="button" class="tab" data-view="tutoriais" aria-selected="false" data-en="Tutorials" data-pt="Tutoriais"></button>
 		<button type="button" class="tab" data-view="patch-notes" aria-selected="false" data-en="Patch Notes" data-pt="Patch Notes"></button>
+		<button type="button" class="tab" data-view="ajuda" aria-selected="false" data-en="Troubleshooting" data-pt="Ajuda"></button>
 		<a class="tab tab--out" href="https://www.youtube.com/playlist?list=PLMZOKo_yDo0-GMv4DyENpjaANbiu9YAzU" target="_blank" rel="noopener"
 		   data-en="YouTube" data-pt="YouTube"></a>
 		<button type="button" class="tab" data-view="contato" aria-selected="false" data-en="Contact" data-pt="Contato"></button>
@@ -657,7 +658,7 @@
 				<section class="section" id="pcp">
 					<h2><span data-en="PCP" data-pt="PCP"></span><a class="anchor" href="#pcp" aria-label="Link">#</a></h2>
 					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
-						<img src="images/pcp_main.png" width="747" height="587" loading="lazy" decoding="async" alt="PCP">
+						<img src="images/pcp_main.png" width="749" height="586" loading="lazy" decoding="async" alt="PCP">
 					</button>
 					<ul class="steps">
 						<li class="step step--named">
@@ -676,6 +677,8 @@
 								<li><dfn data-en="Use Package of Courage Badge" data-pt="Use Package of Courage Badge"></dfn><span data-en="Opens the badge packages picked up in the run." data-pt="Abre os pacotes de badge que pegar na run."></span></li>
 								<li><dfn data-en="Use Teleport Stone on Mail" data-pt="Use Teleport Stone on Mail"></dfn><span data-en="Uses the teleport stone when going to mail items." data-pt="Usa a teleport stone na hora de ir mandar os itens."></span></li>
 								<li><dfn data-en="Set Distribution to Golden" data-pt="Set Distribution to Golden"></dfn><span data-en="Sets the team's loot distribution to golden." data-pt="Configura a distribuição de loot do time para golden."></span></li>
+								<li><dfn data-en="Phase 1 (s)" data-pt="Phase 1 (s)"></dfn><span data-en="How long the team stays on the first phase, in seconds." data-pt="Quanto tempo o team fica na primeira fase, em segundos."></span></li>
+								<li><dfn data-en="Phase 2 (s)" data-pt="Phase 2 (s)"></dfn><span data-en="The same for the second phase." data-pt="O mesmo para a segunda fase."></span></li>
 							</ul>
 						</li>
 					</ul>
@@ -865,10 +868,28 @@
 					<li>
 					<details class="release is-latest" open>
 						<summary>
+							<span class="v-num">4.8</span>
+							<span class="v-date" data-en="August 26, 2026" data-pt="26/08/2026"></span>
+							<span class="v-meta">
+								<span class="v-latest" data-en="Latest" data-pt="Atual"></span>
+								<span class="v-count" data-en="4 changes" data-pt="4 mudanças"></span>
+								<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+							</span>
+						</summary>
+						<ul class="changes">
+							<li class="change"><span class="chip" data-en="FIX" data-pt="FIX"></span><a class="chip" href="#pcp" data-en="PCP" data-pt="PCP"></a><span data-en="Several bugs fixed." data-pt="Alguns bugs corrigidos."></span></li>
+							<li class="change"><span class="chip" data-en="IMPROVEMENT" data-pt="MELHORIA"></span><a class="chip" href="#pcp" data-en="PCP" data-pt="PCP"></a><span data-en="Lower CPU usage." data-pt="Uso de CPU melhorado."></span></li>
+							<li class="change"><span class="chip" data-en="IMPROVEMENT" data-pt="MELHORIA"></span><span class="chip" data-en="General" data-pt="Geral"></span><span data-en="Better interface performance when running many apps with a very large Delete list." data-pt="Melhorada a performance da interface do bot com muitos apps com lista de Delete gigante."></span></li>
+							<li class="change"><span class="chip" data-en="TIP" data-pt="DICA"></span><span data-en="Having trouble with login or with image recognition? Two Windows text settings usually fix it - see <a href='#ajuda'>Troubleshooting</a>." data-pt="Com problemas de login ou de reconhecimento de imagens? Dois ajustes de texto do Windows costumam resolver - veja <a href='#ajuda'>Ajuda</a>."></span></li>
+						</ul>
+					</details>
+					</li>
+					<li>
+					<details class="release">
+						<summary>
 							<span class="v-num">4.7</span>
 							<span class="v-date" data-en="August 24, 2026" data-pt="24/08/2026"></span>
 							<span class="v-meta">
-								<span class="v-latest" data-en="Latest" data-pt="Atual"></span>
 								<span class="v-count" data-en="22 changes" data-pt="22 mudanças"></span>
 								<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
 							</span>
@@ -1053,6 +1074,61 @@
 					</li>
 			</ul>
 			<p class="wip" data-en="Work in progress..." data-pt="Em construção..."></p>
+		</div>
+	</main>
+
+	<!-- =============================================================== AJUDA -->
+	<main class="view" data-view="ajuda">
+		<div class="plain">
+			<div class="page-head">
+				<p class="eyebrow" data-en="Troubleshooting" data-pt="Ajuda"></p>
+				<h1 data-en="Login and image recognition" data-pt="Login e reconhecimento de imagens"></h1>
+				<p data-en="The bot reads the game by looking at what is drawn on screen. When Windows renders text without smoothing, that reading fails - the symptom is a login that never completes, or items and NPCs the bot cannot find. Two settings fix it."
+				   data-pt="O bot lê o jogo olhando o que está desenhado na tela. Quando o Windows desenha o texto sem suavização, essa leitura falha - o sintoma é um login que não completa, ou itens e NPCs que o bot não acha. Dois ajustes resolvem."></p>
+			</div>
+			<p class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span data-en="The screenshots are from Windows in Portuguese. Each step gives the English label to look for." data-pt="As telas são de um Windows em português."></span></p>
+			<ol class="steps">
+				<li class="step">
+					<span class="step-n" aria-hidden="true">1</span>
+					<h3><span data-en="Open System Properties" data-pt="Abra as Propriedades do Sistema"></span></h3>
+					<p><span data-en="Press <b>Windows + R</b>, type <b>sysdm.cpl</b> and confirm." data-pt="Pressione <b>Windows + R</b>, digite <b>sysdm.cpl</b> e confirme."></span></p>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/troubleshooting_1.png" width="406" height="223" loading="lazy" decoding="async" alt="Open System Properties">
+					</button>
+				</li>
+				<li class="step">
+					<span class="step-n" aria-hidden="true">2</span>
+					<h3><span data-en="Go to the Performance settings" data-pt="Vá para as opções de Desempenho"></span></h3>
+					<p><span data-en="On the <b>Advanced</b> tab, click <b>Settings</b> inside the Performance box." data-pt="Na aba <b>Avançado</b>, clique em <b>Configurações</b> dentro de Desempenho."></span></p>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/troubleshooting_2.png" width="410" height="464" loading="lazy" decoding="async" alt="Go to the Performance settings">
+					</button>
+				</li>
+				<li class="step">
+					<span class="step-n" aria-hidden="true">3</span>
+					<h3><span data-en="Turn on smooth screen fonts" data-pt="Ative as fontes com cantos arredondados"></span></h3>
+					<p><span data-en="Under <b>Visual Effects</b>, tick <b>Smooth edges of screen fonts</b> and confirm with OK." data-pt="Em <b>Efeitos Visuais</b>, marque <b>Usar fontes de tela com cantos arredondados</b> e confirme com OK."></span></p>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/troubleshooting_3.png" width="425" height="600" loading="lazy" decoding="async" alt="Turn on smooth screen fonts">
+					</button>
+				</li>
+				<li class="step">
+					<span class="step-n" aria-hidden="true">4</span>
+					<h3><span data-en="Open the ClearType tuner" data-pt="Abra o ajuste do ClearType"></span></h3>
+					<p><span data-en="In the Start menu, type <b>cleartype</b> and open <b>Adjust ClearType text</b>." data-pt="No Menu Iniciar, digite <b>cleartype</b> e abra <b>Ajustar texto ClearType</b>."></span></p>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/troubleshooting_4.png" width="237" height="64" loading="lazy" decoding="async" alt="Open the ClearType tuner">
+					</button>
+				</li>
+				<li class="step">
+					<span class="step-n" aria-hidden="true">5</span>
+					<h3><span data-en="Turn ClearType on" data-pt="Ative o ClearType"></span></h3>
+					<p><span data-en="Tick <b>Turn on ClearType</b> and click Next through to the end of the wizard." data-pt="Marque <b>Ativar ClearType</b> e clique em Avançar até terminar a configuração."></span></p>
+					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
+						<img src="images/troubleshooting_5.png" width="685" height="556" loading="lazy" decoding="async" alt="Turn ClearType on">
+					</button>
+				</li>
+			</ol>
 		</div>
 	</main>
 
