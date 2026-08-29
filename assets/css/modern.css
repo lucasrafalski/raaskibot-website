@@ -403,18 +403,15 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .release.is-latest::before { background: var(--accent); }
 
-.release > summary {
-	list-style: none; cursor: pointer;
+/* Cabecalho da versao. Nao e mais um <summary>: as versoes ficam sempre
+   abertas, porque esconder o conteudo da tela feita para ler o que mudou
+   trabalhava contra o proprio proposito dela. */
+.release > .v-head {
 	display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-	padding: 14px 16px; border-radius: var(--radius);
-	background: var(--ink-2); border: 1px solid var(--line);
-	transition: border-color .15s;
-}
-.release > summary::-webkit-details-marker { display: none; }
-.release > summary:hover { border-color: var(--line-2); }
-.release[open] > summary {
-	border-bottom-left-radius: 0; border-bottom-right-radius: 0;
-	border-bottom-color: transparent;
+	padding: 14px 16px;
+	border-radius: var(--radius) var(--radius) 0 0;
+	background: var(--ink-2);
+	border: 1px solid var(--line); border-bottom-color: transparent;
 }
 
 .v-num { font: 500 1.05rem/1 var(--mono); color: var(--text); letter-spacing: -.01em; }
@@ -426,8 +423,6 @@ img { max-width: 100%; height: auto; display: block; }
 	color: var(--ink); background: var(--text);
 	padding: 5px 8px; border-radius: 5px;
 }
-.chev { width: 15px; height: 15px; color: var(--text-3); transition: transform .2s; flex-shrink: 0; }
-.release[open] .chev { transform: rotate(180deg); }
 
 .changes {
 	list-style: none; margin: 0;
