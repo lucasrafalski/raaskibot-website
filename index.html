@@ -102,8 +102,6 @@
 							</li>
 							<li><a href="#autopick" data-en="Auto Pick" data-pt="Auto Pick"></a>
 							</li>
-							<li><a href="#sell" data-en="Sell" data-pt="Sell"></a>
-							</li>
 						</ul>
 					</div>
 					<div class="nav-group">
@@ -451,37 +449,6 @@
 						<li class="step step--named">
 							<h3><span data-en="Delay" data-pt="Delay"></span></h3>
 							<p><span data-en="Wait between killing the mob and picking up its loot." data-pt="Tempo de espera entre matar o mob e pegar o loot dele."></span></p>
-						</li>
-					</ul>
-				</section>
-				<section class="section" id="sell">
-					<h2><span data-en="Sell" data-pt="Sell"></span><a class="anchor" href="#sell" aria-label="Link">#</a></h2>
-					<button type="button" class="shot" data-zoom="zoom" data-en-zoom="Click to zoom" data-pt-zoom="Clique para ampliar">
-						<img src="images/sell.png" width="747" height="589" loading="lazy" decoding="async" alt="Sell">
-					</button>
-					<p class="lede"><span data-en="Runs on its own — just tick Sell on the Home tab. The bot looks for the nearest selling NPC and goes there." data-pt="Função automatizada, só habilitar ela na Home. O bot vai procurar o npc de venda mais próximo e vai ir vender."></span></p>
-					<ul class="steps">
-						<li class="step step--named">
-							<h3><span data-en="NPC" data-pt="NPC"></span></h3>
-							<p><span data-en="Name and coordinates of the NPC the bot found. It searches for the nearest selling NPC by itself." data-pt="Nome e coordenadas do NPC que o bot encontrou. Ele procura sozinho o NPC de venda mais próximo."></span></p>
-						</li>
-						<li class="step step--named">
-							<h3><span data-en="Mount" data-pt="Mount"></span></h3>
-							<p><span data-en="Set the mount shortcut if you want the character to ride to the NPC and back to the spot." data-pt="Configure o atalho da montaria caso queira que o char vá vender e volte para o spot montado."></span></p>
-						</li>
-						<li class="step step--named">
-							<h3><span data-en="TP Stone / Return Charm" data-pt="TP Stone / Return Charm"></span></h3>
-							<p><span data-en="If there is a Teleport Stone near the NPC, set its shortcut here." data-pt="Caso tenha uma Teleport Stone próxima ao NPC, configure o atalho dela aqui."></span></p>
-						</li>
-						<li class="step step--named">
-							<h3><span data-en="Config" data-pt="Config"></span></h3>
-							<ul class="opts">
-								<li><dfn data-en="Sell at every X min" data-pt="Sell at every X min"></dfn><span data-en="How many minutes between selling trips." data-pt="A cada quantos minutos o char vai ir vender os itens."></span></li>
-								<li><dfn data-en="Item Limit" data-pt="Item Limit"></dfn><span data-en="Item count that triggers a trip. A full bag holds 30 items, so 30 sends the character out once the first bag fills up." data-pt="Quantidade limite de itens. Uma bag cheia contém 30 itens, então 30 faz o char ir vender quando a primeira bag encher."></span></li>
-								<li><dfn data-en="Initial Selling Slot" data-pt="Initial Selling Slot"></dfn><span data-en="Which sell slot the character keeps clicking. 1 is the first slot, 7 is the first slot of the second row, and so on — the ? button shows the numbering." data-pt="Slot de Sell que o char vai ficar clicando. 1 é o primeiro slot, 7 é o primeiro slot da segunda fileira, e assim por diante — o botão ? mostra a numeração."></span></li>
-								<li><dfn data-en="Near Distance" data-pt="Near Distance"></dfn><span data-en="How closely the character adjusts its position on the way back to the spot. Useful for tight spots." data-pt="Distância para o char ajustar a posição quando estiver voltando para o spot. Útil para alguns spots apertados."></span></li>
-								<li><dfn data-en="Sell at Start" data-pt="Sell at Start"></dfn><span data-en="Goes selling as soon as the bot starts." data-pt="Vai vender assim que o bot iniciar."></span></li>
-							</ul>
 						</li>
 					</ul>
 				</section>
@@ -869,10 +836,29 @@
 			<ul class="timeline">
 					<li class="release is-latest">
 						<div class="v-head">
+							<span class="v-num">4.10</span>
+							<span class="v-date" data-en="September 5, 2026" data-pt="05/09/2026"></span>
+							<span class="v-meta">
+								<span class="v-latest" data-en="Latest" data-pt="Atual"></span>
+								<span class="v-count" data-en="8 changes" data-pt="8 mudanças"></span>
+							</span>
+						</div>
+						<ul class="changes">
+							<li class="change"><a class="chip" href="#loginrelog" data-en="Login" data-pt="Login"></a><span data-en="Added a delay to Start and Just Login when several accounts are selected to start at the same time." data-pt="Adicionado delay em Start/Just Login ao selecionar várias contas para iniciarem ao mesmo tempo."></span></li>
+							<li class="change"><span class="chip" data-en="General" data-pt="Geral"></span><span data-en="The images the bot relies on now update themselves, both the item images and the ones it uses to operate." data-pt="Adicionado update automático das imagens que o bot utiliza, seja de item ou de funcionamento."></span></li>
+							<li class="change"><span class="chip" data-en="Config – Bot/Game" data-pt="Config/Bot/Game"></span><span data-en="New Hide Players on Bot Start option, which hides the characters (F12) when the bot starts." data-pt="Adicionada opção Hide Players on Bot Start para esconder os chars (F12) ao iniciar o bot."></span></li>
+							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="Fixed the characters not forming the team correctly." data-pt="Bug corrigido onde os chars não estavam fazendo team corretamente."></span></li>
+							<li class="change"><a class="chip" href="#pcp" data-en="PCP" data-pt="PCP"></a><span data-en="Buffs are now used on entering the cave and after reviving." data-pt="Adicionado o uso de Buff ao entrar na cave e ao reviver."></span></li>
+							<li class="change"><span class="chip" data-en="Config – Bot/Shortcuts" data-pt="Config/Bot/Shortcuts"></span><span data-en="The bot's shortcuts work the way they used to again - they no longer lock the key you picked." data-pt="Os atalhos do bot voltaram a ser como eram. Não travam mais o atalho escolhido."></span></li>
+							<li class="change"><span class="chip" data-en="Sell" data-pt="Sell"></span><span data-en="Removed for an indefinite period." data-pt="Removido por tempo indeterminado."></span></li>
+							<li class="change"><span class="chip" data-en="General" data-pt="Geral"></span><span data-en="New prices are in effect from now on.<br><b style='color: var(--basic)'>Basic:</b> 1 month 9 USD &amp;nbsp;|&amp;nbsp; 3 months 24 USD &amp;nbsp;|&amp;nbsp; 6 months 44 USD<br><b style='color: var(--premium)'>Premium:</b> 1 month 18 USD &amp;nbsp;|&amp;nbsp; 3 months 47 USD &amp;nbsp;|&amp;nbsp; 6 months 88 USD" data-pt="Novos preços passaram a valer a partir de agora.<br><b style='color: var(--basic)'>Padrão:</b> 1 mês R$ 35,00 &amp;nbsp;|&amp;nbsp; 3 meses R$ 92,00 &amp;nbsp;|&amp;nbsp; 6 meses R$ 172,00<br><b style='color: var(--premium)'>Premium:</b> 1 mês R$ 70,00 &amp;nbsp;|&amp;nbsp; 3 meses R$ 185,00 &amp;nbsp;|&amp;nbsp; 6 meses R$ 344,00"></span></li>
+						</ul>
+					</li>
+					<li class="release">
+						<div class="v-head">
 							<span class="v-num">4.9</span>
 							<span class="v-date" data-en="August 28, 2026" data-pt="28/08/2026"></span>
 							<span class="v-meta">
-								<span class="v-latest" data-en="Latest" data-pt="Atual"></span>
 								<span class="v-count" data-en="14 changes" data-pt="14 mudanças"></span>
 							</span>
 						</div>
@@ -932,7 +918,7 @@
 							<li class="change"><a class="chip" href="#attack" data-en="Attack" data-pt="Attack"></a><span data-en="Reworked how Focus Leader Target works." data-pt="Alterada a forma que o Focus Leader Target funciona."></span></li>
 							<li class="change"><a class="chip" href="#attack" data-en="Attack" data-pt="Attack"></a><span data-en="Added &quot;Anti Loot Bug&quot; option to move the char every 1 minute (prevents idling lockups)." data-pt="Nova opção &quot;Anti Loot Bug&quot; para mover o char a cada 1 minuto (evita travamentos em chars parados)."></span></li>
 							<li class="change"><a class="chip" href="#potion" data-en="Potion" data-pt="Potion"></a><span data-en="Added Save Spot option to improve &quot;Go to Saved Spot&quot; behavior." data-pt="Nova opção de Save Spot para melhorar a função &quot;Go to Saved Spot&quot;."></span></li>
-							<li class="change"><a class="chip" href="#sell" data-en="Sell" data-pt="Sell"></a><span data-en="Fully automated. Automatically finds and uses the nearest vendor NPC without setup." data-pt="Totalmente automatizado. Não precisa configurar o NPC; o bot procura o vendedor mais próximo."></span></li>
+							<li class="change"><span class="chip" data-en="Sell" data-pt="Sell"></span><span data-en="Fully automated. Automatically finds and uses the nearest vendor NPC without setup." data-pt="Totalmente automatizado. Não precisa configurar o NPC; o bot procura o vendedor mais próximo."></span></li>
 							<li class="change"><a class="chip" href="#autopick" data-en="Auto Pick" data-pt="Auto Pick"></a><span data-en="Automatically detects the loot window across the entire screen." data-pt="Agora identifica a loot window na tela inteira de forma automática."></span></li>
 							<li class="change"><a class="chip" href="#revive" data-en="Revive" data-pt="Revive"></a><span data-en="Reworked spot return logic. Now works even when respawning in a different city." data-pt="Alterada a forma de voltar ao spot. Funciona mesmo se o char nascer em outra cidade."></span></li>
 							<li class="change"><a class="chip" href="#hollow" data-en="Hollow" data-pt="Hollow"></a><span data-en="General adjustments and Fairy heal fixes." data-pt="Ajustes gerais e melhoria no heal da fairy."></span></li>
