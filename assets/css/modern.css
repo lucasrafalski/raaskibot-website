@@ -461,11 +461,20 @@ a.chip::after { content: " \2197"; opacity: .5; }
 .plain { padding: 0 40px 120px; }
 .plain > * { max-width: var(--read); margin-inline: auto; }
 .plain p { color: var(--text-2); }
-.plain h2 {
-	/* "auto" e obrigatorio: esta regra vem depois de ".plain > *" e um
-	   "margin: 40px 0" apagaria a centralizacao da coluna de leitura. */
-	margin: 40px auto 14px; font-size: 1.15rem; font-weight: 600;
-	letter-spacing: -.01em;
+/* Titulos de secao numa pagina sem indice lateral. Sem a sidebar dos
+   tutoriais, eles sao a unica pista de que a pagina tem mais de um assunto,
+   entao vem no tamanho do titulo da pagina, com uma linha separando um do
+   outro. (Aqui existia um ".plain h2" de 1.15rem, feito para o "Video guides"
+   do Sobre; a pagina saiu do site e a regra ficou, encolhendo estes titulos
+   por vir depois de ".section > h2" com a mesma especificidade.) */
+.plain .section > h2 {
+	margin: 0 0 16px;
+	font-size: clamp(1.9rem, 4vw, 2.5rem);
+	letter-spacing: -.025em; line-height: 1.15;
+}
+.plain .section + .section {
+	padding-top: 56px;
+	border-top: 1px solid var(--line);
 }
 
 .cards {
