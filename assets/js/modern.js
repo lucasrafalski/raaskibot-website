@@ -66,7 +66,7 @@
 			var name = tab.dataset.view;
 			showView(name);
 			history.replaceState(null, '', '#' + name);
-			if (name === 'tutoriais') { updateCurrent(); }
+			if (name === 'tutorials') { updateCurrent(); }
 		});
 	});
 
@@ -85,8 +85,13 @@
 		updateCurrent();
 	}
 
+	/* Os nomes das views passaram para o ingles. Links em portugues ja
+	   circulavam, entao continuam valendo em vez de cair na home. */
+	var ANTIGOS = { tutoriais: 'tutorials', ajuda: 'troubleshooting', contato: 'contact' };
+
 	function routeFromHash() {
 		var id = decodeURIComponent(location.hash.replace(/^#/, ''));
+		if (ANTIGOS[id]) { id = ANTIGOS[id]; }
 		if (!id) { showView('home'); return; }
 
 		var target = document.getElementById(id);

@@ -18,12 +18,12 @@
 
 	<nav class="tabs" aria-label="Sections">
 		<button type="button" class="tab" data-view="home" aria-selected="true" data-en="Home" data-pt="Início"></button>
-		<button type="button" class="tab" data-view="tutoriais" aria-selected="false" data-en="Tutorials" data-pt="Tutoriais"></button>
+		<button type="button" class="tab" data-view="tutorials" aria-selected="false" data-en="Tutorials" data-pt="Tutoriais"></button>
 		<button type="button" class="tab" data-view="patch-notes" aria-selected="false" data-en="Patch Notes" data-pt="Patch Notes"></button>
-		<button type="button" class="tab" data-view="ajuda" aria-selected="false" data-en="Troubleshooting" data-pt="Ajuda"></button>
+		<button type="button" class="tab" data-view="troubleshooting" aria-selected="false" data-en="Troubleshooting" data-pt="Ajuda"></button>
 		<a class="tab tab--out" href="https://www.youtube.com/playlist?list=PLMZOKo_yDo0-GMv4DyENpjaANbiu9YAzU" target="_blank" rel="noopener"
 		   data-en="YouTube" data-pt="YouTube"></a>
-		<button type="button" class="tab" data-view="contato" aria-selected="false" data-en="Contact" data-pt="Contato"></button>
+		<button type="button" class="tab" data-view="contact" aria-selected="false" data-en="Contact" data-pt="Contato"></button>
 	</nav>
 
 	<div class="topbar-end">
@@ -45,16 +45,16 @@
 				<h1 data-en="A bot made for Talisman Online"
 				    data-pt="Um bot feito para Talisman Online"></h1>
 				<nav class="home-links">
-					<a class="primary" href="#tutoriais" data-en="Tutorials" data-pt="Tutoriais"></a>
+					<a class="primary" href="#tutorials" data-en="Tutorials" data-pt="Tutoriais"></a>
 					<a href="#patch-notes" data-en="Patch Notes" data-pt="Patch Notes"></a>
-					<a href="#contato" data-en="Contact" data-pt="Contato"></a>
+					<a href="#contact" data-en="Contact" data-pt="Contato"></a>
 				</nav>
 			</div>
 		</div>
 	</main>
 
 	<!-- ============================================================ TUTORIAIS -->
-	<main class="view" data-view="tutoriais">
+	<main class="view" data-view="tutorials">
 		<div class="docs">
 
 			<aside class="sidebar" id="sidebar">
@@ -906,7 +906,7 @@
 							<li class="change"><a class="chip" href="#pcp" data-en="PCP" data-pt="PCP"></a><span data-en="Several bugs fixed." data-pt="Alguns bugs corrigidos."></span></li>
 							<li class="change"><a class="chip" href="#pcp" data-en="PCP" data-pt="PCP"></a><span data-en="Lower CPU usage." data-pt="Uso de CPU melhorado."></span></li>
 							<li class="change"><span class="chip" data-en="General" data-pt="Geral"></span><span data-en="Better interface performance when running many apps with a very large Delete list." data-pt="Melhorada a performance da interface do bot com muitos apps com lista de Delete gigante."></span></li>
-							<li class="change no-chip"><span data-en="Having trouble with login or with image recognition? Two Windows text settings usually fix it - see <a href='#ajuda'>Troubleshooting</a>." data-pt="Com problemas de login ou de reconhecimento de imagens? Dois ajustes de texto do Windows costumam resolver - veja <a href='#ajuda'>Ajuda</a>."></span></li>
+							<li class="change no-chip"><span data-en="Having trouble with login or with image recognition? Two Windows text settings usually fix it - see <a href='#troubleshooting'>Troubleshooting</a>." data-pt="Com problemas de login ou de reconhecimento de imagens? Dois ajustes de texto do Windows costumam resolver - veja <a href='#troubleshooting'>Ajuda</a>."></span></li>
 						</ul>
 					</li>
 					<li class="release">
@@ -1079,14 +1079,48 @@
 	</main>
 
 	<!-- =============================================================== AJUDA -->
-	<main class="view" data-view="ajuda">
+	<main class="view" data-view="troubleshooting">
 		<div class="plain">
 			<div class="page-head">
 				<p class="eyebrow" data-en="Troubleshooting" data-pt="Ajuda"></p>
-				<h1 data-en="Login and image recognition" data-pt="Login e reconhecimento de imagens"></h1>
-				<p data-en="The bot reads the game by looking at what is drawn on screen. When Windows renders text without smoothing, that reading fails - the symptom is a login that never completes, or items and NPCs the bot cannot find. Two settings fix it."
-				   data-pt="O bot lê o jogo olhando o que está desenhado na tela. Quando o Windows desenha o texto sem suavização, essa leitura falha - o sintoma é um login que não completa, ou itens e NPCs que o bot não acha. Dois ajustes resolvem."></p>
+				<h1 data-en="Common problems" data-pt="Problemas comuns"></h1>
 			</div>
+
+			<section class="section" id="to-update">
+				<h2><span data-en="When TO updates" data-pt="Quando o TO atualizar"></span><a class="anchor" href="#to-update" aria-label="Link">#</a></h2>
+				<p class="lede"><span data-en="The launcher will not patch the game while a client is open, and the bot cannot log into a client that is out of date." data-pt="O launcher não atualiza o jogo com um client aberto, e o bot não consegue logar num client desatualizado."></span></p>
+				<ol class="steps">
+					<li class="step">
+						<span class="step-n" aria-hidden="true">1</span>
+						<h3><span data-en="Close every TO client" data-pt="Feche todos os clients do TO"></span></h3>
+						<p><span data-en="The update is not applied while any client is still running." data-pt="A atualização não é aplicada enquanto algum client estiver aberto."></span></p>
+					</li>
+					<li class="step">
+						<span class="step-n" aria-hidden="true">2</span>
+						<h3><span data-en="Run the launcher as administrator" data-pt="Abra o launcher como administrador"></span></h3>
+						<p><span data-en="Right-click the TO launcher, choose <b>Run as administrator</b>, and let the update finish." data-pt="Clique com o botão direito no launcher do TO, escolha <b>Executar como administrador</b> e deixe a atualização terminar."></span></p>
+					</li>
+					<li class="step">
+						<span class="step-n" aria-hidden="true">3</span>
+						<h3><span data-en="If the launcher will not update" data-pt="Se o launcher não atualizar"></span></h3>
+						<p><span data-en="Open <b>C:\Program Files (x86)\TalismanOnline</b>, right-click <b>game.exe</b> and choose <b>Run as administrator</b>." data-pt="Abra <b>C:\Arquivos de Programas (x86)\TalismanOnline</b>, clique com o botão direito no <b>game.exe</b> e escolha <b>Executar como administrador</b>."></span></p>
+					</li>
+					<li class="step">
+						<span class="step-n" aria-hidden="true">4</span>
+						<h3><span data-en="Check it is the folder the bot uses" data-pt="Confira se é a pasta que o bot usa"></span></h3>
+						<p><span data-en="Under <b>Config &#8594; Bot</b>, see which client folder the bot logs in from. If it is a different one, run the <b>game.exe</b> inside that folder instead - otherwise login will not work." data-pt="Em <b>Config &#8594; Bot</b>, veja de qual pasta de client o bot faz login. Se for outra, rode o <b>game.exe</b> de dentro dela - senão o login não vai funcionar."></span></p>
+					</li>
+					<li class="step">
+						<span class="step-n" aria-hidden="true">5</span>
+						<h3><span data-en="Reopen the bot" data-pt="Reabra o bot"></span></h3>
+						<p><span data-en="Only once the game has finished updating." data-pt="Só depois que o jogo terminar de atualizar."></span></p>
+					</li>
+				</ol>
+			</section>
+
+			<section class="section" id="login-recognition">
+				<h2><span data-en="Login and image recognition" data-pt="Login e reconhecimento de imagens"></span><a class="anchor" href="#login-recognition" aria-label="Link">#</a></h2>
+				<p class="lede"><span data-en="The bot reads the game by looking at what is drawn on screen. When Windows renders text without smoothing, that reading fails - the symptom is a login that never completes, or items and NPCs the bot cannot find. Two settings fix it." data-pt="O bot lê o jogo olhando o que está desenhado na tela. Quando o Windows desenha o texto sem suavização, essa leitura falha - o sintoma é um login que não completa, ou itens e NPCs que o bot não acha. Dois ajustes resolvem."></span></p>
 			<p class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span data-en="The screenshots are from Windows in Portuguese. Each step gives the English label to look for." data-pt="As telas são de um Windows em português."></span></p>
 			<ol class="steps">
 				<li class="step">
@@ -1130,11 +1164,12 @@
 					</button>
 				</li>
 			</ol>
+			</section>
 		</div>
 	</main>
 
 	<!-- ============================================================== CONTATO -->
-	<main class="view" data-view="contato">
+	<main class="view" data-view="contact">
 		<div class="plain">
 			<div class="page-head">
 				<p class="eyebrow" data-en="Contact" data-pt="Contato"></p>
